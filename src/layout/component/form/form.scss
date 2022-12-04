@@ -1,0 +1,67 @@
+button {
+	cursor: pointer;
+}
+
+.btn {
+	background: linear-gradient(339.74deg, #1488CC -27.75%, #0C4DC1 144.6%);
+	border-radius: 31px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: -0.02em;
+	padding: 10px 20px;
+	border: 0 solid;
+	color: #FFFFFF;
+	cursor: pointer;
+	cursor: pointer;
+
+	&:hover {
+		background: linear-gradient(339.74deg, #0C4DC1 -27.75%, #0C4DC1 144.6%);
+	}
+}
+
+.link-arrow {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: -0.02em;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	color: $black ;
+	text-decoration: none;
+	margin-top: 44px;
+	transition: color 0.3s;
+
+	&:hover {
+		color: $blue
+	}
+
+	svg {
+		position: relative;
+		top: 2px;
+		fill: currentColor;
+		transition: fill 0.3s;
+	}
+}
+
+.link-chevron {
+	text-decoration: none;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	align-items: center;
+	color: $black;
+	margin-bottom: 30px;
+
+	&:hover {
+		color: $blue
+	}
+
+	svg path {
+		position: relative;
+		top: 2px;
+		stroke: currentColor !important;
+		transition: stroke 0.3s;
+	}
+}
