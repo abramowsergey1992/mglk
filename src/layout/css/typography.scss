@@ -7,6 +7,10 @@ h1,
 	line-height: 122%;
 	letter-spacing: -0.02em;
 
+	@media(max-width:992px) {
+		font-size: 28px;
+	}
+
 }
 
 h2,
@@ -19,6 +23,10 @@ h2,
 	/* or */
 	margin-bottom: 10px;
 	letter-spacing: -0.02em;
+
+	@media(max-width:992px) {
+		font-size: 20px;
+	}
 
 }
 
@@ -39,9 +47,19 @@ p {
 	font-size: 16px;
 	line-height: 200%;
 
+	@media(max-width:992px) {
+		line-height: 171%;
+	}
+
 	&._big,
 	big {
 		font-size: 20px;
 		line-height: 180%;
+
+		@media(max-width:992px) {
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 24px;
+		}
 	}
 }

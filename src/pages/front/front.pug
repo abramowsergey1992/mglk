@@ -83,7 +83,7 @@ block content
 					img(src="img/icon-i.svg", alt="").front-info__icon
 
 					| В 2017 году курорт стал одним из приоритетных инвестпроектов 
-		.grid-2._gap-15.mblock
+		.front-ablut-row._gap-15.mblock
 			._p._br.front-about( data-aos="fade",data-aos-duration="500")
 				h2 Курорт «Манжерок» у подножия
 					br
@@ -188,7 +188,7 @@ block content
 		.front-accommodation.block#front-accommodation
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Проживание 
-				.block__slider-nav 
+				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -261,7 +261,7 @@ block content
 		.front-restbars.block#front-restbars
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Рестораны и бары 
-				.block__slider-nav 
+				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -274,7 +274,7 @@ block content
 
 			.front-restbars__slider.swiper 
 				.swiper-wrapper
-					.swiper-slide.front-restbars__two-column
+					.swiper-slide.front-restbars__two-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="0",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-1','jpg')
@@ -283,12 +283,12 @@ block content
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-2','jpg')
 							a(href="#").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
-					.swiper-slide.front-restbars__one-column
+					.swiper-slide.front-restbars__one-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="600",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-3','jpg')
 							a(href="#").front-restbar__title Панорамный ресторан
-					.swiper-slide.front-restbars__two-column
+					.swiper-slide.front-restbars__two-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="800",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-4','jpg')
@@ -297,15 +297,41 @@ block content
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-5','jpg')
 							a(href="#").front-restbar__title Фудкорт
-					.swiper-slide.front-restbars__one-column
+					.swiper-slide.front-restbars__one-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="1200",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-6','jpg')
 							a(href="#").front-restbar__title Лобби-бар
+
+				
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-1','jpg')
+						a(href="#").front-restbar__title Точки питания на горе
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-2','jpg')
+						a(href="#").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-3','jpg')
+						a(href="#").front-restbar__title Панорамный ресторан
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-4','jpg')
+						a(href="#").front-restbar__title Ресторан в виллах
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-5','jpg')
+						a(href="#").front-restbar__title Фудкорт
+					.front-restbar.swiper-slide.front-restbar-mobile
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-6','jpg')
+						a(href="#").front-restbar__title Лобби-бар
 		.front-entertainment.block#front-entertainment 
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Развлечения 
-				.block__slider-nav 
+				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -355,7 +381,7 @@ block content
 		.front-press.block 
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Пресс-центр 
-				.block__slider-nav 
+				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>

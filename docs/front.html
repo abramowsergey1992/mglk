@@ -1071,7 +1071,7 @@
         <div class="inner">
           <div class="header__block _br _p-h">
             <div class="header__row">
-              <div class="header__left"> 
+              <div class="header__left mob-hidden">
                 <div class="header__weather header-weather">
                   <div class="header-weather__snow _active"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.99839 6.0006L2.44217 7.496L0.415941 6.56571L0 7.48088L1.38279 8.11575L0.622179 8.56071L1.11722 9.42952L1.8777 8.98464L1.72895 10.5152L2.71911 10.6078L2.93709 8.36489L5.49451 6.86878V9.87642L3.68491 11.1901L4.27218 11.9994L5.49451 11.112V12H6.49431V11.112L7.71669 11.9994L8.30396 11.1901L6.49431 9.87637V6.87572L9.05744 8.37517L9.27544 10.6183L10.2656 10.5257L10.1168 8.99492L10.8775 9.4399L11.3725 8.57109L10.612 8.12617L11.9946 7.4914L11.5786 6.57623L9.55259 7.50642L6.97857 6.0006L9.54466 4.49942L11.5841 5.43576L12 4.52058L10.604 3.87967L11.3735 3.42952L10.8785 2.56071L10.1237 3.00225L10.271 1.48624L9.28089 1.39364L9.06433 3.622L6.49431 5.12548V2.13377L8.31559 0.811635L7.72832 0.00232974L6.49431 0.898145V0H5.49451V0.881228L4.28381 0.00232974L3.69654 0.811635L5.49451 2.11686V5.13242L2.94495 3.6409L2.72554 1.38325L1.73538 1.47584L1.88556 3.02116L1.11622 2.57109L0.621176 3.4399L1.37591 3.88142L0.00642457 4.51019L0.422366 5.42536L2.4353 4.50117L4.99839 6.0006Z" />
@@ -1092,21 +1092,29 @@
 <path d="M15 15L11 11M7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7C13 10.3137 10.3137 13 7 13Z" stroke="" stroke-width="1.4"/>
 </svg></a></div>
                 <button class="header__roombook btn">Забронировать номер</button>
-              </div><a class="header__logo" href="/"><img src="img/logo.svg" alt=""></a>
+              </div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""></a>
               <div class="header__right"><a class="header__ls" href="#">Личный кабинет</a>
                 <ul class="header-icons"> 
-                  <li> <a class="header-icons__link" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <li class="mob-hidden"><a class="header-icons__link" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.13715 11.4987V6.99868H6.63715M6.63715 10.9987H9.63715M8 1C11.866 1 15 4.13401 15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1Z" stroke="" stroke-width="1.4"/>
 <path d="M8.68901 4.81474C8.68901 5.20134 8.37561 5.51474 7.98901 5.51474C7.60241 5.51474 7.28901 5.20134 7.28901 4.81474C7.28901 4.42814 7.60241 4.11474 7.98901 4.11474C8.37561 4.11474 8.68901 4.42814 8.68901 4.81474Z" fill=""/>
 </svg><span>Информация</span></a></li>
                   <li> <a class="header-icons__link" href="/"><svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 5.2H21M3.14286 10.8H11.7143M14.5714 10.8H18.8571M1 2.4L1 13.6C1 14.3732 1.63959 15 2.42857 15L19.5714 15C20.3604 15 21 14.3732 21 13.6V2.4C21 1.6268 20.3604 1 19.5714 1L2.42857 1C1.63959 1 1 1.6268 1 2.4Z" stroke="" stroke-width="1.4"/>
 </svg><span>Платежная инфомация</span></a></li>
-                  <li> <a class="header-icons__link" href="/"><svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <li class="desc-hidden"><a class="header-icons__link" href="/"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804Z" stroke="" stroke-width="1.4"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909Z" stroke="" stroke-width="1.4"/>
+</svg></a></li>
+                  <li class="desc-hidden"><a class="header-icons__link pmenu-open" href="/"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 4.33333H12M0 1H12M0 7.66667H12M0 11H12" stroke="" stroke-width="1.4"/>
+</svg></a></li>
+                  <li class="mob-hidden"> <a class="header-icons__link" href="/"><svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14.4016 7.93345C14.4016 4.39883 11.5362 1.53345 8.00156 1.53345C4.46694 1.53345 1.60156 4.39883 1.60156 7.93345C1.60156 10.72 3.38249 13.0907 5.86823 13.9693L4.80156 16.4668H9.06823H11.2016L10.1349 13.9693C12.6206 13.0907 14.4016 10.72 14.4016 7.93345Z" stroke="" stroke-width="1.4"/>
 </svg><span>Вебкамеры</span></a></li>
                 </ul>
-                <button class="header__burgrer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button class="header__burgrer mob-hidden">
+                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 4.33333H12M0 1H12M0 7.66667H12M0 11H12" stroke="#106AC6" stroke-width="1.4"/>
 </svg>
                 </button>
@@ -1127,7 +1135,7 @@
                         <div class="inner">
                           <div class="header__block _br _p-h">
                             <div class="header__row">
-                              <div class="header__left"> 
+                              <div class="header__left mob-hidden">
                                 <div class="header__weather header-weather">
                                   <div class="header-weather__snow _active"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.99839 6.0006L2.44217 7.496L0.415941 6.56571L0 7.48088L1.38279 8.11575L0.622179 8.56071L1.11722 9.42952L1.8777 8.98464L1.72895 10.5152L2.71911 10.6078L2.93709 8.36489L5.49451 6.86878V9.87642L3.68491 11.1901L4.27218 11.9994L5.49451 11.112V12H6.49431V11.112L7.71669 11.9994L8.30396 11.1901L6.49431 9.87637V6.87572L9.05744 8.37517L9.27544 10.6183L10.2656 10.5257L10.1168 8.99492L10.8775 9.4399L11.3725 8.57109L10.612 8.12617L11.9946 7.4914L11.5786 6.57623L9.55259 7.50642L6.97857 6.0006L9.54466 4.49942L11.5841 5.43576L12 4.52058L10.604 3.87967L11.3735 3.42952L10.8785 2.56071L10.1237 3.00225L10.271 1.48624L9.28089 1.39364L9.06433 3.622L6.49431 5.12548V2.13377L8.31559 0.811635L7.72832 0.00232974L6.49431 0.898145V0H5.49451V0.881228L4.28381 0.00232974L3.69654 0.811635L5.49451 2.11686V5.13242L2.94495 3.6409L2.72554 1.38325L1.73538 1.47584L1.88556 3.02116L1.11622 2.57109L0.621176 3.4399L1.37591 3.88142L0.00642457 4.51019L0.422366 5.42536L2.4353 4.50117L4.99839 6.0006Z" />
@@ -1148,21 +1156,29 @@
 <path d="M15 15L11 11M7 13C3.68629 13 1 10.3137 1 7C1 3.68629 3.68629 1 7 1C10.3137 1 13 3.68629 13 7C13 10.3137 10.3137 13 7 13Z" stroke="" stroke-width="1.4"/>
 </svg></a></div>
                                 <button class="header__roombook btn">Забронировать номер</button>
-                              </div><a class="header__logo" href="/"><img src="img/logo.svg" alt=""></a>
+                              </div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""></a>
                               <div class="header__right"><a class="header__ls" href="#">Личный кабинет</a>
                                 <ul class="header-icons"> 
-                                  <li> <a class="header-icons__link" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <li class="mob-hidden"><a class="header-icons__link" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.13715 11.4987V6.99868H6.63715M6.63715 10.9987H9.63715M8 1C11.866 1 15 4.13401 15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1Z" stroke="" stroke-width="1.4"/>
 <path d="M8.68901 4.81474C8.68901 5.20134 8.37561 5.51474 7.98901 5.51474C7.60241 5.51474 7.28901 5.20134 7.28901 4.81474C7.28901 4.42814 7.60241 4.11474 7.98901 4.11474C8.37561 4.11474 8.68901 4.42814 8.68901 4.81474Z" fill=""/>
 </svg><span>Информация</span></a></li>
                                   <li> <a class="header-icons__link" href="/"><svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 5.2H21M3.14286 10.8H11.7143M14.5714 10.8H18.8571M1 2.4L1 13.6C1 14.3732 1.63959 15 2.42857 15L19.5714 15C20.3604 15 21 14.3732 21 13.6V2.4C21 1.6268 20.3604 1 19.5714 1L2.42857 1C1.63959 1 1 1.6268 1 2.4Z" stroke="" stroke-width="1.4"/>
 </svg><span>Платежная инфомация</span></a></li>
-                                  <li> <a class="header-icons__link" href="/"><svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <li class="desc-hidden"><a class="header-icons__link" href="/"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804Z" stroke="" stroke-width="1.4"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909Z" stroke="" stroke-width="1.4"/>
+</svg></a></li>
+                                  <li class="desc-hidden"><a class="header-icons__link pmenu-open" href="/"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 4.33333H12M0 1H12M0 7.66667H12M0 11H12" stroke="" stroke-width="1.4"/>
+</svg></a></li>
+                                  <li class="mob-hidden"> <a class="header-icons__link" href="/"><svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14.4016 7.93345C14.4016 4.39883 11.5362 1.53345 8.00156 1.53345C4.46694 1.53345 1.60156 4.39883 1.60156 7.93345C1.60156 10.72 3.38249 13.0907 5.86823 13.9693L4.80156 16.4668H9.06823H11.2016L10.1349 13.9693C12.6206 13.0907 14.4016 10.72 14.4016 7.93345Z" stroke="" stroke-width="1.4"/>
 </svg><span>Вебкамеры</span></a></li>
                                 </ul>
-                                <button class="header__burgrer"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <button class="header__burgrer mob-hidden">
+                                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 4.33333H12M0 1H12M0 7.66667H12M0 11H12" stroke="#106AC6" stroke-width="1.4"/>
 </svg>
                                 </button>
@@ -1242,7 +1258,7 @@
                   <div class="front-top__right _br front-info _p-h load-anim _delay-1800"><img class="front-info__icon" src="img/icon-i.svg" alt="">В 2017 году курорт стал одним из приоритетных инвестпроектов </div>
                 </div>
               </div>
-              <div class="grid-2 _gap-15 mblock">
+              <div class="front-ablut-row _gap-15 mblock">
                 <div class="_p _br front-about" data-aos="fade" data-aos-duration="500">
                   <h2>Курорт «Манжерок» у подножия<br>горы Малая Синюха открывает двери<br>в удивительный Горный Алтай.</h2>
                   <p> 
@@ -1390,7 +1406,7 @@
               </div>
               <div class="front-accommodation block" id="front-accommodation">
                 <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Проживание </a>
-                  <div class="block__slider-nav"> 
+                  <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
 </svg>
@@ -1468,7 +1484,7 @@
               </div>
               <div class="front-restbars block" id="front-restbars">
                 <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Рестораны и бары </a>
-                  <div class="block__slider-nav"> 
+                  <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
 </svg>
@@ -1481,7 +1497,7 @@
                 </div>
                 <div class="front-restbars__slider swiper"> 
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide front-restbars__two-column">
+                    <div class="swiper-slide front-restbars__two-column front-restbar-desctop">
                       <div class="front-restbar" data-aos="fade" data-aos-delay="0" data-aos-duration="0" data-aos-anchor="#front-restbars">
                         <div class="front-restbar__photo _br" data-customcursor>
                           <picture>
@@ -1497,7 +1513,7 @@
                         </div><a class="front-restbar__title" href="#">РЕСТОРАН «ГОРНЫЙ»</a>
                       </div>
                     </div>
-                    <div class="swiper-slide front-restbars__one-column">
+                    <div class="swiper-slide front-restbars__one-column front-restbar-desctop">
                       <div class="front-restbar" data-aos="fade" data-aos-delay="0" data-aos-duration="600" data-aos-anchor="#front-restbars">
                         <div class="front-restbar__photo _br" data-customcursor>
                           <picture>
@@ -1506,7 +1522,7 @@
                         </div><a class="front-restbar__title" href="#">Панорамный ресторан</a>
                       </div>
                     </div>
-                    <div class="swiper-slide front-restbars__two-column">
+                    <div class="swiper-slide front-restbars__two-column front-restbar-desctop">
                       <div class="front-restbar" data-aos="fade" data-aos-delay="0" data-aos-duration="800" data-aos-anchor="#front-restbars">
                         <div class="front-restbar__photo _br" data-customcursor>
                           <picture>
@@ -1522,7 +1538,7 @@
                         </div><a class="front-restbar__title" href="#">Фудкорт</a>
                       </div>
                     </div>
-                    <div class="swiper-slide front-restbars__one-column">
+                    <div class="swiper-slide front-restbars__one-column front-restbar-desctop">
                       <div class="front-restbar" data-aos="fade" data-aos-delay="0" data-aos-duration="1200" data-aos-anchor="#front-restbars">
                         <div class="front-restbar__photo _br" data-customcursor>
                           <picture>
@@ -1531,12 +1547,54 @@
                         </div><a class="front-restbar__title" href="#">Лобби-бар</a>
                       </div>
                     </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-1.webp"/><img alt="" src="img/restbars-1.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">Точки питания на горе</a>
+                    </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-2.webp"/><img alt="" src="img/restbars-2.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">РЕСТОРАН «ГОРНЫЙ»</a>
+                    </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-3.webp"/><img alt="" src="img/restbars-3.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">Панорамный ресторан</a>
+                    </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-4.webp"/><img alt="" src="img/restbars-4.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">Ресторан в виллах</a>
+                    </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-5.webp"/><img alt="" src="img/restbars-5.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">Фудкорт</a>
+                    </div>
+                    <div class="front-restbar swiper-slide front-restbar-mobile">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-6.webp"/><img alt="" src="img/restbars-6.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="#">Лобби-бар</a>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="front-entertainment block" id="front-entertainment"> 
                 <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Развлечения </a>
-                  <div class="block__slider-nav"> 
+                  <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
 </svg>
@@ -1618,7 +1676,7 @@
               </div>
               <div class="front-press block"> 
                 <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Пресс-центр </a>
-                  <div class="block__slider-nav"> 
+                  <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
 </svg>
@@ -1734,6 +1792,18 @@
                 </div>
               </div>
               <div class="footer-menu _p-h">
+                <div class="footer-menu__mob"> 
+                  <ul>
+                    <li> <a href="#">Курорт</a></li>
+                    <li> <a href="#">Горы</a></li>
+                    <li> <a href="#">Проживание</a></li>
+                    <li> <a href="#"> Развлечения</a></li>
+                    <li> <a href="#"> Афиша</a></li>
+                    <li> <a href="#">Рестораны и бары</a></li>
+                    <li> <a href="#">Манжерок Shop</a></li>
+                    <li> <a href="#">MICE</a></li>
+                  </ul>
+                </div>
                 <div class="footer-menu__row">
                   <div class="footer-menu__column">
                     <div class="footer-menu__item"><a href="№">Курорт </a>
@@ -1825,6 +1895,13 @@
                 </div>
               </div>
               <div class="footer-bootom _p-h">
+                <ul class="footer-bootom__menu">
+                  <li><a href="#">Правила курорта</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Карта сайта</a></li>
+                  <li><a href="#">Политика конфиденциальности</a></li>
+                  <li><a href="#">Условия бронирования</a></li>
+                </ul>
                 <div class="footer-bootom__row">
                   <div class="footer-bootom__copy">© 2022 — официальный сайт Всесезонного курорта Манжерок</div><a class="footer-bootom__ctm" href="https://www.c-tm.ru/"> <span>создание сайтов </span>—  <svg width="121" height="14" viewBox="0 0 121 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M55.3177 3.2334L52.7018 10.433L50.086 3.2334H47.3828L51.2921 13.9933H54.1116L58.0231 3.2334H55.3177Z" fill="#2A2A29"/>

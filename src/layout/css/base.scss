@@ -13,6 +13,18 @@ body {
 	}
 }
 
+.mob-hidden {
+	@media(max-width:890px) {
+		display: none;
+	}
+}
+
+.desc-hidden {
+	@media(min-width:890px) {
+		display: none;
+	}
+}
+
 .load-anim {
 	opacity: 0;
 
@@ -81,10 +93,18 @@ img {
 
 ._p-h {
 	padding: 0 30px;
+
+	@media(max-width:890px) {
+		padding: 0 20px;
+	}
 }
 
 ._p {
 	padding: 30px;
+
+	@media(max-width:890px) {
+		padding: 20px;
+	}
 }
 
 .inner {

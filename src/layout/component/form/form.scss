@@ -43,6 +43,11 @@ button {
 		fill: currentColor;
 		transition: fill 0.3s;
 	}
+
+	@media (max-width:890px) {
+		font-weight: 500;
+		font-size: 14px;
+	}
 }
 
 .link-chevron {

@@ -15,7 +15,7 @@ $(function () {
 	$(".pmenu-inner-slide__back").click(function () {
 		swiper.slideTo(0);
 	});
-	$(".header__burgrer").click(function () {
+	$(".header__burgrer,.pmenu-open").click(function () {
 		console.log("ssss");
 		$(".pmenu").addClass("_open _zindex");
 	});
