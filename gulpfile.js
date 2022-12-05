@@ -20,7 +20,7 @@ var browserSync = require("browser-sync").create();
 var clean = require("gulp-clean");
 var shorthand = require("gulp-shorthand");
 var gcmq = require("gulp-group-css-media-queries");
-var svgSprite = require("gulp-svg-sprites");
+// var svgSprite = require("gulp-svg-sprites");
 var svgmin = require("gulp-svgmin");
 var cheerio = require("gulp-cheerio");
 var replace = require("gulp-replace");
@@ -321,13 +321,16 @@ gulp.task("sprite", function () {
 				run: function ($) {
 					$("[fill]").each(function () {
 						if ($(this).attr("fill") != "none") {
-							$(this).removeAttr("fill");
+							$(this).attr("fill", "currentColor");
 						}
 					});
 
 					$("[stroke]").each(function () {
 						if ($(this).attr("stroke") != "none") {
-							$(this).removeAttr("stroke");
+							$(this).attr("stroke", "currentColor");
+						}
+						if (!$(this).attr("fill")) {
+							$(this).attr("fill", "transparent");
 						}
 					});
 

@@ -1,5 +1,13 @@
 .header {
 	margin-bottom: 20px;
+	position: fixed;
+	z-index: 5;
+	top: 15px;
+	width: 100%;
+
+	._no-scroll & {
+		z-index: 0;
+	}
 
 	@media(max-width:890px) {
 		margin-bottom: 15px;
