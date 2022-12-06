@@ -55,9 +55,7 @@ $(function () {
 					slidesPerView: 2,
 					spaceBetween: 15,
 				},
-				992: {
-					slidesPerView: 3,
-				},
+				992: { spaceBetween: 15, slidesPerView: 3 },
 			},
 			navigation: {
 				nextEl: $(".front-press.block__slider-next")[0],
@@ -92,9 +90,7 @@ $(function () {
 					slidesPerView: 2,
 					spaceBetween: 15,
 				},
-				992: {
-					slidesPerView: 3,
-				},
+				992: { spaceBetween: 15, slidesPerView: 3 },
 			},
 			navigation: {
 				nextEl: $(".front-restbars .block__slider-next")[0],
@@ -132,6 +128,7 @@ $(function () {
 				},
 				992: {
 					slidesPerView: 3,
+					spaceBetween: 15,
 				},
 			},
 			navigation: {
@@ -140,7 +137,7 @@ $(function () {
 			},
 		});
 
-		const interleaveOffset = 0.1;
+		const interleaveOffset = 0.06;
 		swipeAccommodation.on("progress", function (swiper, progress) {
 			console.log("progress");
 			for (let i = 0; i < swiper.slides.length; i++) {
@@ -183,10 +180,9 @@ $(function () {
 				640: { spaceBetween: 15, slidesPerView: 2 },
 				992: {
 					slidesPerView: 3,
+					spaceBetween: 15,
 				},
-				1024: {
-					slidesPerView: 3.8,
-				},
+				1024: { spaceBetween: 15, slidesPerView: 3.8 },
 			},
 			navigation: {
 				nextEl: $(".front-entertainment .block__slider-next")[0],

@@ -8,7 +8,7 @@ block content
 				.front-top__left._br.front-top__main._p-h
 						.front-top__main-bg
 							include ../../layout/component/header/header
-							video#front-main-video(src="video/Mangerok.mp4" playsinline="" loop="" autoplay="" muted="") 
+							video#front-main-video(src="video/Mangerok.mp4"  playsinline="" loop="" autoplay="" muted="") 
 							.front-top__main-bg-flex 
 								img(src="img/front-logo.svg", alt="").front-top__main-bg-logo
 								.front-top__main-bg-title Место единения с природой
@@ -173,7 +173,7 @@ block content
 					a(href="https://манжерок.рф/ru/about/special-offers/2559/").front-sale__link День Рождения в Манжероке
 				.front-sale._br.video-hover-play(data-customcursor, data-aos="fade",data-aos-delay='1200',data-aos-duration="500",data-aos-anchor="#front-sales")
 					.front-sale__bg 
-						video(src="video/wedding.mp4" playsinline="" loop=""  muted="") 
+						video(src="video/wedding.mp4"  preload="metadata" playsinline="" loop=""  muted="") 
 					a(href="https://манжерок.рф/ru/about/special-offers/2580/").front-sale__link  Свадьба в Горах 
 		.front-accommodation.block#front-accommodation
 			.block__head._p-h
@@ -194,32 +194,37 @@ block content
 					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='0',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-1','jpg')
-						.accommodation-slide__title Виллы
+						.accommodation-slide__body
+							.accommodation-slide__title Виллы
 						.accommodation-slide__soon Скоро открытие
 				
 					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='300',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-2','jpg')
-						.accommodation-slide__title Отель 5
 						.accommodation-slide__soon Скоро открытие
-						.accommodation-slide__stars
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
+						.accommodation-slide__body
+							.accommodation-slide__title Отель 5
+							
+							.accommodation-slide__stars
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
 					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='600',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-3','jpg')
-						a(href="https://манжерок.рф/ru/about/hotel/").accommodation-slide__title  Отель 3
-						.accommodation-slide__stars
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
+						.accommodation-slide__body
+							a(href="https://манжерок.рф/ru/about/hotel/").accommodation-slide__title  Отель 3
+							.accommodation-slide__stars
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
+								img(src="img/star.svg", alt="")
 					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='900',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-4','jpg')
-						.accommodation-slide__title 
+						.accommodation-slide__body
+							.accommodation-slide__title Глэмпинг
 						.accommodation-slide__soon Скоро открытие
 			
 		.front-restbars.block#front-restbars
