@@ -1,6 +1,6 @@
 $(function () {
 	$.ajax({
-		url: "http://2.shkolnik-shop.com/w.php",
+		url: "https://2.shkolnik-shop.com/w.php",
 		method: "GET",
 		crossDomain: true,
 		context: document.body,
