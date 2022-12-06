@@ -22,40 +22,25 @@ block content
 							br
 							| с природой
 				.front-top__right.grid-1._br._gap-15
-					.grid-2._gap-15 
-						.weather-block._br.load-anim._delay-0
-							.weather-block__temp
-								img(src="img/sun.svg", alt="")
-								span -12
-									sup o
-									| C
-							.weather-block__status Солнечно
-							.weather-block__feeling Ощущается как -4
-								sup о
-							.weather-block__dynamics
-								.weather-block__dynamics-negative -23
-									sup o
-								.weather-block__dynamics-positive -10
-									sup o
-						.ihome._br.load-anim._delay-300
-							img(src="img/ihome.svg", alt="")
-							.ihome__title Я дома
-							.ihome__date 13 мая, пятница
-							a.ihome__resort Я на курорте
-					.front-top-slider.load-anim._delay-600
-						.swiper.front-top-slider__slider
-							.swiper-wrapper
-								.swiper-slide._br
-									a(href="/") 
-										img(src="img/skypass.jpg", alt="")
-								.swiper-slide._br
-									a(href="/") 
-										img(src="img/skypass.jpg", alt="")
-							.front-top-slider__pagi
-					.map-link._br.load-anim._delay-900
-						+picture('fronttopmap-bg','jpg').map-link__bg
-						img(src="img/map-link.svg", alt="").map-link__icon
-						a(href="#").map-link__title Карта курорта
+					.weather-block._br.load-anim._delay-0
+						.weather-block__temp
+							img(src="img/sun.svg", alt="")
+							span -12
+								sup o
+								| C
+						.weather-block__status Солнечно
+						.weather-block__feeling Ощущается как -4
+							sup о
+						.weather-block__dynamics
+							.weather-block__dynamics-negative -23
+								sup o
+							.weather-block__dynamics-positive -10
+								sup o
+	
+					.skypass._br.load-anim._delay-600
+						a(href="https://shop.mglk.ru/ru/Tickets") 
+							img(src="img/skypass.jpg", alt="")
+							span Купить абонемент
 					.load-anim._delay-1200
 						.workload._br
 							!='<script>const periods = [{"type":"medium","start":"12:01","finish":"14:10"},{"type":"low","start":"9:00","finish":"12:00"},{"type":"high","start":"14:11","finish":"18:00"},{"type":"very-high","start":"18:01","finish":"19:59"}]</script>'
@@ -119,24 +104,24 @@ block content
 			.front-service-slider._br(data-aos="fade",data-aos-delay='0',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service-slider__swiper.swiper 
 					.swiper-wrapper
-						.swiper-slide.front-service-slide._p._br(data-customcursor)
+						.swiper-slide.front-service-slide._p._br
 							.front-service-slide__bg 
 								+picture('s-1','jpg')
-							a(href="/").link-chevron.h2 Горы 
+							h2 Горы 
 							.front-service-slide__body 
 								p  Крупнейший курорт в республике Алтай
 					
-						.swiper-slide.front-service-slide._p._br(data-customcursor)
+						.swiper-slide.front-service-slide._p._br
 							.front-service-slide__bg.h2
 								+picture('s-2','jpg')
-							a(href="/").link-chevron.h2 Горы 
+							.h2 Горы 
 							.front-service-slide__body 
 								p  Крупнейший курорт в республике Алтай
 					
-						.swiper-slide.front-service-slide._p._br(data-customcursor)
+						.swiper-slide.front-service-slide._p._br
 							.front-service-slide__bg.h2 
 								+picture('s-3','jpg')
-							a(href="/").link-chevron.h2 Горы 
+							.h2 Горы 
 							.front-service-slide__body
 								p  Крупнейший курорт в республике Алтай
 				.front-service-slider__pagi._p-h
@@ -144,33 +129,33 @@ block content
 			.front-service._br(data-customcursor, data-aos="fade",data-aos-delay='300',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service__bg 
 					+picture('s-2','jpg')
-				a(href="#").front-service__link ГорнолыжнаЯ школа
+				a(href="https://манжерок.рф/ru/activity/gornolyzhnaya-shkola/").front-service__link ГорнолыжнаЯ школа
 				
 		
 			.front-service._br(data-customcursor, data-aos="fade",data-aos-delay='600',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service__bg 
 					+picture('s-3','jpg')
-				a(href="#").front-service__link Прокат оборудования 
+				a(href="https://манжерок.рф/ru/activity/prokat/").front-service__link Прокат оборудования 
 			.front-service._br(data-customcursor, data-aos="fade",data-aos-delay='900',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service__bg 
 					+picture('s-4','jpg')
-				a(href="#").front-service__link Купить Skipass 
-			.front-service._br(data-customcursor, data-aos="fade",data-aos-delay='1200',data-aos-duration="500",data-aos-anchor="#front-services")
+				a(href="https://shop.mglk.ru/ru/Tickets").front-service__link Купить Skipass 
+			.front-service._br( data-aos="fade",data-aos-delay='1200',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service__bg 
 					+picture('s-5','jpg')
-				a(href="#").front-service__link Тюбинг
+				.front-service__link Тюбинг
 			.front-service._br(data-customcursor, data-aos="fade",data-aos-delay='1500',data-aos-duration="500",data-aos-anchor="#front-services")
 				.front-service__bg 
 					+picture('s-6','jpg')
-				a(href="#").front-service__link Карта склонов
+				a(href="https://манжерок.рф/ru/activity/sky-track/").front-service__link Карта склонов
 		.front-sales.block#front-sales
 			.block__head._p-h
-				a.h2.link-chevron(href="#") Акции и спецпредложения
+				.h2 Акции и спецпредложения
 			.front-sales__row 
 				.front-sale._br(data-customcursor, data-aos="fade",data-aos-delay='000',data-aos-duration="500",data-aos-anchor="#front-sales")
 					.front-sale__bg 
 						+picture('s-7','jpg')
-					a(href="#").front-sale__link Блюда на вынос
+					a(href="https://манжерок.рф/ru/about/special-offers/2876/").front-sale__link Блюда на вынос
 						br
 						| со скидкой 10%
 				.front-sale._br(data-customcursor, data-aos="fade",data-aos-delay='300',data-aos-duration="500",data-aos-anchor="#front-sales")
@@ -180,14 +165,14 @@ block content
 				.front-sale._br(data-customcursor, data-aos="fade",data-aos-delay='600',data-aos-duration="500",data-aos-anchor="#front-sales")
 					.front-sale__bg 
 						+picture('s-9','jpg')
-					a(href="#").front-sale__link День Рождения в Манжероке
+					a(href="https://манжерок.рф/ru/about/special-offers/2559/").front-sale__link День Рождения в Манжероке
 				.front-sale._br.video-hover-play(data-customcursor, data-aos="fade",data-aos-delay='1200',data-aos-duration="500",data-aos-anchor="#front-sales")
 					.front-sale__bg 
-						video(src="video/video.mp4" playsinline="" loop=""  muted="") 
-					a(href="#").front-sale__link  Свадьба в Горах 
+						video(src="video/wedding.mp4" playsinline="" loop=""  muted="") 
+					a(href="https://манжерок.рф/ru/about/special-offers/2580/").front-sale__link  Свадьба в Горах 
 		.front-accommodation.block#front-accommodation
 			.block__head._p-h
-				a.h2.link-chevron(href="#") Проживание 
+				.h2 Проживание 
 				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -201,15 +186,17 @@ block content
 
 			.front-accommodation__slider.swiper 
 				.swiper-wrapper
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='0',data-aos-duration="500",data-aos-anchor="#front-accommodation")
+					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='0',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-1','jpg')
-						a(href="#").accommodation-slide__title Виллы
+						.accommodation-slide__title Виллы
+						.accommodation-slide__soon Скоро открытие
 				
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='300',data-aos-duration="500",data-aos-anchor="#front-accommodation")
+					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='300',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-2','jpg')
-						a(href="#").accommodation-slide__title Отель 5
+						.accommodation-slide__title Отель 5
+						.accommodation-slide__soon Скоро открытие
 						.accommodation-slide__stars
 							img(src="img/star.svg", alt="")
 							img(src="img/star.svg", alt="")
@@ -219,45 +206,17 @@ block content
 					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='600',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-3','jpg')
-						a(href="#").accommodation-slide__title  Отель 3
+						a(href="https://манжерок.рф/ru/about/hotel/").accommodation-slide__title  Отель 3
 						.accommodation-slide__stars
 							img(src="img/star.svg", alt="")
 							img(src="img/star.svg", alt="")
 							img(src="img/star.svg", alt="")
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='900',data-aos-duration="500",data-aos-anchor="#front-accommodation")
+					.swiper-slide.accommodation-slide._br( data-aos="fade",data-aos-delay='900',data-aos-duration="500",data-aos-anchor="#front-accommodation")
 						.accommodation-slide__bg
 							+picture('a-4','jpg')
-						a(href="#").accommodation-slide__title Глэмпинг
-
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='1200',data-aos-duration="500",data-aos-anchor="#front-accommodation")
-						.accommodation-slide__bg
-							+picture('a-1','jpg')
-						a(href="#").accommodation-slide__title Виллы
+						.accommodation-slide__title 
+						.accommodation-slide__soon Скоро открытие
 			
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='1500',data-aos-duration="500",data-aos-anchor="#front-accommodation")
-						.accommodation-slide__bg
-							+picture('a-2','jpg')
-						a(href="#").accommodation-slide__title Отель 5
-						.accommodation-slide__stars
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='1800',data-aos-duration="500",data-aos-anchor="#front-accommodation")
-						.accommodation-slide__bg
-							+picture('a-3','jpg')
-						a(href="#").accommodation-slide__title  Отель 3
-						.accommodation-slide__stars
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-							img(src="img/star.svg", alt="")
-					.swiper-slide.accommodation-slide._br(data-customcursor, data-aos="fade",data-aos-delay='2100',data-aos-duration="500",data-aos-anchor="#front-accommodation")
-						.accommodation-slide__bg
-							+picture('a-4','jpg')
-						a(href="#").accommodation-slide__title Глэмпинг
-				
-		
 		.front-restbars.block#front-restbars
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Рестораны и бары 
@@ -276,58 +235,40 @@ block content
 				.swiper-wrapper
 					.swiper-slide.front-restbars__two-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="0",data-aos-anchor="#front-restbars")
-							.front-restbar__photo._br(data-customcursor)
+							.front-restbar__photo._br
 								+picture('restbars-1','jpg')
-							a(href="#").front-restbar__title Точки питания на горе
+								.front-restbar__soon Скоро открытие
+							.front-restbar__title Точки питания на горе
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="300",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-2','jpg')
-							a(href="#").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
+							a(href="https://манжерок.рф/ru/activity/pitanie/").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
 					.swiper-slide.front-restbars__one-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="600",data-aos-anchor="#front-restbars")
-							.front-restbar__photo._br(data-customcursor)
+							.front-restbar__photo._br
 								+picture('restbars-3','jpg')
-							a(href="#").front-restbar__title Панорамный ресторан
+								.front-restbar__soon Скоро открытие
+							.front-restbar__title Панорамный ресторан
 					.swiper-slide.front-restbars__two-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="800",data-aos-anchor="#front-restbars")
-							.front-restbar__photo._br(data-customcursor)
+							.front-restbar__photo._br
 								+picture('restbars-4','jpg')
-							a(href="#").front-restbar__title Ресторан в виллах
+								.front-restbar__soon Скоро открытие
+							.front-restbar__title Ресторан в виллах
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="900",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-5','jpg')
-							a(href="#").front-restbar__title Фудкорт
+								.front-restbar__soon Скоро открытие
+							.front-restbar__title Фудкорт
 					.swiper-slide.front-restbars__one-column.front-restbar-desctop
 						.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="1200",data-aos-anchor="#front-restbars")
 							.front-restbar__photo._br(data-customcursor)
 								+picture('restbars-6','jpg')
-							a(href="#").front-restbar__title Лобби-бар
+								.front-restbar__soon Скоро открытие
+							.front-restbar__title Лобби-бар
 
 				
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-1','jpg')
-						a(href="#").front-restbar__title Точки питания на горе
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-2','jpg')
-						a(href="#").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-3','jpg')
-						a(href="#").front-restbar__title Панорамный ресторан
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-4','jpg')
-						a(href="#").front-restbar__title Ресторан в виллах
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-5','jpg')
-						a(href="#").front-restbar__title Фудкорт
-					.front-restbar.swiper-slide.front-restbar-mobile
-						.front-restbar__photo._br(data-customcursor)
-							+picture('restbars-6','jpg')
-						a(href="#").front-restbar__title Лобби-бар
+				
 		.front-entertainment.block#front-entertainment 
 			.block__head._p-h
 				a.h2.link-chevron(href="#") Развлечения 
@@ -347,36 +288,29 @@ block content
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='0',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
 							+picture('e-1','jpg')
-						.front-entertainment-slide__link(href="#") Бани в виллах
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/activity/prokat/") Прокат инвентаря
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='300',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
 							+picture('e-2','jpg')
-						.front-entertainment-slide__link(href="#") SPA-комплекс
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/activity/gornolyzhnaya-shkola/") Горнолыжная школа
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='600',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
 							+picture('e-3','jpg')
-						.front-entertainment-slide__link(href="#") ЙОГА
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/activity/banya-summer/") Алтайский банный комплекс/ Услуги&nbsp;массажа
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='900',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
 							+picture('e-4','jpg')
-						.front-entertainment-slide__link(href="#") Параплан
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/services/summer/excursions/") экскурсии
 					
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='1200',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
-							+picture('e-1','jpg')
-						.front-entertainment-slide__link(href="#") Бани в виллах
+							+picture('e-5','jpg')
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/activity/razvlecheniya/") развлечения
 					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='1500',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
 						.front-entertainment-slide__photo._br(data-customcursor)
-							+picture('e-2','jpg')
-						.front-entertainment-slide__link(href="#") SPA-комплекс
-					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='1800',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
-						.front-entertainment-slide__photo._br(data-customcursor)
-							+picture('e-3','jpg')
-						.front-entertainment-slide__link(href="#") ЙОГА
-					.swiper-slide.front-entertainment-slide(data-aos="fade",data-aos-delay='2100',data-aos-duration="0",data-aos-anchor="#front-enterneiment")
-						.front-entertainment-slide__photo._br(data-customcursor)
-							+picture('e-4','jpg')
-						.front-entertainment-slide__link(href="#") Параплан
+							+picture('e-6','jpg')
+						.front-entertainment-slide__link(href="https://манжерок.рф/ru/about/how-to-get/transfers/") трансфер
+					
 					
 		.front-press.block 
 			.block__head._p-h
@@ -399,50 +333,49 @@ block content
 							+picture('p-1','jpg')
 							.press-slide__footer._p-h
 								.press-slide__tag СМИ о нас
-								.press-slide__date 06 июля 2022
-						.press-slide__title КУРОРТ МАНЖЕРОК ВЫСАДИТ ПОРЯДКА 300 ТЫСЯЧ ХВОЙНЫХ САЖЕНЦЕВ
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
+								.press-slide__date 28 ноября 2022
+							a.press-slide__link-area(href="https://манжерок.рф/ru/news/proekt-sbera-manzherok-poluchil-turisticheskiy-oskar-/")
+						.press-slide__body
+							.press-slide__title Проект Сбера «Манжерок» получил туристический «Оскар»
+							a.press-slide__link(href="https://манжерок.рф/ru/news/proekt-sbera-manzherok-poluchil-turisticheskiy-oskar-/")  ПОДРОБНЕЕ 
 					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='300',data-aos-duration="0",data-aos-anchor="#front-presss")
 						.press-slide__img-wrap._br(data-customcursor)
 							+picture('p-2','jpg')
 							.press-slide__footer._p-h
 								.press-slide__tag НОВОСТИ
-								.press-slide__date 06 июля 2022
-						.press-slide__title КУРОРТ МАНЖЕРОК ЗА ЗИМНИЙ СЕЗОН ПРИНЯЛ БОЛЬШЕ 100 ТЫСЯЧ ГОСТЕЙ
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
+								.press-slide__date 25 ноября 2022
+							a.press-slide__link-area(href="https://манжерок.рф/ru/news/na-kurorte-proshli-masshtabnye-ucheniya-po-spaseniyu-turistov/") 
+						.press-slide__body
+							.press-slide__title На курорте прошли масштабные учения по спасению туристов
+							a.press-slide__link(href="https://манжерок.рф/ru/news/na-kurorte-proshli-masshtabnye-ucheniya-po-spaseniyu-turistov/")  ПОДРОБНЕЕ 
 					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='600',data-aos-duration="0",data-aos-anchor="#front-presss")
 						.press-slide__img-wrap._br(data-customcursor)
 							+picture('p-3','jpg')
 							.press-slide__footer._p-h
 								.press-slide__tag Новости
-								.press-slide__date 06 июля 2022
-						.press-slide__title МАНЖЕРОК — НОВАЯ ТОЧКА 
-							br
-							| НА КАРТЕ ТРИАТЛОНА
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
+								.press-slide__date 15 ноября 2022
+							a.press-slide__link-area(href="https://манжерок.рф/ru/news/na-kurorte-manzherok-snyali-odnu-iz-stsen-teleshou-faktor-strakha-/")
+						.press-slide__body
+							.press-slide__title На курорте «Манжерок» сняли одну из сцен телешоу «Фактор страха»
+							a.press-slide__link(href="https://манжерок.рф/ru/news/na-kurorte-manzherok-snyali-odnu-iz-stsen-teleshou-faktor-strakha-/")  ПОДРОБНЕЕ 
 					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='900',data-aos-duration="0",data-aos-anchor="#front-presss")
 						.press-slide__img-wrap._br(data-customcursor)
-							+picture('p-1','jpg')
-							.press-slide__footer._p-h
-								.press-slide__tag СМИ о нас
-								.press-slide__date 06 июля 2022
-						.press-slide__title КУРОРТ МАНЖЕРОК ВЫСАДИТ ПОРЯДКА 300 ТЫСЯЧ ХВОЙНЫХ САЖЕНЦЕВ
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
-					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='1200',data-aos-duration="0",data-aos-anchor="#front-presss")
-						.press-slide__img-wrap._br(data-customcursor)
-							+picture('p-2','jpg')
-							.press-slide__footer._p-h
-								.press-slide__tag НОВОСТИ
-								.press-slide__date 06 июля 2022
-						.press-slide__title КУРОРТ МАНЖЕРОК ЗА ЗИМНИЙ СЕЗОН ПРИНЯЛ БОЛЬШЕ 100 ТЫСЯЧ ГОСТЕЙ
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
-					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='1500',data-aos-duration="0",data-aos-anchor="#front-presss")
-						.press-slide__img-wrap._br(data-customcursor)
-							+picture('p-3','jpg')
+							+picture('p-4','jpg')
 							.press-slide__footer._p-h
 								.press-slide__tag Новости
-								.press-slide__date 06 июля 2022
-						.press-slide__title МАНЖЕРОК — НОВАЯ ТОЧКА 
-							br
-							| НА КАРТЕ ТРИАТЛОНА
-						a.press-slide__link(href="#")  ПОДРОБНЕЕ 
+								.press-slide__date  03 ноября 2022
+							a.press-slide__link-area(href="https://манжерок.рф/ru/news/manzherok-udostoen-chetyrekh-premiy-ski-business-awards-2022/") 
+						.press-slide__body
+							.press-slide__title «Манжерок» удостоен четырех премий SKI BUSINESS AWARDS 2022
+							a.press-slide__link(href="https://манжерок.рф/ru/news/manzherok-udostoen-chetyrekh-premiy-ski-business-awards-2022/")  ПОДРОБНЕЕ 
+					.swiper-slide.press-slide(data-aos="fade",data-aos-delay='1200',data-aos-duration="0",data-aos-anchor="#front-presss")
+						.press-slide__img-wrap._br(data-customcursor)
+							+picture('p-5','jpg')
+							.press-slide__footer._p-h
+								.press-slide__tag СМИ о нас
+								.press-slide__date 15 августа 2022
+							a.press-slide__link-area(href="https://манжерок.рф/ru/news/otdykh-eto-manzherok-kak-sber-razvivaet-populyarnyy-kurort/")
+						.press-slide__body
+							.press-slide__title Отдых — это Манжерок! Как Сбер развивает популярный курорт
+							a.press-slide__link(href="https://манжерок.рф/ru/news/otdykh-eto-manzherok-kak-sber-razvivaet-populyarnyy-kurort/")  ПОДРОБНЕЕ 
+					

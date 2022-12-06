@@ -193,24 +193,24 @@ $(function () {
 			},
 		});
 
-		const interleaveOffset = 0.1;
-		swipeEntertainment.on("progress", function (swiper, progress) {
-			console.log("progress");
-			for (let i = 0; i < swiper.slides.length; i++) {
-				let slideProgress = swiper.slides[i].progress;
-				console.log(swiper.slides[i].progress);
-				let innerOffset = swiper.width * interleaveOffset;
-				let innerTranslate = slideProgress * innerOffset;
-				TweenMax.set(
-					swiper.slides[i].querySelector(
-						".front-entertainment-slide__photo img"
-					),
-					{
-						x: innerTranslate,
-					}
-				);
-			}
-		});
+		// const interleaveOffset = 0.01;
+		// swipeEntertainment.on("progress", function (swiper, progress) {
+		// 	console.log("progress");
+		// 	for (let i = 0; i < swiper.slides.length; i++) {
+		// 		let slideProgress = swiper.slides[i].progress;
+		// 		console.log(swiper.slides[i].progress);
+		// 		let innerOffset = swiper.width * interleaveOffset;
+		// 		let innerTranslate = slideProgress * innerOffset;
+		// 		TweenMax.set(
+		// 			swiper.slides[i].querySelector(
+		// 				".front-entertainment-slide__photo img"
+		// 			),
+		// 			{
+		// 				x: innerTranslate,
+		// 			}
+		// 		);
+		// 	}
+		// });
 	}
 	let values = [];
 	h = 9;

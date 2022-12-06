@@ -27,7 +27,7 @@ $(function () {
 				height: wrap.innerHeight(),
 				top: 0,
 				left: 0,
-				borderRadius: "20px",
+				borderRadius: "10px",
 				duration: 0.33,
 				// ease: "linear",
 				onComplete: function () {

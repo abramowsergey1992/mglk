@@ -193,24 +193,24 @@ $(function () {
 			},
 		});
 
-		const interleaveOffset = 0.1;
-		swipeEntertainment.on("progress", function (swiper, progress) {
-			console.log("progress");
-			for (let i = 0; i < swiper.slides.length; i++) {
-				let slideProgress = swiper.slides[i].progress;
-				console.log(swiper.slides[i].progress);
-				let innerOffset = swiper.width * interleaveOffset;
-				let innerTranslate = slideProgress * innerOffset;
-				TweenMax.set(
-					swiper.slides[i].querySelector(
-						".front-entertainment-slide__photo img"
-					),
-					{
-						x: innerTranslate,
-					}
-				);
-			}
-		});
+		// const interleaveOffset = 0.01;
+		// swipeEntertainment.on("progress", function (swiper, progress) {
+		// 	console.log("progress");
+		// 	for (let i = 0; i < swiper.slides.length; i++) {
+		// 		let slideProgress = swiper.slides[i].progress;
+		// 		console.log(swiper.slides[i].progress);
+		// 		let innerOffset = swiper.width * interleaveOffset;
+		// 		let innerTranslate = slideProgress * innerOffset;
+		// 		TweenMax.set(
+		// 			swiper.slides[i].querySelector(
+		// 				".front-entertainment-slide__photo img"
+		// 			),
+		// 			{
+		// 				x: innerTranslate,
+		// 			}
+		// 		);
+		// 	}
+		// });
 	}
 	let values = [];
 	h = 9;
@@ -329,78 +329,6 @@ $(function () {
 
 $(function(){})
 $(function () {
-	const swiper = new Swiper(".pmenu-slider", {
-		speed: 400,
-		effect: "fade",
-		allowTouchMove: false,
-		spaceBetween: 100,
-		fadeEffect: {
-			crossFade: true,
-		},
-	});
-	$("[data-pslide]").click(function (e) {
-		e.preventDefault();
-
-		var maxWidth = window.matchMedia("(max-width: 890px)");
-		if (maxWidth.matches) {
-			if (!$(this).parent("li").hasClass("_open")) {
-				$(".pmenu-main__left-menu>ul>li").removeClass("_open");
-				$(this).parent("li").addClass("_open");
-				$(".pmenu-main__left-submenu").stop().slideUp();
-				$(this).next(".pmenu-main__left-submenu").stop().slideDown();
-			} else {
-				$(".pmenu-main__left-menu>ul>li").removeClass("_open");
-				$(this).next(".pmenu-main__left-submenu").stop().slideUp();
-			}
-		} else {
-			swiper.slideTo($(this).data("pslide"));
-		}
-	});
-	$(".pmenu-inner-slide__back").click(function (e) {
-		e.preventDefault();
-		swiper.slideTo(0);
-	});
-	$(".header__burgrer,.pmenu-open").click(function (e) {
-		e.preventDefault();
-		$(".pmenu").addClass("_open _zindex");
-	});
-	$(".pmenu__close").click(function () {
-		$(".pmenu").removeClass("_open ");
-		setTimeout(function () {
-			$(".pmenu").removeClass("_zindex");
-		}, 400);
-	});
-	$(".pmenu-main__left-menu ul li").each(function () {
-		let th = $(this);
-		let slide = swiper.slides[$(this).find("a").data("pslide")];
-		let ul = $("<ul>", {
-			class: "pmenu-main__left-submenu",
-		});
-		$(slide)
-			.find(".pmenu-item")
-			.each(function () {
-				ul.append(
-					`<li><a href="${$(this).find("a").attr("href")}">${$(this)
-						.find(".pmenu-item__icon")
-						.html()}${$(this).find("a").text()}</a></li>`
-				);
-			});
-		th.append(ul);
-	});
-});
-
-$(function () {
-	$(".video-hover-play").hover(
-		function () {
-			$(this).find("video")[0].play();
-		},
-		function () {
-			$(this).find("video")[0].pause();
-		}
-	);
-});
-
-$(function () {
 	if ($(".one-slider").length) {
 		$(".one-slider").each(function () {
 			let lngh = $(this).find(".swiper-slide").length;
@@ -423,6 +351,17 @@ $(function () {
 			});
 		});
 	}
+});
+
+$(function () {
+	$(".video-hover-play").hover(
+		function () {
+			$(this).find("video")[0].play();
+		},
+		function () {
+			$(this).find("video")[0].pause();
+		}
+	);
 });
 
 $(function () {
@@ -458,7 +397,7 @@ $(function () {
 				height: wrap.innerHeight(),
 				top: 0,
 				left: 0,
-				borderRadius: "20px",
+				borderRadius: "10px",
 				duration: 0.33,
 				// ease: "linear",
 				onComplete: function () {
@@ -577,4 +516,28 @@ window.addEventListener("resize", () => {
 		document.documentElement.style.setProperty("--vh", `${vh}px`);
 		width = window.innerWidth;
 	}
+});
+
+$(function () {
+	$.ajax({
+		url: "https://api.weather.yandex.ru/v2/informers",
+		data: {
+			lat: "51.831125",
+			lon: "85.777027",
+			lang: "RU",
+		},
+		method: "GET",
+		headers: {
+			"X-Yandex-API-Key": "970ddd68-3e5b-458c-b018-ab0652a06a17",
+		},
+		context: document.body,
+		success: function (data) {
+			console.log("Ошибка");
+			console.log(data);
+		},
+		error: function (data) {
+			console.log("Ошибка");
+			console.log(data);
+		},
+	});
 });
