@@ -1,5 +1,1 @@
-$(function () {
-	AOS.init({
-		once: true,
-	});
-});
+$(function () {});

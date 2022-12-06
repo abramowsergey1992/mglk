@@ -276,6 +276,8 @@ $(function () {
 	workloadSlider.trigger("change");
 });
 
+$(function () {});
+
 $(function () {
 	if ($("[data-customcursor]").length) {
 		$("[data-customcursor]").each(function () {
@@ -324,6 +326,17 @@ $(function () {
 
 $(function(){})
 $(function () {
+	$(".video-hover-play").hover(
+		function () {
+			$(this).find("video")[0].play();
+		},
+		function () {
+			$(this).find("video")[0].pause();
+		}
+	);
+});
+
+$(function () {
 	if ($(".one-slider").length) {
 		$(".one-slider").each(function () {
 			let lngh = $(this).find(".swiper-slide").length;
@@ -353,17 +366,6 @@ $(function () {
 });
 
 $(function () {
-	$(".video-hover-play").hover(
-		function () {
-			$(this).find("video")[0].play();
-		},
-		function () {
-			$(this).find("video")[0].pause();
-		}
-	);
-});
-
-$(function () {
 	// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 	// let sm = ScrollSmoother.create({
@@ -371,6 +373,7 @@ $(function () {
 	// 	effects: true, // looks for data-speed and data-lag attributes on elements
 	// 	smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
 	// });
+	let once = false;
 	if ($(".front-top").length) {
 		let top = true;
 		$("body").addClass("_no-scroll");
@@ -402,6 +405,14 @@ $(function () {
 						bg.removeClass("_transition");
 						setTimeout(function () {
 							$(".load-anim").addClass("_animate");
+							if (!once) {
+								setTimeout(function () {
+									AOS.init({
+										once: true,
+									});
+								}, 1400);
+							}
+							once = true;
 						});
 					}, 200);
 				},
@@ -495,11 +506,14 @@ $(function () {
 				}
 			},
 		});
+	} else {
+		AOS.init({
+			once: true,
+		});
 	}
 	$(window).scrollTop(0);
 	setTimeout(function () {
 		window.scrollTo(0, 0);
-		console.log("sss");
 	}, 111);
 });
 
@@ -567,11 +581,5 @@ $(function () {
 			console.log("Ошибка");
 			console.log(data);
 		},
-	});
-});
-
-$(function () {
-	AOS.init({
-		once: true,
 	});
 });
