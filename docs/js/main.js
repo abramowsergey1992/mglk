@@ -269,6 +269,24 @@ $(function () {
 			}
 		});
 	});
+	var DateTime = luxon.DateTime;
+	let timeNow = DateTime.now().setZone("UTC+7");
+	console.log("dt", timeNow.hour, timeNow.minute);
+	if (timeNow.hour >= 9 && timeNow.hour <= 20) {
+		workloadSlider.each(function () {
+			$(this)
+				.data("ionRangeSlider")
+				.update({
+					from: 60 * (timeNow.hour - 9) + timeNow.minute,
+				});
+		});
+	} else if (timeNow.hour >= 20) {
+		workloadSlider.each(function () {
+			$(this).data("ionRangeSlider").update({
+				from: 659,
+			});
+		});
+	}
 	workloadSlider.trigger("change");
 });
 
@@ -303,6 +321,7 @@ $(function () {
 });
 
 $(function(){})
+$(function(){})
 $(function () {
 	$(".link-arrow").each(function () {
 		$(this).html(
@@ -331,7 +350,6 @@ $(function () {
 	);
 });
 
-$(function(){})
 $(function () {
 	if ($(".one-slider").length) {
 		$(".one-slider").each(function () {
@@ -359,17 +377,6 @@ $(function () {
 
 $(function () {
 	load = true;
-});
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
 });
 
 $(function () {
@@ -523,6 +530,17 @@ $(function () {
 	setTimeout(function () {
 		window.scrollTo(0, 0);
 	}, 111);
+});
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
 });
 
 $(function () {

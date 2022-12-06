@@ -269,5 +269,23 @@ $(function () {
 			}
 		});
 	});
+	var DateTime = luxon.DateTime;
+	let timeNow = DateTime.now().setZone("UTC+7");
+	console.log("dt", timeNow.hour, timeNow.minute);
+	if (timeNow.hour >= 9 && timeNow.hour <= 20) {
+		workloadSlider.each(function () {
+			$(this)
+				.data("ionRangeSlider")
+				.update({
+					from: 60 * (timeNow.hour - 9) + timeNow.minute,
+				});
+		});
+	} else if (timeNow.hour >= 20) {
+		workloadSlider.each(function () {
+			$(this).data("ionRangeSlider").update({
+				from: 659,
+			});
+		});
+	}
 	workloadSlider.trigger("change");
 });
