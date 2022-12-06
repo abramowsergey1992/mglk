@@ -38,7 +38,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: {
 				sensitivity: 0.3,
@@ -53,6 +53,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -77,7 +78,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -89,6 +90,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -114,7 +116,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -126,6 +128,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -167,7 +170,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -177,9 +180,7 @@ $(function () {
 				480: {
 					slidesPerView: 1.6,
 				},
-				640: {
-					slidesPerView: 2,
-				},
+				640: { spaceBetween: 15, slidesPerView: 2 },
 				992: {
 					slidesPerView: 3,
 				},

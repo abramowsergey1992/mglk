@@ -76,8 +76,26 @@
 		top: 50%;
 		transform: translateY(-50%) translateX(-50%);
 
+		&-mw {
+			display: none;
+		}
+
 		.front-top__main-bg & {
 			display: none;
+
+
+
+			@media(max-width:890px) {
+				display: block;
+
+				img {
+					display: none !important;
+				}
+
+				.header__logo-mw {
+					display: block !important
+				}
+			}
 		}
 
 		@media(max-width:890px) {

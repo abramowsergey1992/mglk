@@ -123,10 +123,18 @@ img {
 .block {
 	margin-bottom: 90px;
 
+	@media(max-width:890px) {
+		margin-bottom: 50px;
+	}
+
 	&__head {
 		display: flex;
 		flex-direction: row;
 		margin-bottom: 30px;
+
+		@media(max-width:890px) {
+			margin-bottom: 18px;
+		}
 
 		h2,
 		.h2 {

@@ -38,7 +38,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: {
 				sensitivity: 0.3,
@@ -53,6 +53,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -77,7 +78,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -89,6 +90,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -114,7 +116,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -126,6 +128,7 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
@@ -167,7 +170,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -177,9 +180,7 @@ $(function () {
 				480: {
 					slidesPerView: 1.6,
 				},
-				640: {
-					slidesPerView: 2,
-				},
+				640: { spaceBetween: 15, slidesPerView: 2 },
 				992: {
 					slidesPerView: 3,
 				},
@@ -310,49 +311,7 @@ $(function () {
 });
 
 $(function(){})
-$(function () {
-	$(".link-arrow").each(function () {
-		$(this).html(
-			`<span class="link-arrow__text">${$(
-				this
-			).html()}</span> <svg width="29" height="19" viewBox="0 0 29 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 9.30769L27.7071 10.0148L28.4142 9.30769L27.7071 8.60059L27 9.30769ZM19.3994 18.3225L27.7071 10.0148L26.2929 8.60059L17.9852 16.9083L19.3994 18.3225ZM27.7071 8.60059L19.3994 0.292893L17.9852 1.70711L26.2929 10.0148L27.7071 8.60059ZM27 8.30769H0V10.3077H27V8.30769Z" /></svg>`
-		);
-	});
-	$(".link-chevron").each(function () {
-		$(this).html(
-			`<span class="link-chevron__text">${$(
-				this
-			).html()}</span> <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L14 12.1042L1 23.2083" stroke="" stroke-width="1.4"/></svg>`
-		);
-	});
-});
-
 $(function(){})
-$(function () {
-	if ($(".one-slider").length) {
-		$(".one-slider").each(function () {
-			let lngh = $(this).find(".swiper-slide").length;
-			let indx = $(this).find(".one-slider__fract-now");
-			indx.text(String(1).padStart(2, "0"));
-			$(this)
-				.find(".one-slider__fract-all")
-				.text("/" + String(lngh).padStart(2, "0"));
-			const oneSlider = new Swiper(".one-slider__slider", {
-				loop: true,
-				setWrapperSize: true,
-				spaceBetween: 10,
-				autoplay: {
-					delay: 5000,
-				},
-				pagination: { clickable: true, el: ".one-slider__pagi" },
-			});
-			oneSlider.on("slideChange", function () {
-				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
-			});
-		});
-	}
-});
-
 $(function () {
 	$(".video-hover-play").hover(
 		function () {
@@ -477,7 +436,7 @@ $(function () {
 				}
 			}
 		});
-		$(".ront-top").swipe({
+		$(".front-top").swipe({
 			preventDefaultEvents: false,
 			//Generic swipe handler for all directions
 			swipe: function (
@@ -520,24 +479,98 @@ window.addEventListener("resize", () => {
 
 $(function () {
 	$.ajax({
-		url: "https://api.weather.yandex.ru/v2/informers",
-		data: {
-			lat: "51.831125",
-			lon: "85.777027",
-			lang: "RU",
-		},
+		url: "http://2.shkolnik-shop.com/w.php",
 		method: "GET",
-		headers: {
-			"X-Yandex-API-Key": "970ddd68-3e5b-458c-b018-ab0652a06a17",
-		},
+		crossDomain: true,
 		context: document.body,
 		success: function (data) {
-			console.log("Ошибка");
+			data = JSON.parse(data);
 			console.log(data);
+			let condition = data.fact.condition.split("-and-").pop();
+			console.log(data.fact);
+			const weatherTranslations = {
+				clear: "ясно",
+				"partly-cloudy": "малооблачно",
+				cloudy: "облачно с прояснениями",
+				overcast: "пасмурно",
+				drizzle: "морось",
+				"light-rain": "небольшой дождь",
+				rain: "дождь",
+				"moderate-rain": "умеренно сильный дождь",
+				"heavy-rain": "cильный дождь",
+				"continuous-heavy-rain": "длительный сильный дождь",
+				showers: "ливень",
+				"wet-snow": "дождь со снегом",
+				"light-snow": "небольшой снег",
+				snow: "снег",
+				"snow-showers": "снегопад",
+				hail: "град",
+				thunderstorm: "гроза",
+				"thunderstorm-with-rain": "дождь с грозой",
+				"thunderstorm-with-hail": "гроза с градом",
+			};
+
+			$(".weather-block__status").text(weatherTranslations[condition]);
+			$(".weather-block__feel-temp").text(data.fact.feels_like);
+			$(".weather-block__temp-data").text(data.fact.temp);
+			$(".weather-block__dynamics-negative span").text(
+				data.forecasts[0].parts.day.temp_min
+			);
+			$(".weather-block__dynamics-positive  span").text(
+				data.forecasts[0].parts.day.temp_max
+			);
+			$(".weather-block__icon").attr(
+				"src",
+				"https://yastatic.net/weather/i/icons/funky/dark/" +
+					data.fact.icon +
+					".svg"
+			);
 		},
 		error: function (data) {
 			console.log("Ошибка");
 			console.log(data);
 		},
 	});
+});
+
+$(function () {
+	$(".link-arrow").each(function () {
+		$(this).html(
+			`<span class="link-arrow__text">${$(
+				this
+			).html()}</span> <svg width="29" height="19" viewBox="0 0 29 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 9.30769L27.7071 10.0148L28.4142 9.30769L27.7071 8.60059L27 9.30769ZM19.3994 18.3225L27.7071 10.0148L26.2929 8.60059L17.9852 16.9083L19.3994 18.3225ZM27.7071 8.60059L19.3994 0.292893L17.9852 1.70711L26.2929 10.0148L27.7071 8.60059ZM27 8.30769H0V10.3077H27V8.30769Z" /></svg>`
+		);
+	});
+	$(".link-chevron").each(function () {
+		$(this).html(
+			`<span class="link-chevron__text">${$(
+				this
+			).html()}</span> <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L14 12.1042L1 23.2083" stroke="" stroke-width="1.4"/></svg>`
+		);
+	});
+});
+
+$(function () {
+	if ($(".one-slider").length) {
+		$(".one-slider").each(function () {
+			let lngh = $(this).find(".swiper-slide").length;
+			let indx = $(this).find(".one-slider__fract-now");
+			indx.text(String(1).padStart(2, "0"));
+			$(this)
+				.find(".one-slider__fract-all")
+				.text("/" + String(lngh).padStart(2, "0"));
+			const oneSlider = new Swiper(".one-slider__slider", {
+				loop: true,
+				setWrapperSize: true,
+				spaceBetween: 10,
+				autoplay: {
+					delay: 5000,
+				},
+				pagination: { clickable: true, el: ".one-slider__pagi" },
+			});
+			oneSlider.on("slideChange", function () {
+				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
+			});
+		});
+	}
 });

@@ -24,17 +24,21 @@ block content
 				.front-top__right.grid-1._br._gap-15
 					.weather-block._br.load-anim._delay-0
 						.weather-block__temp
-							img(src="img/sun.svg", alt="")
-							span -12
+							img.weather-block__icon(src="img/sun.svg", alt="")
+							span 
+								span.weather-block__temp-data -12
 								sup o
 								| C
 						.weather-block__status Солнечно
-						.weather-block__feeling Ощущается как -4
+						.weather-block__feeling Ощущается как 
+							span.weather-block__feel-temp -4
 							sup о
 						.weather-block__dynamics
-							.weather-block__dynamics-negative -23
+							.weather-block__dynamics-negative
+								span -23
 								sup o
-							.weather-block__dynamics-positive -10
+							.weather-block__dynamics-positive 
+								span -10
 								sup o
 	
 					.skypass._br.load-anim._delay-600
@@ -67,7 +71,8 @@ block content
 				.front-top__right._br.front-info._p-h.load-anim._delay-1800
 					img(src="img/icon-i.svg", alt="").front-info__icon
 
-					| В 2017 году курорт стал одним из приоритетных инвестпроектов 
+					| Вы смотрите версию нового сайта курорта. Вернуться на 
+					a(href="https://манжерок.рф/") прежнюю версию   
 		.front-ablut-row._gap-15.mblock
 			._p._br.front-about( data-aos="fade",data-aos-duration="500")
 				h2 Курорт «Манжерок» у подножия
@@ -219,7 +224,7 @@ block content
 			
 		.front-restbars.block#front-restbars
 			.block__head._p-h
-				a.h2.link-chevron(href="#") Рестораны и бары 
+				.h2 Рестораны и бары 
 				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,12 +271,41 @@ block content
 								+picture('restbars-6','jpg')
 								.front-restbar__soon Скоро открытие
 							.front-restbar__title Лобби-бар
-
-				
-				
+					
+					.swiper-slide.front-restbar-mobile.front-restbar(data-aos="fade",data-aos-delay='0',data-aos-duration="0",data-aos-anchor="#front-restbars")
+						.front-restbar__photo._br
+							+picture('restbars-1','jpg')
+							.front-restbar__soon Скоро открытие
+						.front-restbar__title Точки питания на горе
+					.swiper-slide.front-restbar-mobile.front-restbar(data-aos="fade",data-aos-delay='300',data-aos-duration="0",data-aos-anchor="#front-restbars")
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-2','jpg')
+						a(href="https://манжерок.рф/ru/activity/pitanie/").front-restbar__title РЕСТОРАН «ГОРНЫЙ»
+					
+					.swiper-slide.front-restbar-mobile.front-restbar
+						.front-restbar__photo._br
+							+picture('restbars-3','jpg')
+							.front-restbar__soon Скоро открытие
+						.front-restbar__title Панорамный ресторан
+					.swiper-slide.front-restbar-mobile.front-restbar
+						.front-restbar__photo._br
+							+picture('restbars-4','jpg')
+							.front-restbar__soon Скоро открытие
+						.front-restbar__title Ресторан в виллах
+					.swiper-slide.front-restbar-mobile.front-restbar
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-5','jpg')
+							.front-restbar__soon Скоро открытие
+						.front-restbar__title Фудкорт
+					.swiper-slide.front-restbar-mobile.front-restbar
+						.front-restbar__photo._br(data-customcursor)
+							+picture('restbars-6','jpg')
+							.front-restbar__soon Скоро открытие
+						.front-restbar__title Лобби-бар
+			
 		.front-entertainment.block#front-entertainment 
 			.block__head._p-h
-				a.h2.link-chevron(href="#") Развлечения 
+				.h2 Развлечения 
 				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -314,7 +348,7 @@ block content
 					
 		.front-press.block 
 			.block__head._p-h
-				a.h2.link-chevron(href="#") Пресс-центр 
+				.h2 Пресс-центр 
 				.block__slider-nav.mob-hidden
 					button.block__slider-prev
 						<svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">

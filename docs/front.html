@@ -41,7 +41,7 @@
         <div class="inner">
           <div class="header__block _br _p-h">
             <div class="header__row">
-              <div class="header__left mob-hidden"><a class="header__skypass" href="https://shop.mglk.ru/ru/Tickets">Купить Ski-pass</a></div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""></a>
+              <div class="header__left mob-hidden"><a class="header__skypass" href="https://shop.mglk.ru/ru/Tickets">Купить Ski-pass</a></div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""><img class="header__logo-mw" src="img/logo-mw.svg" alt=""></a>
               <div class="header__right"><a class="header__roombook btn mob-hidden" href="#">Забронировать номер</a>
                 <ul class="header-icons desc-hidden">
                   <li> <a class="header-icons__link" href="/"><svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@
                         <div class="inner">
                           <div class="header__block _br _p-h">
                             <div class="header__row">
-                              <div class="header__left mob-hidden"><a class="header__skypass" href="https://shop.mglk.ru/ru/Tickets">Купить Ski-pass</a></div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""></a>
+                              <div class="header__left mob-hidden"><a class="header__skypass" href="https://shop.mglk.ru/ru/Tickets">Купить Ski-pass</a></div><a class="header__logo" href="/"><img class="_desc" src="img/logo.svg" alt=""><img class="_mob" src="img/logo-mob.svg" alt=""><img class="header__logo-mw" src="img/logo-mw.svg" alt=""></a>
                               <div class="header__right"><a class="header__roombook btn mob-hidden" href="#">Забронировать номер</a>
                                 <ul class="header-icons desc-hidden">
                                   <li> <a class="header-icons__link" href="/"><svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,12 +92,12 @@
                   </div>
                   <div class="front-top__right grid-1 _br _gap-15">
                     <div class="weather-block _br load-anim _delay-0">
-                      <div class="weather-block__temp"><img src="img/sun.svg" alt=""><span>-12<sup>o</sup>C</span></div>
+                      <div class="weather-block__temp"><img class="weather-block__icon" src="img/sun.svg" alt=""><span> <span class="weather-block__temp-data">-12</span><sup>o</sup>C</span></div>
                       <div class="weather-block__status">Солнечно</div>
-                      <div class="weather-block__feeling">Ощущается как -4<sup>о</sup></div>
+                      <div class="weather-block__feeling">Ощущается как <span class="weather-block__feel-temp">-4</span><sup>о</sup></div>
                       <div class="weather-block__dynamics">
-                        <div class="weather-block__dynamics-negative">-23<sup>o</sup></div>
-                        <div class="weather-block__dynamics-positive">-10<sup>o</sup></div>
+                        <div class="weather-block__dynamics-negative"><span>-23</span><sup>o</sup></div>
+                        <div class="weather-block__dynamics-positive"> <span>-10</span><sup>o</sup></div>
                       </div>
                     </div>
                     <div class="skypass _br load-anim _delay-600"><a href="https://shop.mglk.ru/ru/Tickets"> <img src="img/skypass.jpg" alt=""><span>Купить абонемент</span></a></div>
@@ -126,7 +126,7 @@
                     </picture>
                     <h3>Бронирование номера </h3>
                   </div>
-                  <div class="front-top__right _br front-info _p-h load-anim _delay-1800"><img class="front-info__icon" src="img/icon-i.svg" alt="">В 2017 году курорт стал одним из приоритетных инвестпроектов </div>
+                  <div class="front-top__right _br front-info _p-h load-anim _delay-1800"><img class="front-info__icon" src="img/icon-i.svg" alt="">Вы смотрите версию нового сайта курорта. Вернуться на <a href="https://манжерок.рф/">прежнюю версию   </a></div>
                 </div>
               </div>
               <div class="front-ablut-row _gap-15 mblock">
@@ -337,7 +337,8 @@
                 </div>
               </div>
               <div class="front-restbars block" id="front-restbars">
-                <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Рестораны и бары </a>
+                <div class="block__head _p-h">
+                  <div class="h2">Рестораны и бары </div>
                   <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -411,11 +412,64 @@
                         <div class="front-restbar__title">Лобби-бар</div>
                       </div>
                     </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar" data-aos="fade" data-aos-delay="0" data-aos-duration="0" data-aos-anchor="#front-restbars">
+                      <div class="front-restbar__photo _br">
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-1.webp"/><img alt="" src="img/restbars-1.jpg"/>
+                        </picture>
+                        <div class="front-restbar__soon">Скоро открытие</div>
+                      </div>
+                      <div class="front-restbar__title">Точки питания на горе</div>
+                    </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar" data-aos="fade" data-aos-delay="300" data-aos-duration="0" data-aos-anchor="#front-restbars">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-2.webp"/><img alt="" src="img/restbars-2.jpg"/>
+                        </picture>
+                      </div><a class="front-restbar__title" href="https://манжерок.рф/ru/activity/pitanie/">РЕСТОРАН «ГОРНЫЙ»</a>
+                    </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar">
+                      <div class="front-restbar__photo _br">
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-3.webp"/><img alt="" src="img/restbars-3.jpg"/>
+                        </picture>
+                        <div class="front-restbar__soon">Скоро открытие</div>
+                      </div>
+                      <div class="front-restbar__title">Панорамный ресторан</div>
+                    </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar">
+                      <div class="front-restbar__photo _br">
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-4.webp"/><img alt="" src="img/restbars-4.jpg"/>
+                        </picture>
+                        <div class="front-restbar__soon">Скоро открытие</div>
+                      </div>
+                      <div class="front-restbar__title">Ресторан в виллах</div>
+                    </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-5.webp"/><img alt="" src="img/restbars-5.jpg"/>
+                        </picture>
+                        <div class="front-restbar__soon">Скоро открытие</div>
+                      </div>
+                      <div class="front-restbar__title">Фудкорт</div>
+                    </div>
+                    <div class="swiper-slide front-restbar-mobile front-restbar">
+                      <div class="front-restbar__photo _br" data-customcursor>
+                        <picture>
+                          <source type="image/webp" srcset="img/restbars-6.webp"/><img alt="" src="img/restbars-6.jpg"/>
+                        </picture>
+                        <div class="front-restbar__soon">Скоро открытие</div>
+                      </div>
+                      <div class="front-restbar__title">Лобби-бар</div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="front-entertainment block" id="front-entertainment"> 
-                <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Развлечения </a>
+                <div class="block__head _p-h">
+                  <div class="h2">Развлечения </div>
                   <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -481,7 +535,8 @@
                 </div>
               </div>
               <div class="front-press block"> 
-                <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Пресс-центр </a>
+                <div class="block__head _p-h">
+                  <div class="h2">Пресс-центр </div>
                   <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>

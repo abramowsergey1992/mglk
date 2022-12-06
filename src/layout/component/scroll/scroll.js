@@ -107,7 +107,7 @@ $(function () {
 				}
 			}
 		});
-		$(".ront-top").swipe({
+		$(".front-top").swipe({
 			preventDefaultEvents: false,
 			//Generic swipe handler for all directions
 			swipe: function (
