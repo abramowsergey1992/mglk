@@ -127,7 +127,8 @@ $(function () {
 				fingerCount,
 				fingerData
 			) {
-				if (direction == "top" && distance >= 50) {
+				console.log(direction);
+				if (direction == "up" && distance >= 50) {
 					console.log(direction);
 					if (top) {
 						// $("html, body").animate({
