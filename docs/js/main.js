@@ -1,3 +1,5 @@
+$(function(){})
+$(function(){})
 $(function () {
 	videoPosition = $(".front-top__main-bg").offset();
 	if (document.querySelector(".front-top-slider")) {
@@ -275,6 +277,7 @@ $(function () {
 	workloadSlider.trigger("change");
 });
 
+$(function(){})
 $(function () {
 	AOS.init({
 		once: true,
@@ -328,6 +331,17 @@ $(function () {
 });
 
 $(function(){})
+$(function () {
+	$(".video-hover-play").hover(
+		function () {
+			$(this).find("video")[0].play();
+		},
+		function () {
+			$(this).find("video")[0].pause();
+		}
+	);
+});
+
 $(function () {
 	const swiper = new Swiper(".pmenu-slider", {
 		speed: 400,
@@ -387,42 +401,6 @@ $(function () {
 			});
 		th.append(ul);
 	});
-});
-
-$(function () {
-	$(".video-hover-play").hover(
-		function () {
-			$(this).find("video")[0].play();
-		},
-		function () {
-			$(this).find("video")[0].pause();
-		}
-	);
-});
-
-$(function () {
-	if ($(".one-slider").length) {
-		$(".one-slider").each(function () {
-			let lngh = $(this).find(".swiper-slide").length;
-			let indx = $(this).find(".one-slider__fract-now");
-			indx.text(String(1).padStart(2, "0"));
-			$(this)
-				.find(".one-slider__fract-all")
-				.text("/" + String(lngh).padStart(2, "0"));
-			const oneSlider = new Swiper(".one-slider__slider", {
-				loop: true,
-				setWrapperSize: true,
-				spaceBetween: 10,
-				autoplay: {
-					delay: 5000,
-				},
-				pagination: { clickable: true, el: ".one-slider__pagi" },
-			});
-			oneSlider.on("slideChange", function () {
-				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
-			});
-		});
-	}
 });
 
 $(function () {
@@ -566,6 +544,31 @@ $(function () {
 		window.scrollTo(0, 0);
 		console.log("sss");
 	}, 111);
+});
+
+$(function () {
+	if ($(".one-slider").length) {
+		$(".one-slider").each(function () {
+			let lngh = $(this).find(".swiper-slide").length;
+			let indx = $(this).find(".one-slider__fract-now");
+			indx.text(String(1).padStart(2, "0"));
+			$(this)
+				.find(".one-slider__fract-all")
+				.text("/" + String(lngh).padStart(2, "0"));
+			const oneSlider = new Swiper(".one-slider__slider", {
+				loop: true,
+				setWrapperSize: true,
+				spaceBetween: 10,
+				autoplay: {
+					delay: 5000,
+				},
+				pagination: { clickable: true, el: ".one-slider__pagi" },
+			});
+			oneSlider.on("slideChange", function () {
+				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
+			});
+		});
+	}
 });
 
 var vh = window.innerHeight * 0.01;

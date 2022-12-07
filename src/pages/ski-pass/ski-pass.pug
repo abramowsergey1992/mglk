@@ -1,0 +1,50 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.page-top
+			+breadcrumb(['Главная'], 'Купить ski-pass')
+			.page-top__bg
+				+picture('pskipass','jpg')
+				h1 Купить SKI-PASS 
+					br
+					| и билет на канатную дорогу
+				p наслаждение свободой
+		.block.skipass-top
+			.skipass-top__grid 
+				.skipass-info 
+					.skipass-info__row 
+						.skipass-info__stat
+							.skipass-info__stat-big 21 км
+							.skipass-info__stat-desc Протяженность трасс
+						.skipass-info__stat
+							.skipass-info__stat-big 390 
+								<svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M14.1775 14.5237L13.4704 15.2308L14.8846 16.645L15.5917 15.9379L14.1775 14.5237ZM21.5 8.61538L22.2071 9.32249L22.9142 8.61538L22.2071 7.90828L21.5 8.61538ZM15.5917 1.29289L14.8846 0.585786L13.4704 2L14.1775 2.70711L15.5917 1.29289ZM15.5917 15.9379L22.2071 9.32249L20.7929 7.90828L14.1775 14.5237L15.5917 15.9379ZM22.2071 7.90828L15.5917 1.29289L14.1775 2.70711L20.7929 9.32249L22.2071 7.90828ZM21.5 7.61538H0V9.61538H21.5V7.61538Z"/>
+								</svg>
+								| 1 240 м
+							.skipass-info__stat-desc Протяженность трасс
+					h2 Всесезонный курорт «Манжерок» предлагает трассы «зелёного», «синего», «красного» и «черного» уровней сложности.
+					p Уникальное расположение у подножия горы Малая Синюха
+						br
+						| дарит свободу передвижений и легкость в перемещениях.
+					blockquote Для более комфортного катания трассы оснежаются и уплотняются ратраками. В целях безопасности все трассы огорожены.
+				.skipass-book
+					h3 Подобрать  SKI-PASS 
+				.skipass-link
+					.skipass-link__bg
+						+picture('skipass-link','jpg')
+						.skipass-link__title.h2  Встречаем рассвет
+							br
+							| на Малой Синюхе
+						a.arrow-link(href="#") ПОДРОБНЕЕ
+		.block.skipass-tarifs
+			.h1 Тарифы
+			.skipass-tarif
+				.skipass-tarif__head 
+					.skipass-tarif__title Экскурсионный подъем 
+					.skipass-tarif__label разовый
+					.skipass-tarif__toggle 
+				.skipass-tarif__body
+
