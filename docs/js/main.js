@@ -321,7 +321,6 @@ $(function () {
 });
 
 $(function(){})
-$(function(){})
 $(function () {
 	$(".link-arrow").each(function () {
 		$(this).html(
@@ -339,6 +338,7 @@ $(function () {
 	});
 });
 
+$(function(){})
 $(function () {
 	$(".video-hover-play").hover(
 		function () {
