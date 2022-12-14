@@ -3,7 +3,7 @@ block title
 	title Манжерок 
 block content
 	.inner
-		.page-top
+		.mblock.page-top
 			+breadcrumb(['Главная'], 'Курорт')
 			.page-top__bg._br
 				+picture('about-top','jpg')
@@ -11,8 +11,10 @@ block content
 				br
 				| Горный Алтай
 			.page-top__desc
-				p У подножия горы Малая Синюха, на высоте 423 метра над уровнем моря, вблизи теплого озера расположился курорт «Манжерок»
-		.about-menu
+				p У подножия горы Малая Синюха, на высоте 423 метра над уровнем
+					br
+					| моря, вблизи теплого озера расположился курорт «Манжерок»
+		.about-menu._br.mblock
 			.about-menu-it
 				.about-menu-it__bg
 					+picture('about-top','jpg')
@@ -150,72 +152,97 @@ block content
 					<svg width="38" height="43" viewBox="0 0 38 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M3.8172 20.7615L1.63485 26.3616C1.16058 27.7625 1.11501 29.2765 1.5032 30.7061L4.61722 39.1013V41.633" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 						<path d="M18.9642 33.1954C18.9642 33.1954 36.6863 25.5597 36.6863 12.0944C36.6863 4.94479 32.2507 1.12695 27.0877 1.12695C21.9247 1.12695 18.9642 6.47226 18.9642 6.47226C18.9642 6.47226 16.0089 1.12695 10.8408 1.12695C5.6727 1.12695 1.24219 4.94479 1.24219 12.0944C1.24219 25.5597 18.9642 33.1954 18.9642 33.1954Z" stroke="#106AC6" stroke-width="1.4" stroke-linejoin="round"/>
-						<path d="M8.83594 29.8196C9.62415 29.4584 10.3415 28.8018 10.4512 27.8111L11.2782 20.059C11.3322 18.9653 12.2133 18.0083 13.4555 18.0049C14.2049 18.0032 14.9256 18.4285 15.2918 19.0817C15.4674 19.394 15.5872 19.7265 15.5872 20.037V31.5901C15.5872 35.7269 13.8994 39.1026 13.8994 39.1026V41.6343" fill="white"/>
+
 						<path d="M8.83594 29.8196C9.62415 29.4584 10.3415 28.8018 10.4512 27.8111L11.2782 20.059C11.3322 18.9653 12.2133 18.0083 13.4555 18.0049C14.2049 18.0032 14.9256 18.4285 15.2918 19.0817C15.4674 19.394 15.5872 19.7265 15.5872 20.037V31.5901C15.5872 35.7269 13.8994 39.1026 13.8994 39.1026V41.6343" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 						<path d="M34.1125 20.7615L36.2949 26.3616C36.7691 27.7625 36.8147 29.2765 36.4265 30.7061L33.3125 39.1013V41.633" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-						<path d="M29.0872 29.8196C28.299 29.4584 27.5817 28.8018 27.472 27.8111L26.6449 20.059C26.5909 18.9653 25.7099 18.0083 24.4676 18.0049C23.7183 18.0032 22.9976 18.4285 22.6313 19.0817C22.4558 19.394 22.3359 19.7265 22.3359 20.037V31.5901C22.3359 35.7269 24.0238 39.1026 24.0238 39.1026V41.6343" fill="white"/>
+
 						<path d="M29.0872 29.8196C28.299 29.4584 27.5817 28.8018 27.472 27.8111L26.6449 20.059C26.5909 18.9653 25.7099 18.0083 24.4676 18.0049C23.7183 18.0032 22.9976 18.4285 22.6313 19.0817C22.4558 19.394 22.3359 19.7265 22.3359 20.037V31.5901C22.3359 35.7269 24.0238 39.1026 24.0238 39.1026V41.6343" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 				a(href="#").about-menu-it__link Манжерок «Добро»
 		.about-two.block
-			.about-two-it
-				.about-two-it__img
+			.about-two-it._br
+				.about-two-it__img._br
 					+picture('about-1','jpg')
 				p «Манжерок» круглый год гостеприимно принимает каждого, кто хочет познакомиться с&nbsp;удивительной атмосферой и захватывающей дух природой горного Алтая
-				a.arrow-link(href="#") Развлечение
-			.about-two-it
-				.about-two-it__img
+				a.link-arrow(href="#") Развлечение
+			.about-two-it._br
+				.about-two-it__img._br
 					+picture('about-2','jpg')
 				p Единственное место с европейским уровнем сервиса во всей республике Алтай. Здесь есть всё для полноценного семейного отдыха, романтической поездки или уединенного духовного путешествия
-				a.arrow-link(href="#") Проживание
+				a.link-arrow(href="#") Проживание
 		.about-inf-block.block
-			h2 Инфоаструктура
+			.block__head._p-h
+				h2 Инфоаструктура
 			.about-inf-grid 
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-1','jpg')
-					.about-inf__title Виллы
+					
+					.about-inf__title.h2 Виллы
+					ul 
+						li 12 вилл
+						li Отдельный термальный комплекс
+							br
+							| с 3 банями и бассейном 
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-2','jpg')
-					.about-inf__title Отель 3
+					.about-inf__title.h2 Отель 3
 					.about-inf__stars
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
+					ul
+						li 7 корпусов коттеджного типа
+						li 82 номера
+						li Cемейное размещение  
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-3','jpg')
-					.about-inf__title Отель 5
+					.about-inf__title.h2 Отель 5
 					.about-inf__stars
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
 						img(src="img/star.svg", alt="")
+					ul
+						li 304 номера
+						li Конференц-зал
+						li Ночной клуб
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-4','jpg')
-					.about-inf__title Глэмпинг
+					.about-inf__title.h2 Глэмпинг
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-5','jpg')
-					.about-inf__title Рестораны
+					.about-inf__title.h2 Рестораны
+					ul 
+						li Аутентичная алтайская кухня 
+						li Европейская кухня
+						li Дизайнерский интерьер 
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-6','jpg')
-					.about-inf__title Горные лыжи
+					.about-inf__title.h2 Горные лыжи
+					ul 
+						li 7 канатных дорог
+						li 52 км горнолыжных трасс
 					a(href="#").about-inf__link
-				.about-inf
+				.about-inf._br(data-customcursor)
 					.about-inf__bg
 						+picture('about-i-7','jpg')
-					.about-inf__title
+					.about-inf__title.h2 СПА-комплекс
 					.about-inf__stars
+					ul 
+						li 2 бассейна
+						li 5 видов саун и бань тренажерный зал  
 					a(href="#").about-inf__link
 		.block.monuments
 			.h1 Уникальные памятники природы
