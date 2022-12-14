@@ -1,0 +1,61 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		+breadcrumb(['Главная'], 'Пресс-центр')
+
+		.block
+			.block__head
+				.h1 Пресс-центр
+				.block__filters
+					.block__filter(data-filter="all") Все
+					.block__filter(data-filter="smi") СМИ О НАС
+					.block__filter(data-filter="news") НОВОСТИ
+			.news-list-column
+				.news-preview._br(data-filter="news")
+					.news-preview__row
+						.news-preview__photo-wrap._br
+							+picture('press-1','jpg').news-preview__photo 
+							.news-preview__label Новости
+							.news-preview__date 03 ноября 2022
+						.news-preview__content
+							.news-preview__title.h2 «Манжерок» удостоен четырех премий SKI BUSINESS AWARDS 2022
+							.news-preview__desc
+								p В Сочи 1 ноября состоялось вручении премии SKI BUSINESS AWARDS 2022 в рамках Международного форума «Горы. Туризм. Бизнес».
+							a(href="#").news-preview__link Подробнее
+				.news-preview._br(data-filter="news")
+					.news-preview__row
+						.news-preview__photo-wrap._br 
+							+picture('press-2','jpg').news-preview__photo 
+							.news-preview__label Новости
+							.news-preview__date 01 ноября 2022
+						.news-preview__content
+							.news-preview__title.h2 Курорт Манжерок во второй раз примет Кубок России по горнолыжному спорту 
+							.news-preview__desc
+								p Соревнования пройдут на территории всесезонного курорта «Манжерок» с 26 января по 1 февраля 2023 года.
+							a(href="#").news-preview__link Подробнее
+				.news-preview._br(data-filter="news")
+					.news-preview__row
+						.news-preview__photo-wrap._br
+							+picture('press-3','jpg').news-preview__photo 
+							.news-preview__label Новости
+							.news-preview__date 01 ноября 2022
+						.news-preview__content
+							.news-preview__title.h2 Курорт Манжерок во второй раз примет Кубок России по горнолыжному спорту 
+							.news-preview__desc
+								
+							a(href="#").news-preview__link Подробнее
+				.news-preview._br(data-filter="smi")
+					.news-preview__row
+						.news-preview__photo-wrap._br
+							+picture('press-4','jpg').news-preview__photo 
+							.news-preview__label СМИ о нас
+							.news-preview__date 01 ноября 2022
+						.news-preview__content
+							.news-preview__title.h2 Отдых — это Манжерок! Как Сбер развивает популярный курорт
+							.news-preview__desc
+								p В Горно-Алтайске под руководством председателя правительства прошло совещание с представителями органов федеральной и региональной власти.
+							a(href="#").news-preview__link Подробнее
+
+							

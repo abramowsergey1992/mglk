@@ -1,0 +1,50 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.mblock.page-top
+			+breadcrumb(['Главная'], 'Акции и спецпредложения')
+			.page-top__bg._br
+				+picture('pr-1','jpg')
+			h1 Акции и спецпредложения
+			.page-top__desc 
+				p Место безграничных возможностей
+		.block
+			.promo-grid
+				.promo-preview
+					.promo-preview__bg._br
+						+picture('pr-2','jpg')
+					.promo-preview__content 
+						ul.promo-preview__top
+							li Специальное предложение
+							li Июнь-Август 2022
+						a.h2.link-chevron.promo-preview__link(href="#") Свадьба в Горах 
+			
+				.promo-preview 
+					.promo-preview__bg._br
+						+picture('pr-3','jpg')
+					.promo-preview__content 
+						ul.promo-preview__top
+							li Акция
+							li СКИДКА 10%
+						a.h2.link-chevron.promo-preview__link(href="#")  День Рождения в Манжероке
+			
+				.promo-preview
+					.promo-preview__bg._br
+						+picture('pr-4','jpg')
+					.promo-preview__content 
+						ul.promo-preview__top
+							li Акция
+							li СКИДКА 10%
+						a.h2.link-chevron.promo-preview__link(href="#") Блюда на вынос со скидкой
+				
+				.promo-preview
+					.promo-preview__bg._br
+						+picture('pr-5','jpg')
+					.promo-preview__content 
+						ul.promo-preview__top
+							li Спецпредложение
+							li Часы в подарок
+						a.h2.link-chevron.promo-preview__link(href="#")  Беседка 1+1=3 
+				

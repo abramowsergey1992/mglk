@@ -11,9 +11,33 @@ button {
 	letter-spacing: -0.02em;
 	padding: 10px 20px;
 	border: 0 solid;
+	display: inline-block;
 	color: #FFFFFF;
 	cursor: pointer;
 	cursor: pointer;
+	text-decoration: none;
+
+	&:hover {
+		background: linear-gradient(339.74deg, #0C4DC1 -27.75%, #0C4DC1 144.6%);
+	}
+}
+
+.btn2 {
+	background: linear-gradient(339.74deg, #1488CC -27.75%, #0C4DC1 144.6%);
+	border-radius: 10px;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: -0.02em;
+	padding: 15px;
+	border: 0 solid;
+	display: inline-block;
+	color: #FFFFFF;
+	cursor: pointer;
+	min-width: 165px;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
 
 	&:hover {
 		background: linear-gradient(339.74deg, #0C4DC1 -27.75%, #0C4DC1 144.6%);

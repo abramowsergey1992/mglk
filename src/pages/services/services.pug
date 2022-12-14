@@ -1,0 +1,72 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.block.page-top._big
+			+breadcrumb(['Главная'], 'Услуги и развлечения')
+			.page-top__bg._br
+				+picture('services-top','jpg')
+			h1 Услуги и развлечения
+			.page-top__desc
+				p Территория развлечений для всех 
+					br
+					| возрастов и темпераментов
+		.block
+			.block__head.mob-hidden._p-h
+				.h1 Услуги
+				.block__filters
+					.block__filter(data-filter="all") Все
+					.block__filter(data-filter="winter") Зима
+					.block__filter(data-filter="summer") Лето
+			.services-grid 
+				.service-preview._br(data-filter='winter')._half
+					+picture('service-1','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link SPA-комплекс в отеле 5
+						sup *
+			
+				.service-preview._br(data-filter='summer')._half
+					+picture('service-2','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Бани в виллах
+					
+				.service-preview._br(data-filter='winter')._third
+					+picture('service-3','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Бани в отеле 3 звезды 
+					
+			
+				.service-preview._br(data-filter='summer')._third
+					+picture('service-4','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link  Экскурсии
+				
+			
+				.service-preview._br(data-filter='winter')._third
+					+picture('service-5','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Тренажерный зал
+				.service-preview._br(data-filter='summer')._full
+					+picture('service-6','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link  Парк Хранитель Большого Алтая
+				
+			
+				.service-preview._br(data-filter='winter')._third
+					+picture('service-7','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Ночной клуб
+				.service-preview._br(data-filter='summer')._third
+					+picture('service-8','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Йога
+				
+			
+				.service-preview._br(data-filter='winter')._third
+					+picture('service-9','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Парапланы
+				.service-preview._br(data-filter='summer')._third
+					+picture('service-10','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Квадроциклы
+				
+			
+				.service-preview._br(data-filter='winter')._third
+					+picture('service-11','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Терренкуры
+				.service-preview._br(data-filter='summer')._third
+					+picture('service-12','jpg').service-preview__bg
+					a.h2.link-chevron.service-preview__link Для детей 
+				

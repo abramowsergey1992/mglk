@@ -1,0 +1,30 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.mblock.page-top._big
+			+breadcrumb(['Главная'], 'Проживание')
+			.page-top__bg._br
+				+picture('hotel','jpg')
+			h1 Проживание на курорте
+		.mblock
+			.hotel-row 
+				.hotel-preview
+					.hotel-preview__bg._br
+						+picture('h-1','jpg')
+					a.h2.link-chevron.hotel-preview__link(href="#") Виллы
+				.hotel-preview
+					.hotel-preview__bg._br
+						+picture('h-2','jpg')
+					a.h2.link-chevron.hotel-preview__link(href="#") Отель 5
+						sup *
+				.hotel-preview
+					.hotel-preview__bg._br
+						+picture('h-3','jpg')
+					a.h2.link-chevron.hotel-preview__link(href="#") Отель 3
+						sup *
+				.hotel-preview
+					.hotel-preview__bg._br
+						+picture('h-4','jpg')
+					a.h2.link-chevron.hotel-preview(href="#") Глэмпинги
