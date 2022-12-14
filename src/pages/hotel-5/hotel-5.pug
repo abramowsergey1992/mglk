@@ -1,0 +1,213 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.mblock.page-top._big
+			+breadcrumb(['Главная'], 'Проживание','Отель 5<sup>*</sup>')
+			.page-top__bg._br
+				
+				+picture('hotel5','jpg')
+			.h2 Отель 5
+			.stars
+				img(src="img/star.svg", alt="")
+				img(src="img/star.svg", alt="")
+				img(src="img/star.svg", alt="")
+				img(src="img/star.svg", alt="")
+				img(src="img/star.svg", alt="")
+			h1 Жизнь высокого комфорта
+		.block
+			.grid._gap-15
+				.col-desc-3._br._p 
+					.text
+						.h2  Концепция «Иммерсивная природа» разработана совместно с дизайн-бюро международного уровня
+						p 
+							big Природные оттенки и натуральные материалы отделки гармонируют с лесным и горным ландшафтом. В комплексе есть всё для комфортной жизни: спа-зона, тренажерный зал, конференц-холл, рестораны, зоны отдыха, магазины
+						blockquo В базовый вариант размещения входит полноценное трехразовое питание, в полупансион — завтрак/обед или завтрак/ужин на ваш выбор
+				.col-desc-3.one-slider
+					.one-slider__slider.swiper
+						.swiper-wrapper
+							.swiper-slide.one-slider__slide._br
+								+picture('ps2','jpg')
+								.one-slider__more
+							.swiper-slide.one-slider__slide._br
+								+picture('ps','jpg')
+								.one-slider__more
+							.swiper-slide.one-slider__slide._br
+								+picture('ps','jpg')
+								.one-slider__more
+						.one-slider__fract
+							span.one-slider__fract-now
+							span.one-slider__fract-all
+						.one-slider__pagi
+		.block.room-preview
+			.block__head._p-h
+				.h1 Стандартный номер
+			.room-preview__row._br 
+				.room-preview__photo-wrap
+					.room-preview__slider.swiper
+						.swiper-wrapper
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-21','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-22','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-23','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-24','jpg')
+						.room-preview__fract
+							span.room-preview__fract-now
+							span.room-preview__fract-all
+						.room-preview__pagi
+				.room-preview__content
+					.room-preview__title Светлые номера с балконом подходят для двухместного размещения
+					.room-preview__desc 
+						p Каждый номер оснащен одной двуспальной или двумя односпальными кроватями, а также мини-кухней. С балкона открывается чудесный вид на территорию курорта
+					ul.room-preview__parametrs 
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/paramtr-1.svg")
+							.room-preview__parametr-title 2 человека
+							.room-preview__parametr-desc вместительность
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/parametr-2.svg")
+							.room-preview__parametr-title 22 м
+								sup 2
+							.room-preview__parametr-desc общая площадь
+					.room-preview__price 
+						span от
+						| 6 500 ₽
+					a(href="@").btn ПОДРОБНЕЕ
+		
+		.block.room-preview
+			.block__head._p-h
+				.h1 Стандартный номер PLUS
+			.room-preview__row._br 
+				.room-preview__photo-wrap
+					.room-preview__slider.swiper
+						.swiper-wrapper
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-22','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-21','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-23','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-24','jpg')
+						.room-preview__fract
+							span.room-preview__fract-now
+							span.room-preview__fract-all
+						.room-preview__pagi
+				.room-preview__content
+					.room-preview__title Светлые номера с балконом 
+						br
+						| и дизайнерским интерьером подходят для двухместного размещения
+					.room-preview__desc 
+						p Каждый номер оснащен одной двуспальной или двумя односпальными кроватями, а также полноценной кухней. С балкона открывается чудесный вид на озеро, гору Малая Синюха или территорию курорта
+					ul.room-preview__parametrs 
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/paramtr-1.svg")
+							.room-preview__parametr-title 2 человека
+							.room-preview__parametr-desc вместительность
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/parametr-2.svg")
+							.room-preview__parametr-title 22 м
+								sup 2
+							.room-preview__parametr-desc общая площадь
+					.room-preview__price 
+						span от
+						| 8 500 ₽
+					a(href="@").btn ПОДРОБНЕЕ
+		
+		.block.room-preview
+			.block__head._p-h
+				.h1 Студия
+			.room-preview__row._br 
+				.room-preview__photo-wrap
+					.room-preview__slider.swiper
+						.swiper-wrapper
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-23','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-21','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-22','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-24','jpg')
+						.room-preview__fract
+							span.room-preview__fract-now
+							span.room-preview__fract-all
+						.room-preview__pagi
+				.room-preview__content
+					.room-preview__title Просторные номера с балконом подходят для семейного размещения
+					.room-preview__desc 
+						p Каждый номер оснащен одной двуспальной или двумя односпальными кроватями, а также мини-кухней.
+							br
+							| С балкона открывается чудесный вид на озеро, гору Малая Синюха или территорию курорта.
+					ul.room-preview__parametrs 
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/paramtr-1.svg")
+							.room-preview__parametr-title 4 человека
+							.room-preview__parametr-desc вместительность
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/parametr-2.svg")
+							.room-preview__parametr-title 32 м
+								sup 2
+							.room-preview__parametr-desc общая площадь
+					.room-preview__price 
+						span от
+						| 7 500 ₽
+					a(href="@").btn ПОДРОБНЕЕ
+		.block.room-preview
+			.block__head._p-h
+				.h1 Студия PLUS
+			.room-preview__row._br 
+				.room-preview__photo-wrap
+					.room-preview__slider.swiper
+						.swiper-wrapper
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-24','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-22','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-23','jpg')
+							.swiper-slide.room-preview__slide._br
+								+picture('ps-21','jpg')
+						.room-preview__fract
+							span.room-preview__fract-now
+							span.room-preview__fract-all
+						.room-preview__pagi
+				.room-preview__content
+					.room-preview__title Просторные номера с балконом и дизайнерским интерьером подходят для семейного размещения
+					.room-preview__desc 
+						p Каждый номер оснащен одной двуспальной или двумя односпальными кроватями, а также мини-кухней.
+							br
+							| С балкона открывается чудесный вид на озеро, гору Малая Синюха или территорию курорта.
+					ul.room-preview__parametrs 
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/paramtr-1.svg")
+							.room-preview__parametr-title 4 человека
+							.room-preview__parametr-desc вместительность
+						li.room-preview__parametr
+							img.room-preview__parametr-icon(alt,src="img/parametr-2.svg")
+							.room-preview__parametr-title 32 м
+								sup 2
+							.room-preview__parametr-desc общая площадь
+					.room-preview__price 
+						span от
+						| 10 500 ₽
+					a(href="@").btn ПОДРОБНЕЕ
+		.block
+			.hotel-row-3
+				.hotel-preview
+					.hotel-preview__bg
+						+picture('h-1','jpg')
+					a.h2.link-chevron.hotel-preview__link Виллы
+				.hotel-preview
+					.hotel-preview__bg
+						+picture('h-2','jpg').hotel-preview__bg
+					a.h2.link-chevron.hotel-preview__link Отель 5
+						sup *
+				.hotel-preview
+					.hotel-preview__bg
+						+picture('h-4','jpg').hotel-preview__bg
+					a.h2.link-chevron.hotel-preview__link Глэмпинги
