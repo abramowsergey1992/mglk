@@ -1,0 +1,28 @@
+extends ../../layout/layout
+block title
+	title Манжерок 
+block content
+	.inner
+		.mblock.page-top
+			+breadcrumb(['Главная'], 'Веб-камеры')
+			.page-top__bg._br
+				+picture('w-1','jpg')
+			h1 Веб-камеры
+		.mblock
+			.webcam-row 
+				.webcam-preview
+					.webcam-preview__bg._br
+						+picture('w-2','jpg')
+					a.h2.link-chevron.webcam-preview__link(href="#") Средняя станция
+				.webcam-preview
+					.webcam-preview__bg._br
+						+picture('w-3','jpg')
+					a.h2.link-chevron.webcam-preview__link(href="#") Верхняя станция
+				.webcam-preview
+					.webcam-preview__bg._br
+						+picture('w-4','jpg')
+					a.h2.link-chevron.webcam-preview__link(href="#") Учебный склон
+				.webcam-preview
+					.webcam-preview__bg._br
+						+picture('w-5','jpg')
+					a.h2.link-chevron.webcam-preview__link(href="#") Площадь

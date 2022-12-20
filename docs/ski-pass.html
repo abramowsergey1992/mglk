@@ -33,7 +33,76 @@
 <path d="M97.0395 68.3452V52.5986L81.2578 68.3452H97.0395Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-13"></path>
 <path d="M91.2431 96.7544H97.0465V77.5752H72.0078L91.2431 96.7544Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-14"></path>
 </svg>
-<script>let load = false;let preloadimg = document.querySelector("#preload-img");setTimeout(function () {preloadimg.classList.add("active");let preload = setInterval(function () {window.scrollTo(0, 0);if (load) {$(".preload").fadeOut();if (document.querySelector(".front-top__main-bg")) {setTimeout(function () {document.querySelector(".front-top__main-bg").classList.add("_animate");}, 500);}clearInterval(preload);} else {preloadimg.classList.remove("active");setTimeout(function () {preloadimg.classList.add("active");}, 3000);}}, 3000);}, 300);</script>
+        <script>
+          function getCookie(e, t = !1) {
+          	if (!e) return;
+          	let n = document.cookie.match(
+          		new RegExp(
+          			"(?:^|; )" +
+          				e.replace(/([.$?*|{}()\[\]\\\/+^])/g, "\\$1") +
+          				"=([^;]*)"
+          		)
+          	);
+          	if (n) {
+          		let e = decodeURIComponent(n[1]);
+          		if (t)
+          			try {
+          				return JSON.parse(e);
+          			} catch (e) {}
+          		return e;
+          	}
+          }
+          function setCookie(e, t, n = { path: "/" }) {
+          	if (!e) return;
+          	(n = n || {}).expires instanceof Date &&
+          		(n.expires = n.expires.toUTCString()),
+          		t instanceof Object && (t = JSON.stringify(t));
+          	let o = encodeURIComponent(e) + "=" + encodeURIComponent(t);
+          	for (let e in n) {
+          		o += "; " + e;
+          		let t = n[e];
+          		!0 !== t && (o += "=" + t);
+          	}
+          	document.cookie = o;
+          }
+          function deleteCookie(e) {
+          	setCookie(e, null, { expires: new Date(), path: "/" });
+          }
+          
+          console.log('getCookie("load")', getCookie("load"));
+          if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+          	console.log('xxvvsvv',document.querySelector(".preload"))
+          	document.querySelector(".preload").remove();
+          } else {	var load = false;
+          	console.log('loader',load)
+          
+          	let preloadimg = document.querySelector("#preload-img");
+          	setTimeout(function () {
+          		preloadimg.classList.add("active");
+          		let preload = setInterval(function () {
+          			window.scrollTo(0, 0);
+          			console.log('preload',load)
+          			if (load) {
+          				setCookie("load", "true");
+          				$(".preload").fadeOut();
+          				if (document.querySelector(".front-top__main-bg")) {
+          					setTimeout(function () {
+          						document
+          							.querySelector(".front-top__main-bg")
+          							.classList.add("_animate");
+          					}, 500);
+          				}
+          				clearInterval(preload);
+          			} else {
+          				preloadimg.classList.remove("active");
+          				setTimeout(function () {
+          					preloadimg.classList.add("active");
+          				}, 3000);
+          			}
+          		}, 3000);
+          	}, 300);
+          }
+        </script>
       </div>
     </div>
     <div class="pmenu">
@@ -1037,7 +1106,7 @@
               <picture>
                 <source type="image/webp" srcset="img/fronttopmap-bg.webp"/><img class="map-link__bg" alt="" src="img/fronttopmap-bg.jpg"/>
               </picture><img class="map-link__icon" src="img/map-link.svg" alt=""><a class="map-link__title" href="#">Карта курорта</a>
-            </div>
+            </div><script>const periods = [{"type":"medium","start":"12:01","finish":"14:10"},{"type":"low","start":"9:00","finish":"12:00"},{"type":"high","start":"14:11","finish":"18:00"},{"type":"very-high","start":"18:01","finish":"19:59"}]</script>
             <div class="workload _br">
               <div class="workload__head"> 
                 <div class="workload__title">Загруженность подъемников</div>
@@ -1119,24 +1188,26 @@
         <div id="smooth-content">
           <div class="container">
             <div class="inner">
-              <div class="page-top">
+              <div class="page-top mblock">
                 <div class="breadcrumb">
                   <ul class="breadcrumb__list">
                     <li class="breadcrumb__item"><a class="breadcrumb__link" href="#" title="Главная">Главная</a></li>
                     <li class="breadcrumb__item"><span class="breadcrumb__link-current">Купить ski-pass</span></li>
                   </ul>
                 </div>
-                <div class="page-top__bg">
+                <div class="page-top__bg _br">
                   <picture>
                     <source type="image/webp" srcset="img/pskipass.webp"/><img alt="" src="img/pskipass.jpg"/>
                   </picture>
-                  <h1>Купить SKI-PASS <br>и билет на канатную дорогу</h1>
+                </div>
+                <h1>Купить SKI-PASS <br>и билет на канатную дорогу</h1>
+                <div class="page-top__desc">
                   <p>наслаждение свободой</p>
                 </div>
               </div>
               <div class="block skipass-top">
                 <div class="skipass-top__grid"> 
-                  <div class="skipass-info"> 
+                  <div class="skipass-info _br _p">
                     <div class="skipass-info__row"> 
                       <div class="skipass-info__stat">
                         <div class="skipass-info__stat-big">21 км</div>
@@ -1151,32 +1222,22 @@
                         <div class="skipass-info__stat-desc">Протяженность трасс</div>
                       </div>
                     </div>
-                    <h2>Всесезонный курорт «Манжерок» предлагает трассы «зелёного», «синего», «красного» и «черного» уровней сложности.</h2>
-                    <p>Уникальное расположение у подножия горы Малая Синюха<br>дарит свободу передвижений и легкость в перемещениях.</p>
-                    <blockquote class="_style-1">Для более комфортного катания трассы оснежаются и уплотняются ратраками. В целях безопасности все трассы огорожены.</blockquote>
+                    <div class="text">
+                      <h2>Всесезонный курорт «Манжерок» предлагает трассы «зелёного», «синего», «красного» и «черного» уровней сложности.</h2>
+                      <p> 
+                        <big>Уникальное расположение у подножия горы Малая Синюха<br>дарит свободу передвижений и легкость в перемещениях.</big>
+                      </p>
+                      <blockquote class="_style-1">Для более комфортного катания трассы оснежаются и уплотняются ратраками. В целях безопасности все трассы огорожены.</blockquote>
+                    </div>
                   </div>
-                  <div class="skipass-book">
-                    <h3>Подобрать  SKI-PASS </h3>
-                  </div>
-                  <div class="skipass-link">
+                  <div class="skipass-link _br _p">
                     <div class="skipass-link__bg">
                       <picture>
                         <source type="image/webp" srcset="img/skipass-link.webp"/><img alt="" src="img/skipass-link.jpg"/>
                       </picture>
-                      <div class="skipass-link__title h2"> Встречаем рассвет<br>на Малой Синюхе</div><a class="arrow-link" href="#">ПОДРОБНЕЕ</a>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="block skipass-tarifs">
-                <div class="h1">Тарифы</div>
-                <div class="skipass-tarif">
-                  <div class="skipass-tarif__head"> 
-                    <div class="skipass-tarif__title">Экскурсионный подъем </div>
-                    <div class="skipass-tarif__label">разовый</div>
-                    <div class="skipass-tarif__toggle"> </div>
-                  </div>
-                  <div class="skipass-tarif__body"></div>
+                    <div class="skipass-link__title h2"> Встречаем рассвет<br>на Малой Синюхе</div><a class="skipass-link__link link-arrow" href="#">ПОДРОБНЕЕ</a>
+                  </div><a class="skipass-book2 _br" href="https://shop.mglk.ru/ru/Tickets "><img class="skipass-book2__bg" alt="" src="img/traveline1.jpg"><span class="h3">Купить SKI-PASS </span></a>
                 </div>
               </div>
             </div>
@@ -1338,6 +1399,95 @@
             </footer>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="preload">
+      <div class="preload__flex"><svg  id="preload-img" width="99" height="98" viewBox="0 0 99 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.391 1H32.6094V25.9548L44.391 37.7021V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-1"></path>
+<path d="M23.3208 1H7.59375L23.3208 16.6921V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-2"></path>
+<path d="M1 7.52734V23.263H16.7817L1 7.52734Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-3"></path>
+<path d="M23.3173 47.3242H32.6071V71.0259L44.3887 82.7731V50.7896L26.0387 32.5039H1V39.5109L23.3173 61.7631V47.3242Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-4"></path>
+<path d="M33.5254 85.0397L33.5145 85.0288L21.7656 96.7543H33.5254H45.2851L33.5254 85.0288V85.0397Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-5"></path>
+<path d="M1 52.5986V68.3452H16.7817L1 52.5986Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-6"></path>
+<path d="M1 77.5752V96.7544H6.80337L26.0387 77.5752H1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-7"></path>
+<path d="M74.7266 1V16.6921L90.4536 1H74.7266Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-8"></path>
+<path d="M65.4379 1H53.6562V37.7021L65.4379 25.9548V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-9"></path>
+<path d="M81.2578 23.263H97.0395V7.52734L81.2578 23.263Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-10"></path>
+<path d="M53.6562 50.7896V82.7731L65.4379 71.0259V47.3242H74.7276V61.7631L97.0449 39.5109V32.5039H72.0063L53.6562 50.7896Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-11"></path>
+<path d="M64.5176 85.0397V85.0288V85.0397ZM64.5176 85.0397L64.5066 85.0288L52.7578 96.7543H64.5176H76.2773L64.5176 85.0288V85.0397Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-12"></path>
+<path d="M97.0395 68.3452V52.5986L81.2578 68.3452H97.0395Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-13"></path>
+<path d="M91.2431 96.7544H97.0465V77.5752H72.0078L91.2431 96.7544Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-14"></path>
+</svg>
+        <script>
+          function getCookie(e, t = !1) {
+          	if (!e) return;
+          	let n = document.cookie.match(
+          		new RegExp(
+          			"(?:^|; )" +
+          				e.replace(/([.$?*|{}()\[\]\\\/+^])/g, "\\$1") +
+          				"=([^;]*)"
+          		)
+          	);
+          	if (n) {
+          		let e = decodeURIComponent(n[1]);
+          		if (t)
+          			try {
+          				return JSON.parse(e);
+          			} catch (e) {}
+          		return e;
+          	}
+          }
+          function setCookie(e, t, n = { path: "/" }) {
+          	if (!e) return;
+          	(n = n || {}).expires instanceof Date &&
+          		(n.expires = n.expires.toUTCString()),
+          		t instanceof Object && (t = JSON.stringify(t));
+          	let o = encodeURIComponent(e) + "=" + encodeURIComponent(t);
+          	for (let e in n) {
+          		o += "; " + e;
+          		let t = n[e];
+          		!0 !== t && (o += "=" + t);
+          	}
+          	document.cookie = o;
+          }
+          function deleteCookie(e) {
+          	setCookie(e, null, { expires: new Date(), path: "/" });
+          }
+          
+          console.log('getCookie("load")', getCookie("load"));
+          if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+          	console.log('xxvvsvv',document.querySelector(".preload"))
+          	document.querySelector(".preload").remove();
+          } else {	var load = false;
+          	console.log('loader',load)
+          
+          	let preloadimg = document.querySelector("#preload-img");
+          	setTimeout(function () {
+          		preloadimg.classList.add("active");
+          		let preload = setInterval(function () {
+          			window.scrollTo(0, 0);
+          			console.log('preload',load)
+          			if (load) {
+          				setCookie("load", "true");
+          				$(".preload").fadeOut();
+          				if (document.querySelector(".front-top__main-bg")) {
+          					setTimeout(function () {
+          						document
+          							.querySelector(".front-top__main-bg")
+          							.classList.add("_animate");
+          					}, 500);
+          				}
+          				clearInterval(preload);
+          			} else {
+          				preloadimg.classList.remove("active");
+          				setTimeout(function () {
+          					preloadimg.classList.add("active");
+          				}, 3000);
+          			}
+          		}, 3000);
+          	}, 300);
+          }
+        </script>
       </div>
     </div><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>

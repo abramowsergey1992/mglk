@@ -94,3 +94,67 @@ button {
 		transition: stroke 0.3s;
 	}
 }
+
+.form-item {
+	position: relative;
+	margin-bottom: 20px;
+	display: block;
+
+	&__label {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 14px;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		color: #B2C2D3;
+		position: absolute;
+		left: 20px;
+		top: -5px;
+		background: #fff;
+		z-index: 3;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	input,
+	textarea,
+	select {
+		padding: 17px 20px;
+		background: #FFFFFF;
+		width: 100%;
+		border: 1px solid #B2C2D3;
+		border-radius: 10px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 19px;
+
+		&::placeholder {
+			color: #B2C2D3;
+		}
+
+		letter-spacing: -0.02em;
+	}
+
+	select {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg width='16' height='9' viewBox='0 0 16 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L8 8L15 1' stroke='%23B2C2D3' stroke-width='1.4'/%3E%3C/svg%3E%0A");
+		background-position: center right 20px;
+		background-repeat: no-repeat;
+	}
+}
+
+.form-bottom {
+	margin-top: 22px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: -0.02em;
+
+	a {
+		color: #2A2A29;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

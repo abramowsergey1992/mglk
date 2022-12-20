@@ -33,7 +33,76 @@
 <path d="M97.0395 68.3452V52.5986L81.2578 68.3452H97.0395Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-13"></path>
 <path d="M91.2431 96.7544H97.0465V77.5752H72.0078L91.2431 96.7544Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-14"></path>
 </svg>
-<script>let load = false;let preloadimg = document.querySelector("#preload-img");setTimeout(function () {preloadimg.classList.add("active");let preload = setInterval(function () {window.scrollTo(0, 0);if (load) {$(".preload").fadeOut();if (document.querySelector(".front-top__main-bg")) {setTimeout(function () {document.querySelector(".front-top__main-bg").classList.add("_animate");}, 500);}clearInterval(preload);} else {preloadimg.classList.remove("active");setTimeout(function () {preloadimg.classList.add("active");}, 3000);}}, 3000);}, 300);</script>
+        <script>
+          function getCookie(e, t = !1) {
+          	if (!e) return;
+          	let n = document.cookie.match(
+          		new RegExp(
+          			"(?:^|; )" +
+          				e.replace(/([.$?*|{}()\[\]\\\/+^])/g, "\\$1") +
+          				"=([^;]*)"
+          		)
+          	);
+          	if (n) {
+          		let e = decodeURIComponent(n[1]);
+          		if (t)
+          			try {
+          				return JSON.parse(e);
+          			} catch (e) {}
+          		return e;
+          	}
+          }
+          function setCookie(e, t, n = { path: "/" }) {
+          	if (!e) return;
+          	(n = n || {}).expires instanceof Date &&
+          		(n.expires = n.expires.toUTCString()),
+          		t instanceof Object && (t = JSON.stringify(t));
+          	let o = encodeURIComponent(e) + "=" + encodeURIComponent(t);
+          	for (let e in n) {
+          		o += "; " + e;
+          		let t = n[e];
+          		!0 !== t && (o += "=" + t);
+          	}
+          	document.cookie = o;
+          }
+          function deleteCookie(e) {
+          	setCookie(e, null, { expires: new Date(), path: "/" });
+          }
+          
+          console.log('getCookie("load")', getCookie("load"));
+          if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+          	console.log('xxvvsvv',document.querySelector(".preload"))
+          	document.querySelector(".preload").remove();
+          } else {	var load = false;
+          	console.log('loader',load)
+          
+          	let preloadimg = document.querySelector("#preload-img");
+          	setTimeout(function () {
+          		preloadimg.classList.add("active");
+          		let preload = setInterval(function () {
+          			window.scrollTo(0, 0);
+          			console.log('preload',load)
+          			if (load) {
+          				setCookie("load", "true");
+          				$(".preload").fadeOut();
+          				if (document.querySelector(".front-top__main-bg")) {
+          					setTimeout(function () {
+          						document
+          							.querySelector(".front-top__main-bg")
+          							.classList.add("_animate");
+          					}, 500);
+          				}
+          				clearInterval(preload);
+          			} else {
+          				preloadimg.classList.remove("active");
+          				setTimeout(function () {
+          					preloadimg.classList.add("active");
+          				}, 3000);
+          			}
+          		}, 3000);
+          	}, 300);
+          }
+        </script>
       </div>
     </div>
     <div class="pmenu">
@@ -1037,7 +1106,7 @@
               <picture>
                 <source type="image/webp" srcset="img/fronttopmap-bg.webp"/><img class="map-link__bg" alt="" src="img/fronttopmap-bg.jpg"/>
               </picture><img class="map-link__icon" src="img/map-link.svg" alt=""><a class="map-link__title" href="#">Карта курорта</a>
-            </div>
+            </div><script>const periods = [{"type":"medium","start":"12:01","finish":"14:10"},{"type":"low","start":"9:00","finish":"12:00"},{"type":"high","start":"14:11","finish":"18:00"},{"type":"very-high","start":"18:01","finish":"19:59"}]</script>
             <div class="workload _br">
               <div class="workload__head"> 
                 <div class="workload__title">Загруженность подъемников</div>
@@ -1137,13 +1206,14 @@
                 </div>
               </div>
               <div class="about-menu _br mblock">
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
-                  </div>
-                  <div class="about-menu-it__icon"><svg width="51" height="46" viewBox="0 0 51 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="about-menu__row">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="51" height="46" viewBox="0 0 51 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M30.07 44.4101L15.7172 26.468L1 44.5367" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M21.3594 33.5202L34.7429 18.0618L49.3948 35.5324" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M11.7675 16.539C14.5731 16.539 16.8476 14.2646 16.8476 11.4589C16.8476 8.65331 14.5731 6.37891 11.7675 6.37891C8.96191 6.37891 6.6875 8.65331 6.6875 11.4589C6.6875 14.2646 8.96191 16.539 11.7675 16.539Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1159,15 +1229,15 @@
 <path d="M5.54688 38.9535L12.8033 35.2794L15.8669 39.4069L17.5509 35.1904L22.0691 38.4612L22.9689 35.5325" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M24.3281 30.444L31.5845 26.7685L34.6481 30.8973L36.3322 26.6809L40.8504 29.9503L41.7487 27.023" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">О курорте</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">О курорте</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="42" height="37" viewBox="0 0 42 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="42" height="37" viewBox="0 0 42 37" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="path-1-inside-1_1482_16732" fill="white">
 <path d="M29.7699 14.24H41.5778V36.5437H0.90625V14.24H12.7141"/>
 </mask>
@@ -1195,15 +1265,15 @@
 </mask>
 <path d="M8.12294 24.7357L8.96294 25.8557L10.1802 24.9428L9.16931 23.8056L8.12294 24.7357ZM1.82863 19.7619L7.07656 25.6658L9.16931 23.8056L3.92137 17.9017L1.82863 19.7619ZM7.28294 23.6157L2.035 27.5517L3.715 29.7917L8.96294 25.8557L7.28294 23.6157Z" fill="#106AC6" mask="url(#path-13-inside-6_1482_16732)"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">Карта курорта</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">Карта курорта</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2921_20696)">
 <path d="M18.3218 33.1489L17.4146 25.2979L11.3431 21.8085V13.0851C11.3431 11.4451 10.2352 11.227 8.76096 10.4681C7.34777 9.74405 5.9433 9.59575 4.4167 10.4681C2.89011 11.3404 1.8084 12.2128 1.8084 12.2128C1.21521 12.71 0.875 13.53 0.875 14.3151V20.0638M5.2367 13.0851V21.2851C5.2367 22.707 5.65543 24.2249 7.12968 24.8617L13.9427 27.4875L14.7888 33.1577" stroke="#106AC6" stroke-width="1.4"/>
 <path d="M4.42969 38.383L9.34969 25.6992" stroke="#106AC6" stroke-width="1.4"/>
@@ -1218,15 +1288,15 @@
 </clipPath>
 </defs>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">центр компетенций</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">центр компетенций</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M38.9252 1.02197H7.53125V25.5485H38.9252V1.02197Z" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M35.9815 21.6241L28.1331 13.7756L21.2656 20.6431" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M24.2102 17.6999L20.286 13.7756L12.4375 21.6241" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1234,15 +1304,15 @@
 <path d="M11.2618 28.0783L11.0938 29.4824L42.2657 33.2129L45.1795 8.85927L41.801 8.45581" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4.74113 10.3245L1.35156 10.7071L4.10099 35.0791L17.2656 33.5928" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">Галерея</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">Галерея</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="26" height="44" viewBox="0 0 26 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="26" height="44" viewBox="0 0 26 44" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M10.1158 1.34766H9.29283C8.00496 1.34766 6.96094 2.39168 6.96094 3.67955V5.41703C6.96094 6.7049 8.00496 7.74893 9.29283 7.74893H10.1158C11.4037 7.74893 12.4477 6.7049 12.4477 5.41703V3.67955C12.4477 2.39168 11.4037 1.34766 10.1158 1.34766Z" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M5.13281 43.4133V15.9792" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M17.937 25.1239V15.5403C17.937 12.3762 15.1204 10.4924 11.6546 10.4924H7.75895C4.29312 10.4924 1.47656 12.3762 1.47656 15.5311V26.0932C1.47656 27.0717 2.34531 27.8673 3.42438 27.8673H5.13443" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
@@ -1251,15 +1321,15 @@
 <path d="M9.70312 32.4578H24.3346" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M16.1094 29.696H17.9383" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">Карьера</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">Карьера</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.3672 19.9388V13.3252C11.3672 10.6299 13.7665 9.03296 16.7189 9.03296H20.0374C22.9975 9.03296 25.389 10.6377 25.389 13.333V19.9388" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M18.7266 1.24316H18.0255C16.9284 1.24316 16.0391 2.13252 16.0391 3.22959V4.70967C16.0391 5.80674 16.9284 6.6961 18.0255 6.6961H18.7266C19.8237 6.6961 20.713 5.80674 20.713 4.70967V3.22959C20.713 2.13252 19.8237 1.24316 18.7266 1.24316Z" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M14.4844 19.939V13.707" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
@@ -1277,22 +1347,23 @@
 <path d="M37.0724 35.7136C37.0724 33.3455 35.0704 31.4214 32.5932 31.4214C32.5231 31.4214 32.4529 31.4214 32.3906 31.4292" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 <path d="M0.460938 36.2976H37.8525" stroke="#106AC6" stroke-width="1.4" stroke-miterlimit="10"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">Партнерам</a>
-                </div>
-                <div class="about-menu-it">
-                  <div class="about-menu-it__bg">
-                    <picture>
-                      <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
-                    </picture>
+                    </div><a class="about-menu-it__link" href="#">Партнерам</a>
                   </div>
-                  <div class="about-menu-it__icon"><svg width="38" height="43" viewBox="0 0 38 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <div class="about-menu-it">
+                    <div class="about-menu-it__bg">
+                      <picture>
+                        <source type="image/webp" srcset="img/about-top.webp"/><img alt="" src="img/about-top.jpg"/>
+                      </picture>
+                    </div>
+                    <div class="about-menu-it__icon"><svg width="38" height="43" viewBox="0 0 38 43" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.8172 20.7615L1.63485 26.3616C1.16058 27.7625 1.11501 29.2765 1.5032 30.7061L4.61722 39.1013V41.633" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.9642 33.1954C18.9642 33.1954 36.6863 25.5597 36.6863 12.0944C36.6863 4.94479 32.2507 1.12695 27.0877 1.12695C21.9247 1.12695 18.9642 6.47226 18.9642 6.47226C18.9642 6.47226 16.0089 1.12695 10.8408 1.12695C5.6727 1.12695 1.24219 4.94479 1.24219 12.0944C1.24219 25.5597 18.9642 33.1954 18.9642 33.1954Z" stroke="#106AC6" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M8.83594 29.8196C9.62415 29.4584 10.3415 28.8018 10.4512 27.8111L11.2782 20.059C11.3322 18.9653 12.2133 18.0083 13.4555 18.0049C14.2049 18.0032 14.9256 18.4285 15.2918 19.0817C15.4674 19.394 15.5872 19.7265 15.5872 20.037V31.5901C15.5872 35.7269 13.8994 39.1026 13.8994 39.1026V41.6343" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M34.1125 20.7615L36.2949 26.3616C36.7691 27.7625 36.8147 29.2765 36.4265 30.7061L33.3125 39.1013V41.633" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M29.0872 29.8196C28.299 29.4584 27.5817 28.8018 27.472 27.8111L26.6449 20.059C26.5909 18.9653 25.7099 18.0083 24.4676 18.0049C23.7183 18.0032 22.9976 18.4285 22.6313 19.0817C22.4558 19.394 22.3359 19.7265 22.3359 20.037V31.5901C22.3359 35.7269 24.0238 39.1026 24.0238 39.1026V41.6343" stroke="#106AC6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                  </div><a class="about-menu-it__link" href="#">Манжерок «Добро»</a>
+                    </div><a class="about-menu-it__link" href="#">Манжерок «Добро»</a>
+                  </div>
                 </div>
               </div>
               <div class="about-two block">
@@ -1315,7 +1386,7 @@
               </div>
               <div class="about-inf-block block">
                 <div class="block__head _p-h">
-                  <h2>Инфоаструктура</h2>
+                  <h1>Инфраструктура</h1>
                 </div>
                 <div class="about-inf-grid"> 
                   <div class="about-inf _br" data-customcursor>
@@ -1407,15 +1478,17 @@
                 </div>
               </div>
               <div class="block monuments">
-                <div class="h1">Уникальные памятники природы</div>
-                <div class="monuments__filters">
-                  <div class="monuments__filter">1 км — 20 км</div>
-                  <div class="monuments__filter">21 км — 40 км</div>
-                  <div class="monuments__filter">41 км +</div>
+                <div class="block__head _p-h">
+                  <div class="h1">Уникальные памятники природы</div>
+                  <div class="monuments__filters block__filters">
+                    <div class="monuments__filter block__filter">1 км — 20 км</div>
+                    <div class="monuments__filter block__filter">21 км — 40 км</div>
+                    <div class="monuments__filter block__filter">41 км +</div>
+                  </div>
                 </div>
                 <div class="monuments__grid">
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-1.webp"/><img alt="" src="img/about-m-1.jpg"/>
                       </picture>
@@ -1425,7 +1498,7 @@
                     <div class="monument__desc">4 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-2.webp"/><img alt="" src="img/about-m-2.jpg"/>
                       </picture>
@@ -1435,7 +1508,7 @@
                     <div class="monument__desc">44 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-3.webp"/><img alt="" src="img/about-m-3.jpg"/>
                       </picture>
@@ -1445,7 +1518,7 @@
                     <div class="monument__desc">81 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-4.webp"/><img alt="" src="img/about-m-4.jpg"/>
                       </picture>
@@ -1455,7 +1528,7 @@
                     <div class="monument__desc">9 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-5.webp"/><img alt="" src="img/about-m-5.jpg"/>
                       </picture>
@@ -1465,7 +1538,7 @@
                     <div class="monument__desc">33 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-6.webp"/><img alt="" src="img/about-m-6.jpg"/>
                       </picture>
@@ -1475,7 +1548,7 @@
                     <div class="monument__desc">23 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-7.webp"/><img alt="" src="img/about-m-7.jpg"/>
                       </picture>
@@ -1485,7 +1558,7 @@
                     <div class="monument__desc">49 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-8.webp"/><img alt="" src="img/about-m-8.jpg"/>
                       </picture>
@@ -1495,7 +1568,7 @@
                     <div class="monument__desc">31 км от «Манжерока»</div>
                   </div>
                   <div class="monument">
-                    <div class="monument__img-wrap"> 
+                    <div class="monument__img-wrap _br">
                       <picture>
                         <source type="image/webp" srcset="img/about-m-9.webp"/><img alt="" src="img/about-m-9.jpg"/>
                       </picture>
@@ -1508,37 +1581,39 @@
               </div>
               <div class="block about-info">
                 <div class="about-info__row">
-                  <div class="about-info-it">
+                  <div class="about-info-it _br">
                     <div class="about-info-it__icon"><img src="img/ai-i-1.svg" alt=""></div>
                     <div class="about-info-it__title">1 200 000</div>
                     <div class="about-info-it__desc">гостей в год</div><img class="about-info-it__bg" src="img/ai-b-1.svg" alt="">
                   </div>
-                  <div class="about-info-it">
+                  <div class="about-info-it _br">
                     <div class="about-info-it__icon"><img src="img/ai-i-2.svg" alt=""></div>
                     <div class="about-info-it__title">2 516</div>
                     <div class="about-info-it__desc">восьмиместная<br>гондольная<br>канатная дорога </div><img class="about-info-it__bg" src="img/ai-b-2.svg" alt="">
                   </div>
-                  <div class="about-info-it">
+                  <div class="about-info-it _br">
                     <div class="about-info-it__icon"><img src="img/ai-i-3.svg" alt=""></div>
-                    <div class="about-info-it__title">52<span>км</span></div>
+                    <div class="about-info-it__title">52 <span>км</span></div>
                     <div class="about-info-it__desc">длина<br>горнолыжных<br>трасс</div><img class="about-info-it__bg" src="img/ai-b-3.svg" alt="">
                   </div>
-                  <div class="about-info-it">
+                  <div class="about-info-it _br">
                     <div class="about-info-it__icon"><img src="img/ai-i-4.svg" alt=""></div>
-                    <div class="about-info-it__title">30<span>км</span></div>
+                    <div class="about-info-it__title">30 <span>км</span></div>
                     <div class="about-info-it__desc">длина трасс<br>байк-парка</div><img class="about-info-it__bg" src="img/ai-b-4.svg" alt="">
                   </div>
-                  <div class="about-info-it">
+                  <div class="about-info-it _br">
                     <div class="about-info-it__icon"><img src="img/ai-i-5.svg" alt=""></div>
                     <div class="about-info-it__title">304</div>
-                    <div class="about-info-it__desc">номера в отеле<br>5 звезд<img class="about-info-it__bg" src="img/ai-b-5.svg" alt=""></div>
+                    <div class="about-info-it__desc">номера в отеле<br>5 звезд</div><img class="about-info-it__bg" src="img/ai-b-5.svg" alt="">
                   </div>
                 </div>
               </div>
               <div class="about-reasons block"> 
-                <h2> «Манжерок»: 5 главных причин</h2>
+                <div class="block__head _p-h"> 
+                  <div class="h1"> «Манжерок»: 5 главных причин</div>
+                </div>
                 <div class="about-reasons__grid">
-                  <div class="about-reason">
+                  <div class="about-reason _br">
                     <div class="about-reason__bg">
                       <picture>
                         <source type="image/webp" srcset="img/about-r-1.webp"/><img alt="" src="img/about-r-1.jpg"/>
@@ -1550,7 +1625,7 @@
                       <p>Горный Алтай — уникальный регион, где природа сохранила свою первозданность</p>
                     </div>
                   </div>
-                  <div class="about-reason">
+                  <div class="about-reason _br">
                     <div class="about-reason__bg">
                       <picture>
                         <source type="image/webp" srcset="img/about-r-2.webp"/><img alt="" src="img/about-r-2.jpg"/>
@@ -1562,7 +1637,7 @@
                       <p>Местные народы берегут свои обычаи и традиции, пропитанные уважительным отношением к природе</p>
                     </div>
                   </div>
-                  <div class="about-reason">
+                  <div class="about-reason _br">
                     <div class="about-reason__bg">
                       <picture>
                         <source type="image/webp" srcset="img/about-r-3.webp"/><img alt="" src="img/about-r-3.jpg"/>
@@ -1574,7 +1649,7 @@
                       <p>Гостиничный комплекс разработан дизайнерским бюро с учетом всех мировых тенденций</p>
                     </div>
                   </div>
-                  <div class="about-reason">
+                  <div class="about-reason _br">
                     <div class="about-reason__bg">
                       <picture>
                         <source type="image/webp" srcset="img/about-r-4.webp"/><img alt="" src="img/about-r-4.jpg"/>
@@ -1586,7 +1661,7 @@
                       <p>Здесь проходят сборы у ведущих спортсменов России и созданы все условия для активного отдыха на высоте</p>
                     </div>
                   </div>
-                  <div class="about-reason">
+                  <div class="about-reason _br">
                     <div class="about-reason__bg">
                       <picture>
                         <source type="image/webp" srcset="img/about-r-5.webp"/><img alt="" src="img/about-r-5.jpg"/>
@@ -1594,12 +1669,14 @@
                     </div>
                     <div class="about-reason__number">05</div>
                     <div class="about-reason__title"> БЕСКОНЕЧНОЕ РАЗВИТИЕ</div>
-                    <div class="about-reason__desc">Главная миссия проекта — развитие туристического потенциала Горного Алтая без вреда для аутентичной культуры региона</div>
+                    <div class="about-reason__desc"> 
+                      <p>Главная миссия проекта — развитие туристического потенциала Горного Алтая без вреда для аутентичной культуры региона</p>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="about-reviews block"> 
-                <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Отзывы наших гостей </a>
+                <div class="block__head _p-h"><a class="h1 link-chevron" href="#">Отзывы наших гостей </a>
                   <div class="block__slider-nav mob-hidden">
                     <button class="block__slider-prev"><svg width="41" height="27" viewBox="0 0 41 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3077 25.6154L0.999999 13.3077M0.999999 13.3077L13.3077 1M0.999999 13.3077H41" stroke="#B2C2D3" stroke-width="1.4"/>
@@ -1612,8 +1689,8 @@
                   </div>
                 </div>
                 <div class="swiper reviews-slider">
-                  <div class="swiper-wrapepr"> 
-                    <div class="review-slide swiper-slide"> 
+                  <div class="swiper-wrapper"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">Мартин алексеевич</div>
                         <div class="review__stars" data-raiting="3"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1638,7 +1715,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">Эдуарт ПанкРатович</div>
                         <div class="review__stars" data-raiting="5"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1662,7 +1739,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">София егорьевна</div>
                         <div class="review__stars" data-raiting="4"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1687,7 +1764,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">Ева Сергеевна</div>
                         <div class="review__stars" data-raiting="4"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1711,7 +1788,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">Мартин алексеевич</div>
                         <div class="review__stars" data-raiting="3"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1736,7 +1813,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br"> 
                       <div class="review">
                         <div class="review__autor">Эдуарт ПанкРатович</div>
                         <div class="review__stars" data-raiting="5"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1760,7 +1837,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br">
                       <div class="review">
                         <div class="review__autor">София егорьевна</div>
                         <div class="review__stars" data-raiting="4"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1785,7 +1862,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="review-slide swiper-slide"> 
+                    <div class="review-slide swiper-slide _br">
                       <div class="review">
                         <div class="review__autor">Ева Сергеевна</div>
                         <div class="review__stars" data-raiting="4"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1814,7 +1891,7 @@
               </div>
               <div class="about-contact block"> 
                 <div class="block__head _p-h"><a class="h2 link-chevron" href="#">Как добраться</a></div>
-                <div class="about-contact__wrap"> 
+                <div class="about-contact__wrap _br"> 
                   <div class="about-contact__row"> 
                     <div class="about-contact__info">
                       <h3>Курорт находится в 20 мин. езды от&nbsp;аэропорта г. Горно-Алтайска.</h3>
@@ -1844,12 +1921,12 @@
                           </div>
                         </div>
                       </div>
-                      <div class="about-contact__book"> 
+                      <div class="about-contact__book">
                         <div class="about-contact__book-title">Бронирование номеров:</div>
                         <div class="about-contact__book-row"> <a href="tel:89139928888">8 913 992 88 88</a><a href="mailto:booking@mglk.ru">booking@mglk.ru</a></div>
                       </div>
                     </div>
-                    <div class="about-contact__map"></div>
+                    <div class="about-contact__map _br"><iframe id="map_516514647" frameborder="0" width="100%" height="600px" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe><script type="text/javascript">(function(e,t){var r=document.getElementById(e);r.contentWindow.document.open(),r.contentWindow.document.write(atob(t)),r.contentWindow.document.close()})("map_516514647", "PGJvZHk+PHN0eWxlPgogICAgICAgIGh0bWwsIGJvZHkgewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgfQogICAgICAgIGh0bWwsIGJvZHksICNtYXAgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIH0KICAgICAgICAuYnVsbGV0LW1hcmtlciB7CiAgICAgICAgICAgIHdpZHRoOiAyMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDIwcHg7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC4yKTsKICAgICAgICAgICAgYm9yZGVyOiA0cHggc29saWQgIzAyODFmMjsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KICAgICAgICAucGVybWFuZW50LXRvb2x0aXAgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICAgICAgICBjb2xvcjogIzI2MjYyNjsKICAgICAgICB9CiAgICAgICAgLnBlcm1hbmVudC10b29sdGlwOmJlZm9yZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7CiAgICAgICAgfQogICAgICAgIC5kZy1wb3B1cF9oaWRkZW5fdHJ1ZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICAgIH0KICAgICAgICAubGVhZmxldC1jb250YWluZXIgLmxlYWZsZXQtcG9wdXAgLmxlYWZsZXQtcG9wdXAtY2xvc2UtYnV0dG9uIHsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICByaWdodDogMDsKICAgICAgICAgICAgd2lkdGg6IDIwcHg7CiAgICAgICAgICAgIGhlaWdodDogMjBweDsKICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4OwogICAgICAgICAgICBsaW5lLWhlaWdodDogMTsKICAgICAgICB9CiAgICA8L3N0eWxlPjxkaXYgaWQ9Im1hcCI+PC9kaXY+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9tYXBzLmFwaS4yZ2lzLnJ1LzIuMC9sb2FkZXIuanM/cGtnPWZ1bGwmYW1wO3NraW49bGlnaHQiPjwvc2NyaXB0PjxzY3JpcHQ+KGZ1bmN0aW9uKGUpe3ZhciB0PUpTT04ucGFyc2UoZSkscj10Lm9yZGVyZWRHZW9tZXRyaWVzLG49dC5tYXBQb3NpdGlvbixhPXQuaXNXaGVlbFpvb21FbmFibGVkO2Z1bmN0aW9uIG8oZSl7cmV0dXJuIGRlY29kZVVSSUNvbXBvbmVudChhdG9iKGUpLnNwbGl0KCIiKS5tYXAoZnVuY3Rpb24oZSl7cmV0dXJuIiUiKygiMDAiK2UuY2hhckNvZGVBdCgwKS50b1N0cmluZygxNikpLnNsaWNlKC0yKX0pLmpvaW4oIiIpKX1ERy50aGVuKGZ1bmN0aW9uKCl7dmFyIGU9REcubWFwKCJtYXAiLHtjZW50ZXI6W24ubGF0LG4ubG9uXSx6b29tOm4uem9vbSxzY3JvbGxXaGVlbFpvb206YSx6b29tQ29udHJvbDohYX0pO0RHLmdlb0pTT04ocix7c3R5bGU6ZnVuY3Rpb24oZSl7dmFyIHQscixuLGEsbztyZXR1cm57ZmlsbENvbG9yOm51bGw9PT0odD1lKXx8dm9pZCAwPT09dD92b2lkIDA6dC5wcm9wZXJ0aWVzLmZpbGxDb2xvcixmaWxsT3BhY2l0eTpudWxsPT09KHI9ZSl8fHZvaWQgMD09PXI/dm9pZCAwOnIucHJvcGVydGllcy5maWxsT3BhY2l0eSxjb2xvcjpudWxsPT09KG49ZSl8fHZvaWQgMD09PW4/dm9pZCAwOm4ucHJvcGVydGllcy5zdHJva2VDb2xvcix3ZWlnaHQ6bnVsbD09PShhPWUpfHx2b2lkIDA9PT1hP3ZvaWQgMDphLnByb3BlcnRpZXMuc3Ryb2tlV2lkdGgsb3BhY2l0eTpudWxsPT09KG89ZSl8fHZvaWQgMD09PW8/dm9pZCAwOm8ucHJvcGVydGllcy5zdHJva2VPcGFjaXR5fX0scG9pbnRUb0xheWVyOmZ1bmN0aW9uKGUsdCl7cmV0dXJuInJhZGl1cyJpbiBlLnByb3BlcnRpZXM/REcuY2lyY2xlKHQsZS5wcm9wZXJ0aWVzLnJhZGl1cyk6REcubWFya2VyKHQse2ljb246ZnVuY3Rpb24oZSl7cmV0dXJuIERHLmRpdkljb24oe2h0bWw6IjxkaXYgY2xhc3M9J2J1bGxldC1tYXJrZXInIHN0eWxlPSdib3JkZXItY29sb3I6ICIrZSsiOyc+PC9kaXY+IixjbGFzc05hbWU6Im92ZXJyaWRlLWRlZmF1bHQiLGljb25TaXplOlsyMCwyMF0saWNvbkFuY2hvcjpbMTAsMTBdfSl9KGUucHJvcGVydGllcy5jb2xvcil9KX0sb25FYWNoRmVhdHVyZTpmdW5jdGlvbihlLHQpe2UucHJvcGVydGllcy5kZXNjcmlwdGlvbiYmdC5iaW5kUG9wdXAobyhlLnByb3BlcnRpZXMuZGVzY3JpcHRpb24pLHtjbG9zZUJ1dHRvbjohMCxjbG9zZU9uRXNjYXBlS2V5OiEwfSksZS5wcm9wZXJ0aWVzLnRpdGxlJiZ0LmJpbmRUb29sdGlwKG8oZS5wcm9wZXJ0aWVzLnRpdGxlKSx7cGVybWFuZW50OiEwLG9wYWNpdHk6MSxjbGFzc05hbWU6InBlcm1hbmVudC10b29sdGlwIn0pfX0pLmFkZFRvKGUpfSl9KSgneyJvcmRlcmVkR2VvbWV0cmllcyI6W3sidHlwZSI6IkZlYXR1cmUiLCJwcm9wZXJ0aWVzIjp7ImNvbG9yIjoiIzAyODFmMiIsInRpdGxlIjoiIiwiZGVzY3JpcHRpb24iOiJQSEErMEo3Umd0QzYwWURSaTlHQzBZd2cwTElnTWtkSlV6d3ZjRDQ9IiwiekluZGV4IjoxMDAwMDAwMDAwfSwiZ2VvbWV0cnkiOnsidHlwZSI6IlBvaW50IiwiY29vcmRpbmF0ZXMiOls4NS43NjcwMTksNTEuODMwNzU4XX0sImlkIjo5MDN9XSwibWFwUG9zaXRpb24iOnsibGF0Ijo1MS44MTQ5ODI0OTUyNjQ5NCwibG9uIjo4NS43NDc2MDQzNzAxMTcyLCJ6b29tIjoxM30sImlzV2hlZWxab29tRW5hYmxlZCI6dHJ1ZX0nKTwvc2NyaXB0PjxzY3JpcHQgYXN5bmM9IiIgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtMTU4ODY2MTY4LTEiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4oZnVuY3Rpb24oZSl7ZnVuY3Rpb24gdCgpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyl9d2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXSx0KCJqcyIsbmV3IERhdGUpLHQoImNvbmZpZyIsZSksd2luZG93Lmd0YWc9dH0pKCdVQS0xNTg4NjYxNjgtMScpPC9zY3JpcHQ+PC9ib2R5Pg==")</script></div>
                   </div>
                 </div>
               </div>
@@ -2012,6 +2089,95 @@
             </footer>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="preload">
+      <div class="preload__flex"><svg  id="preload-img" width="99" height="98" viewBox="0 0 99 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.391 1H32.6094V25.9548L44.391 37.7021V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-1"></path>
+<path d="M23.3208 1H7.59375L23.3208 16.6921V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-2"></path>
+<path d="M1 7.52734V23.263H16.7817L1 7.52734Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-3"></path>
+<path d="M23.3173 47.3242H32.6071V71.0259L44.3887 82.7731V50.7896L26.0387 32.5039H1V39.5109L23.3173 61.7631V47.3242Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-4"></path>
+<path d="M33.5254 85.0397L33.5145 85.0288L21.7656 96.7543H33.5254H45.2851L33.5254 85.0288V85.0397Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-5"></path>
+<path d="M1 52.5986V68.3452H16.7817L1 52.5986Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-6"></path>
+<path d="M1 77.5752V96.7544H6.80337L26.0387 77.5752H1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-7"></path>
+<path d="M74.7266 1V16.6921L90.4536 1H74.7266Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-8"></path>
+<path d="M65.4379 1H53.6562V37.7021L65.4379 25.9548V1Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-9"></path>
+<path d="M81.2578 23.263H97.0395V7.52734L81.2578 23.263Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-10"></path>
+<path d="M53.6562 50.7896V82.7731L65.4379 71.0259V47.3242H74.7276V61.7631L97.0449 39.5109V32.5039H72.0063L53.6562 50.7896Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-11"></path>
+<path d="M64.5176 85.0397V85.0288V85.0397ZM64.5176 85.0397L64.5066 85.0288L52.7578 96.7543H64.5176H76.2773L64.5176 85.0288V85.0397Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-12"></path>
+<path d="M97.0395 68.3452V52.5986L81.2578 68.3452H97.0395Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-13"></path>
+<path d="M91.2431 96.7544H97.0465V77.5752H72.0078L91.2431 96.7544Z" stroke="#C0C2CE" stroke-width="2" class="svg-elem-14"></path>
+</svg>
+        <script>
+          function getCookie(e, t = !1) {
+          	if (!e) return;
+          	let n = document.cookie.match(
+          		new RegExp(
+          			"(?:^|; )" +
+          				e.replace(/([.$?*|{}()\[\]\\\/+^])/g, "\\$1") +
+          				"=([^;]*)"
+          		)
+          	);
+          	if (n) {
+          		let e = decodeURIComponent(n[1]);
+          		if (t)
+          			try {
+          				return JSON.parse(e);
+          			} catch (e) {}
+          		return e;
+          	}
+          }
+          function setCookie(e, t, n = { path: "/" }) {
+          	if (!e) return;
+          	(n = n || {}).expires instanceof Date &&
+          		(n.expires = n.expires.toUTCString()),
+          		t instanceof Object && (t = JSON.stringify(t));
+          	let o = encodeURIComponent(e) + "=" + encodeURIComponent(t);
+          	for (let e in n) {
+          		o += "; " + e;
+          		let t = n[e];
+          		!0 !== t && (o += "=" + t);
+          	}
+          	document.cookie = o;
+          }
+          function deleteCookie(e) {
+          	setCookie(e, null, { expires: new Date(), path: "/" });
+          }
+          
+          console.log('getCookie("load")', getCookie("load"));
+          if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+          	console.log('xxvvsvv',document.querySelector(".preload"))
+          	document.querySelector(".preload").remove();
+          } else {	var load = false;
+          	console.log('loader',load)
+          
+          	let preloadimg = document.querySelector("#preload-img");
+          	setTimeout(function () {
+          		preloadimg.classList.add("active");
+          		let preload = setInterval(function () {
+          			window.scrollTo(0, 0);
+          			console.log('preload',load)
+          			if (load) {
+          				setCookie("load", "true");
+          				$(".preload").fadeOut();
+          				if (document.querySelector(".front-top__main-bg")) {
+          					setTimeout(function () {
+          						document
+          							.querySelector(".front-top__main-bg")
+          							.classList.add("_animate");
+          					}, 500);
+          				}
+          				clearInterval(preload);
+          			} else {
+          				preloadimg.classList.remove("active");
+          				setTimeout(function () {
+          					preloadimg.classList.add("active");
+          				}, 3000);
+          			}
+          		}, 3000);
+          	}, 300);
+          }
+        </script>
       </div>
     </div><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>

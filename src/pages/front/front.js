@@ -212,65 +212,67 @@ $(function () {
 			}
 		});
 	}
-	let values = [];
-	h = 9;
-	while (h < 20) {
-		for (let m = 0; m < 60; m++) {
-			values.push(`${h}:${String(m).padStart(2, "0")}`);
+	if (document.querySelector(".workload")) {
+		let values = [];
+		h = 9;
+		while (h < 20) {
+			for (let m = 0; m < 60; m++) {
+				values.push(`${h}:${String(m).padStart(2, "0")}`);
+			}
+			h++;
 		}
-		h++;
-	}
-	periods.sort(function (a, b) {
-		return (
-			parseInt(a.finish.replace(":", "")) -
-			parseInt(b.finish.replace(":", ""))
-		);
-	});
-	function timeToInt(time) {
-		h = time.split(":")[0];
-		m = time.split(":")[1];
-		if (m !== "00") {
-			m = parseInt((m / 60) * 100);
-			return parseInt(h + String(m).padStart(2, "0"));
-		} else {
-			return parseInt(h + m);
+		periods.sort(function (a, b) {
+			return (
+				parseInt(a.finish.replace(":", "")) -
+				parseInt(b.finish.replace(":", ""))
+			);
+		});
+		function timeToInt(time) {
+			h = time.split(":")[0];
+			m = time.split(":")[1];
+			if (m !== "00") {
+				m = parseInt((m / 60) * 100);
+				return parseInt(h + String(m).padStart(2, "0"));
+			} else {
+				return parseInt(h + m);
+			}
 		}
-	}
-	line = $(".workload__line");
-	maxDuration = 1998 - 900;
-	periods.forEach(function (item, i, arr) {
-		// start = parseInt(item.start.replace(":", ""));
-		// finish = parseInt(item.finish.replace(":", ""));
-
-		start = timeToInt(item.start);
-		finish = timeToInt(item.finish);
-		duration = finish - start;
-		console.log(start, finish, duration);
-		line.append(
-			`<div class="segment _${item.type}" style='width:${
-				(duration / maxDuration) * 100
-			}%'></div>`
-		);
-	});
-	console.log("periods", periods);
-	let workload = $(".workload");
-	let workloadSlider = $("#workload-slider,#workload-slider-menu");
-
-	workloadSlider.ionRangeSlider({
-		values: values,
-		grid: false,
-	});
-	workloadSlider.change(function () {
-		workload = $(this).closest(".workload");
-		let val = timeToInt($(this).val());
-		console.log("val", val);
+		line = $(".workload__line");
+		maxDuration = 1998 - 900;
 		periods.forEach(function (item, i, arr) {
+			// start = parseInt(item.start.replace(":", ""));
+			// finish = parseInt(item.finish.replace(":", ""));
+
 			start = timeToInt(item.start);
 			finish = timeToInt(item.finish);
-			if (val <= finish && val >= start) {
-				workload.attr("type", item.type);
-			}
+			duration = finish - start;
+			console.log(start, finish, duration);
+			line.append(
+				`<div class="segment _${item.type}" style='width:${
+					(duration / maxDuration) * 100
+				}%'></div>`
+			);
 		});
-	});
-	workloadSlider.trigger("change");
+		console.log("periods", periods);
+		let workload = $(".workload");
+		let workloadSlider = $("#workload-slider,#workload-slider-menu");
+
+		workloadSlider.ionRangeSlider({
+			values: values,
+			grid: false,
+		});
+		workloadSlider.change(function () {
+			workload = $(this).closest(".workload");
+			let val = timeToInt($(this).val());
+			console.log("val", val);
+			periods.forEach(function (item, i, arr) {
+				start = timeToInt(item.start);
+				finish = timeToInt(item.finish);
+				if (val <= finish && val >= start) {
+					workload.attr("type", item.type);
+				}
+			});
+		});
+		workloadSlider.trigger("change");
+	}
 });

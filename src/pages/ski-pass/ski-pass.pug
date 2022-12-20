@@ -3,17 +3,18 @@ block title
 	title Манжерок 
 block content
 	.inner
-		.page-top
+		.page-top.mblock
 			+breadcrumb(['Главная'], 'Купить ski-pass')
-			.page-top__bg
+			.page-top__bg._br
 				+picture('pskipass','jpg')
-				h1 Купить SKI-PASS 
-					br
-					| и билет на канатную дорогу
+			h1 Купить SKI-PASS 
+				br
+				| и билет на канатную дорогу
+			.page-top__desc
 				p наслаждение свободой
 		.block.skipass-top
 			.skipass-top__grid 
-				.skipass-info 
+				.skipass-info._br._p
 					.skipass-info__row 
 						.skipass-info__stat
 							.skipass-info__stat-big 21 км
@@ -25,26 +26,30 @@ block content
 								</svg>
 								| 1 240 м
 							.skipass-info__stat-desc Протяженность трасс
-					h2 Всесезонный курорт «Манжерок» предлагает трассы «зелёного», «синего», «красного» и «черного» уровней сложности.
-					p Уникальное расположение у подножия горы Малая Синюха
-						br
-						| дарит свободу передвижений и легкость в перемещениях.
-					blockquote._style-1 Для более комфортного катания трассы оснежаются и уплотняются ратраками. В целях безопасности все трассы огорожены.
-				.skipass-book
-					h3 Подобрать  SKI-PASS 
-				.skipass-link
+					.text
+						h2 Всесезонный курорт «Манжерок» предлагает трассы «зелёного», «синего», «красного» и «черного» уровней сложности.
+						p 
+							big Уникальное расположение у подножия горы Малая Синюха
+								br
+								| дарит свободу передвижений и легкость в перемещениях.
+						blockquote._style-1 Для более комфортного катания трассы оснежаются и уплотняются ратраками. В целях безопасности все трассы огорожены.
+				
+				.skipass-link._br._p
 					.skipass-link__bg
 						+picture('skipass-link','jpg')
-						.skipass-link__title.h2  Встречаем рассвет
-							br
-							| на Малой Синюхе
-						a.arrow-link(href="#") ПОДРОБНЕЕ
-		.block.skipass-tarifs
-			.h1 Тарифы
-			.skipass-tarif
-				.skipass-tarif__head 
-					.skipass-tarif__title Экскурсионный подъем 
-					.skipass-tarif__label разовый
-					.skipass-tarif__toggle 
-				.skipass-tarif__body
+					.skipass-link__title.h2  Встречаем рассвет
+						br
+						| на Малой Синюхе
+					a.skipass-link__link.link-arrow(href="#") ПОДРОБНЕЕ
+				a(href="https://shop.mglk.ru/ru/Tickets ").skipass-book2._br
+					<img class="skipass-book2__bg" alt="" src="img/traveline1.jpg">
+					span.h3 Купить SKI-PASS 
+		//- .block.skipass-tarifs
+		//- 	.h1 Тарифы
+		//- 	.skipass-tarif
+		//- 		.skipass-tarif__head 
+		//- 			.skipass-tarif__title Экскурсионный подъем 
+		//- 			.skipass-tarif__label разовый
+		//- 			.skipass-tarif__toggle 
+		//- 		.skipass-tarif__body
 

@@ -8,6 +8,10 @@
 	z-index: 1111;
 	background: #fff;
 
+	&.d-none {
+		display: none !important;
+	}
+
 	&__flex {
 		display: flex;
 		flex-direction: column;

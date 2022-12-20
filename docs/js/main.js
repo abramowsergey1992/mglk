@@ -1,6 +1,4 @@
 $(function(){})
-$(function(){})
-$(function(){})
 $(function () {
 	videoPosition = $(".front-top__main-bg").offset();
 	if (document.querySelector(".front-top-slider")) {
@@ -215,67 +213,69 @@ $(function () {
 			}
 		});
 	}
-	let values = [];
-	h = 9;
-	while (h < 20) {
-		for (let m = 0; m < 60; m++) {
-			values.push(`${h}:${String(m).padStart(2, "0")}`);
+	if (document.querySelector(".workload")) {
+		let values = [];
+		h = 9;
+		while (h < 20) {
+			for (let m = 0; m < 60; m++) {
+				values.push(`${h}:${String(m).padStart(2, "0")}`);
+			}
+			h++;
 		}
-		h++;
-	}
-	periods.sort(function (a, b) {
-		return (
-			parseInt(a.finish.replace(":", "")) -
-			parseInt(b.finish.replace(":", ""))
-		);
-	});
-	function timeToInt(time) {
-		h = time.split(":")[0];
-		m = time.split(":")[1];
-		if (m !== "00") {
-			m = parseInt((m / 60) * 100);
-			return parseInt(h + String(m).padStart(2, "0"));
-		} else {
-			return parseInt(h + m);
+		periods.sort(function (a, b) {
+			return (
+				parseInt(a.finish.replace(":", "")) -
+				parseInt(b.finish.replace(":", ""))
+			);
+		});
+		function timeToInt(time) {
+			h = time.split(":")[0];
+			m = time.split(":")[1];
+			if (m !== "00") {
+				m = parseInt((m / 60) * 100);
+				return parseInt(h + String(m).padStart(2, "0"));
+			} else {
+				return parseInt(h + m);
+			}
 		}
-	}
-	line = $(".workload__line");
-	maxDuration = 1998 - 900;
-	periods.forEach(function (item, i, arr) {
-		// start = parseInt(item.start.replace(":", ""));
-		// finish = parseInt(item.finish.replace(":", ""));
-
-		start = timeToInt(item.start);
-		finish = timeToInt(item.finish);
-		duration = finish - start;
-		console.log(start, finish, duration);
-		line.append(
-			`<div class="segment _${item.type}" style='width:${
-				(duration / maxDuration) * 100
-			}%'></div>`
-		);
-	});
-	console.log("periods", periods);
-	let workload = $(".workload");
-	let workloadSlider = $("#workload-slider,#workload-slider-menu");
-
-	workloadSlider.ionRangeSlider({
-		values: values,
-		grid: false,
-	});
-	workloadSlider.change(function () {
-		workload = $(this).closest(".workload");
-		let val = timeToInt($(this).val());
-		console.log("val", val);
+		line = $(".workload__line");
+		maxDuration = 1998 - 900;
 		periods.forEach(function (item, i, arr) {
+			// start = parseInt(item.start.replace(":", ""));
+			// finish = parseInt(item.finish.replace(":", ""));
+
 			start = timeToInt(item.start);
 			finish = timeToInt(item.finish);
-			if (val <= finish && val >= start) {
-				workload.attr("type", item.type);
-			}
+			duration = finish - start;
+			console.log(start, finish, duration);
+			line.append(
+				`<div class="segment _${item.type}" style='width:${
+					(duration / maxDuration) * 100
+				}%'></div>`
+			);
 		});
-	});
-	workloadSlider.trigger("change");
+		console.log("periods", periods);
+		let workload = $(".workload");
+		let workloadSlider = $("#workload-slider,#workload-slider-menu");
+
+		workloadSlider.ionRangeSlider({
+			values: values,
+			grid: false,
+		});
+		workloadSlider.change(function () {
+			workload = $(this).closest(".workload");
+			let val = timeToInt($(this).val());
+			console.log("val", val);
+			periods.forEach(function (item, i, arr) {
+				start = timeToInt(item.start);
+				finish = timeToInt(item.finish);
+				if (val <= finish && val >= start) {
+					workload.attr("type", item.type);
+				}
+			});
+		});
+		workloadSlider.trigger("change");
+	}
 });
 
 $(function () {
@@ -306,38 +306,46 @@ $(function () {
 $(function(){})
 $(function(){})
 $(function(){})
-$(function(){})
-$(function(){})
-$(function(){})
-$(function(){})
-$(function(){})
-$(function(){})
 $(function () {
-	if ($("[data-customcursor]").length) {
-		$("[data-customcursor]").each(function () {
-			let wrapper = $(this);
-
-			wrapper.append(
-				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div><div class="customcursor__text">Подробнее</div></div>'
-			);
-			let cursor = wrapper.find(".customcursor");
-			wrapper.on("mousemove", function (e) {
-				console.log("move");
-				let position = $(this).offset();
-				let left = e.pageX - position.left - 70 / 2;
-				let top = e.pageY - position.top - 70 / 2;
-				// cursor.css({
-				// 	left: left,
-				// 	top: top,
-				// });
-				gsap.to(cursor, 0.03, {
-					left: left,
-					top: top,
-					ease: Power4.easOut,
-				});
-			});
+	if (document.querySelector(".about-reviews")) {
+		const reviewsSlider = new Swiper(".reviews-slider", {
+			setWrapperSize: true,
+			slidesPerView: "auto",
+			spaceBetween: 15,
+			watchSlidesProgress: true,
+			mousewheel: {
+				sensitivity: 0.3,
+				forceToAxis: true,
+			},
+			navigation: {
+				nextEl: $(".about-reviews .block__slider-next")[0],
+				prevEl: $(".about-reviews .block__slider-prev")[0],
+			},
 		});
 	}
+	$(".about-contact__faq-title").click(function () {
+		let $wrap = $(this).closest(".about-contact__faq");
+		if ($wrap.hasClass("_open")) {
+			$(".about-contact__faq").removeClass("_open");
+		} else {
+			$(".about-contact__faq").removeClass("_open");
+			$wrap.addClass("_open");
+		}
+	});
+});
+
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+
+$(function () {
+	AOS.init({
+		once: true,
+	});
 });
 
 $(function () {
@@ -378,31 +386,6 @@ $(function () {
 			$(this).find("video")[0].pause();
 		}
 	);
-});
-
-$(function () {
-	if ($(".one-slider").length) {
-		$(".one-slider").each(function () {
-			let lngh = $(this).find(".swiper-slide").length;
-			let indx = $(this).find(".one-slider__fract-now");
-			indx.text(String(1).padStart(2, "0"));
-			$(this)
-				.find(".one-slider__fract-all")
-				.text("/" + String(lngh).padStart(2, "0"));
-			const oneSlider = new Swiper(".one-slider__slider", {
-				loop: true,
-				setWrapperSize: true,
-				spaceBetween: 10,
-				autoplay: {
-					delay: 5000,
-				},
-				pagination: { clickable: true, el: ".one-slider__pagi" },
-			});
-			oneSlider.on("slideChange", function () {
-				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
-			});
-		});
-	}
 });
 
 $(function () {
@@ -468,6 +451,60 @@ $(function () {
 
 $(function () {
 	load = true;
+	console.log("loade", load);
+});
+
+$(function () {
+	if ($(".one-slider").length) {
+		$(".one-slider").each(function () {
+			let lngh = $(this).find(".swiper-slide").length;
+			let indx = $(this).find(".one-slider__fract-now");
+			indx.text(String(1).padStart(2, "0"));
+			$(this)
+				.find(".one-slider__fract-all")
+				.text("/" + String(lngh).padStart(2, "0"));
+			const oneSlider = new Swiper(".one-slider__slider", {
+				loop: true,
+				setWrapperSize: true,
+				spaceBetween: 10,
+				autoplay: {
+					delay: 5000,
+				},
+				pagination: { clickable: true, el: ".one-slider__pagi" },
+			});
+			oneSlider.on("slideChange", function () {
+				indx.text(String(1 + oneSlider.realIndex).padStart(2, "0"));
+			});
+		});
+	}
+});
+
+$(function () {
+	if ($("[data-customcursor]").length) {
+		$("[data-customcursor]").each(function () {
+			let wrapper = $(this);
+
+			wrapper.append(
+				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div><div class="customcursor__text">Подробнее</div></div>'
+			);
+			let cursor = wrapper.find(".customcursor");
+			wrapper.on("mousemove", function (e) {
+				console.log("move");
+				let position = $(this).offset();
+				let left = e.pageX - position.left - 70 / 2;
+				let top = e.pageY - position.top - 70 / 2;
+				// cursor.css({
+				// 	left: left,
+				// 	top: top,
+				// });
+				gsap.to(cursor, 0.03, {
+					left: left,
+					top: top,
+					ease: Power4.easOut,
+				});
+			});
+		});
+	}
 });
 
 $(function () {
@@ -607,12 +644,6 @@ $(function () {
 		window.scrollTo(0, 0);
 		console.log("sss");
 	}, 111);
-});
-
-$(function () {
-	AOS.init({
-		once: true,
-	});
 });
 
 var vh = window.innerHeight * 0.01;
