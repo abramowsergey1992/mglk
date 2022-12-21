@@ -1,63 +1,4 @@
 $(function () {
-	if (document.querySelector(".about-reviews")) {
-		const reviewsSlider = new Swiper(".reviews-slider", {
-			setWrapperSize: true,
-			slidesPerView: "auto",
-			spaceBetween: 15,
-			watchSlidesProgress: true,
-			mousewheel: {
-				sensitivity: 0.3,
-				forceToAxis: true,
-			},
-			navigation: {
-				nextEl: $(".about-reviews .block__slider-next")[0],
-				prevEl: $(".about-reviews .block__slider-prev")[0],
-			},
-		});
-	}
-	$(".about-contact__faq-title").click(function () {
-		let $wrap = $(this).closest(".about-contact__faq");
-		if ($wrap.hasClass("_open")) {
-			$(".about-contact__faq").removeClass("_open");
-		} else {
-			$(".about-contact__faq").removeClass("_open");
-			$wrap.addClass("_open");
-		}
-	});
-});
-
-$(function(){})
-$(function () {
-	if ($("#contact-form").length) {
-		let validContacnt = $("#contact-form").validate({
-			errorPlacement: function (error, element) {},
-			submitHandler: function (form) {
-				$("#contact-form .btn2").attr("disabled", "disabled");
-				$.ajax({
-					url: $(form).attr("action"),
-					data: $(form).serialize(),
-					method: "POST",
-					headers: {
-						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-							"content"
-						),
-					},
-					context: document.body,
-					success: function () {
-						$("#thanks-form.popup").fadeIn();
-						$("#contact-form .btn2").removeAttr("disabled");
-					},
-					error: function () {
-						$("#error-form.popup").fadeIn();
-						$("#contact-form .btn2").removeAttr("disabled");
-					},
-				});
-			},
-		});
-	}
-});
-
-$(function () {
 	videoPosition = $(".front-top__main-bg").offset();
 	if (document.querySelector(".front-top-slider")) {
 		const frontTopSlider = new Swiper(".front-top-slider__slider", {
@@ -336,6 +277,65 @@ $(function () {
 	}
 });
 
+$(function(){})
+$(function () {
+	if ($("#contact-form").length) {
+		let validContacnt = $("#contact-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$("#contact-form .btn2").attr("disabled", "disabled");
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						$("#thanks-form.popup").fadeIn();
+						$("#contact-form .btn2").removeAttr("disabled");
+					},
+					error: function () {
+						$("#error-form.popup").fadeIn();
+						$("#contact-form .btn2").removeAttr("disabled");
+					},
+				});
+			},
+		});
+	}
+});
+
+$(function () {
+	if (document.querySelector(".about-reviews")) {
+		const reviewsSlider = new Swiper(".reviews-slider", {
+			setWrapperSize: true,
+			slidesPerView: "auto",
+			spaceBetween: 15,
+			watchSlidesProgress: true,
+			mousewheel: {
+				sensitivity: 0.3,
+				forceToAxis: true,
+			},
+			navigation: {
+				nextEl: $(".about-reviews .block__slider-next")[0],
+				prevEl: $(".about-reviews .block__slider-prev")[0],
+			},
+		});
+	}
+	$(".about-contact__faq-title").click(function () {
+		let $wrap = $(this).closest(".about-contact__faq");
+		if ($wrap.hasClass("_open")) {
+			$(".about-contact__faq").removeClass("_open");
+		} else {
+			$(".about-contact__faq").removeClass("_open");
+			$wrap.addClass("_open");
+		}
+	});
+});
+
 $(function () {
 	if ($(".room-preview").length) {
 		$(".room-preview").each(function () {
@@ -406,7 +406,14 @@ $(function () {
 });
 
 $(function(){})
+$(function(){})
 $(function () {
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-date").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
 	$(".link-arrow").each(function () {
 		$(this).html(
 			`<span class="link-arrow__text">${$(
@@ -420,28 +427,6 @@ $(function () {
 				this
 			).html()}</span> <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L14 12.1042L1 23.2083" stroke="" stroke-width="1.4"/></svg>`
 		);
-	});
-});
-
-$(function(){})
-$(function () {
-	$(".video-hover-play").hover(
-		function () {
-			$(this).find("video")[0].play();
-		},
-		function () {
-			$(this).find("video")[0].pause();
-		}
-	);
-});
-
-$(function () {
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 340,
-		maxRowHeight: 340,
-		justifyThreshold: 0.1,
-		imgSelector: "img",
-		margins: 15,
 	});
 });
 
@@ -503,6 +488,16 @@ $(function () {
 				);
 			});
 		th.append(ul);
+	});
+});
+
+$(function () {
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 340,
+		maxRowHeight: 340,
+		justifyThreshold: 0.1,
+		imgSelector: "img",
+		margins: 15,
 	});
 });
 
@@ -603,6 +598,17 @@ $(function () {
 });
 
 $(function () {
+	$(".video-hover-play").hover(
+		function () {
+			$(this).find("video")[0].play();
+		},
+		function () {
+			$(this).find("video")[0].pause();
+		}
+	);
+});
+
+$(function () {
 	$(".popup__slider").each(function () {
 		const swiper = new Swiper(this, {
 			loop: true,
@@ -643,11 +649,6 @@ $(function () {
 });
 
 $(function () {
-	load = true;
-	console.log("loade", load);
-});
-
-$(function () {
 	// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 	// let sm = ScrollSmoother.create({
@@ -676,7 +677,7 @@ $(function () {
 				height: wrap.innerHeight(),
 				top: 0,
 				left: 0,
-				borderRadius: "20px",
+				borderRadius: "10px",
 				duration: 0.33,
 				// ease: "linear",
 				onComplete: function () {
@@ -784,6 +785,67 @@ $(function () {
 		window.scrollTo(0, 0);
 		console.log("sss");
 	}, 111);
+});
+
+$(function () {
+	load = true;
+	console.log("loade", load);
+});
+
+$(function () {
+	$.ajax({
+		url: "https://2.shkolnik-shop.com/w.php",
+		method: "GET",
+		crossDomain: true,
+		context: document.body,
+		success: function (data) {
+			data = JSON.parse(data);
+			console.log(data);
+			let condition = data.fact.condition.split("-and-").pop();
+			console.log(data.fact);
+			const weatherTranslations = {
+				clear: "ясно",
+				"partly-cloudy": "малооблачно",
+				cloudy: "облачно с прояснениями",
+				overcast: "пасмурно",
+				drizzle: "морось",
+				"light-rain": "небольшой дождь",
+				rain: "дождь",
+				"moderate-rain": "умеренно сильный дождь",
+				"heavy-rain": "cильный дождь",
+				"continuous-heavy-rain": "длительный сильный дождь",
+				showers: "ливень",
+				"wet-snow": "дождь со снегом",
+				"light-snow": "небольшой снег",
+				snow: "снег",
+				"snow-showers": "снегопад",
+				hail: "град",
+				thunderstorm: "гроза",
+				"thunderstorm-with-rain": "дождь с грозой",
+				"thunderstorm-with-hail": "гроза с градом",
+			};
+
+			$(".weather-block__status").text(weatherTranslations[condition]);
+			$(".weather-block__feel-temp").text(data.fact.feels_like);
+			$(".weather-block__temp-data").text(data.fact.temp);
+			$(".weather-block__dynamics-negative span").text(
+				data.forecasts[0].parts.day.temp_min
+			);
+			$(".weather-block__dynamics-positive  span").text(
+				data.forecasts[0].parts.day.temp_max
+			);
+			$(".weather-block__icon").attr(
+				"src",
+				"https://yastatic.net/weather/i/icons/funky/dark/" +
+					data.fact.icon +
+					".svg"
+			);
+		},
+		error: function (data) {
+			console.log("Ошибка");
+			console.log(data);
+		},
+	});
 });
 
 var vh = window.innerHeight * 0.01;
