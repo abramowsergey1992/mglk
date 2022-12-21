@@ -27,20 +27,18 @@ $(function () {
 			f = $(this).data("filter");
 			filterButton.removeClass("_active");
 			$(this).addClass("_active");
+			console.log("ccccs");
 			if (f == "all") {
 				filterIt.removeClass("d-none");
-
-				if (filterIt.hasClass("service-preview")) {
+				console.log("xx", filterIt.first().hasClass("service-preview"));
+				if (filterIt.first().hasClass("service-preview")) {
 					i = 0;
 					filterIt.each(function () {
 						$(this).removeClass("_half _third _full");
-						if ($(this).data("filter") == f) {
-							$(this).removeClass("d-none");
-							$(this).addClass(service[i]);
-							i++;
-						} else {
-							$(this).addClass("d-none");
-						}
+						console.log(service[i]);
+						$(this).removeClass("d-none");
+						$(this).addClass(service[i]);
+						i++;
 					});
 				}
 			} else {
@@ -65,6 +63,6 @@ $(function () {
 				});
 			}
 		});
-		filterButton[0].trigger("click");
+		filterButton.first().trigger("click");
 	});
 });

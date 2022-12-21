@@ -37,6 +37,16 @@
 
 	min-height: 317px;
 
+	&__soon {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 19px;
+		letter-spacing: -.02em;
+		text-transform: uppercase;
+		color: #f5f5f5;
+		margin-top: 15px;
+	}
+
 	@media(min-width:890px) {
 
 
@@ -172,9 +182,7 @@
 	}
 
 	&__link {
-		position: absolute;
-		bottom: 30px;
-		left: 30px;
+
 		color: #fff !important;
 		z-index: 5;
 		margin: 0;

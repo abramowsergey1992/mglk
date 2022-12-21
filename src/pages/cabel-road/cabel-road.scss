@@ -43,8 +43,19 @@
 		letter-spacing: -0.02em;
 
 		&[data-status="work"] {
+			span {
+				display: none;
+			}
+
 			&::after {
 				background: #67B444;
+			}
+		}
+
+		&[data-status="notwork"] {
+			&::after {
+				background: #2A2A29;
+				;
 			}
 		}
 
