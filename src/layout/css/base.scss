@@ -150,11 +150,19 @@ img {
 		line-height: 14px;
 		letter-spacing: -0.02em;
 		font-size: 12px;
-
+		white-space: nowrap;
+		cursor: pointer;
 
 		&:hover,
+		&.mixitup-control-active,
 		&._active {
 			border-color: $blue;
+		}
+	}
+
+	&__filter-it {
+		&.d-none {
+			display: none !important;
 		}
 	}
 
@@ -163,6 +171,7 @@ img {
 		flex-direction: row;
 		margin-left: auto;
 		gap: 15px;
+		overflow: auto;
 
 		@media(max-width:800px) {
 			margin-left: 0;

@@ -1,4 +1,62 @@
+$(function () {
+	if (document.querySelector(".about-reviews")) {
+		const reviewsSlider = new Swiper(".reviews-slider", {
+			setWrapperSize: true,
+			slidesPerView: "auto",
+			spaceBetween: 15,
+			watchSlidesProgress: true,
+			mousewheel: {
+				sensitivity: 0.3,
+				forceToAxis: true,
+			},
+			navigation: {
+				nextEl: $(".about-reviews .block__slider-next")[0],
+				prevEl: $(".about-reviews .block__slider-prev")[0],
+			},
+		});
+	}
+	$(".about-contact__faq-title").click(function () {
+		let $wrap = $(this).closest(".about-contact__faq");
+		if ($wrap.hasClass("_open")) {
+			$(".about-contact__faq").removeClass("_open");
+		} else {
+			$(".about-contact__faq").removeClass("_open");
+			$wrap.addClass("_open");
+		}
+	});
+});
+
 $(function(){})
+$(function () {
+	if ($("#contact-form").length) {
+		let validContacnt = $("#contact-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$("#contact-form .btn2").attr("disabled", "disabled");
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						$("#thanks-form.popup").fadeIn();
+						$("#contact-form .btn2").removeAttr("disabled");
+					},
+					error: function () {
+						$("#error-form.popup").fadeIn();
+						$("#contact-form .btn2").removeAttr("disabled");
+					},
+				});
+			},
+		});
+	}
+});
+
 $(function () {
 	videoPosition = $(".front-top__main-bg").offset();
 	if (document.querySelector(".front-top-slider")) {
@@ -306,35 +364,6 @@ $(function () {
 $(function(){})
 $(function(){})
 $(function(){})
-$(function () {
-	if (document.querySelector(".about-reviews")) {
-		const reviewsSlider = new Swiper(".reviews-slider", {
-			setWrapperSize: true,
-			slidesPerView: "auto",
-			spaceBetween: 15,
-			watchSlidesProgress: true,
-			mousewheel: {
-				sensitivity: 0.3,
-				forceToAxis: true,
-			},
-			navigation: {
-				nextEl: $(".about-reviews .block__slider-next")[0],
-				prevEl: $(".about-reviews .block__slider-prev")[0],
-			},
-		});
-	}
-	$(".about-contact__faq-title").click(function () {
-		let $wrap = $(this).closest(".about-contact__faq");
-		if ($wrap.hasClass("_open")) {
-			$(".about-contact__faq").removeClass("_open");
-		} else {
-			$(".about-contact__faq").removeClass("_open");
-			$wrap.addClass("_open");
-		}
-	});
-});
-
-$(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
@@ -348,6 +377,35 @@ $(function () {
 	});
 });
 
+$(function () {
+	if ($("[data-customcursor]").length) {
+		$("[data-customcursor]").each(function () {
+			let wrapper = $(this);
+
+			wrapper.append(
+				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div><div class="customcursor__text">Подробнее</div></div>'
+			);
+			let cursor = wrapper.find(".customcursor");
+			wrapper.on("mousemove", function (e) {
+				console.log("move");
+				let position = $(this).offset();
+				let left = e.pageX - position.left - 70 / 2;
+				let top = e.pageY - position.top - 70 / 2;
+				// cursor.css({
+				// 	left: left,
+				// 	top: top,
+				// });
+				gsap.to(cursor, 0.03, {
+					left: left,
+					top: top,
+					ease: Power4.easOut,
+				});
+			});
+		});
+	}
+});
+
+$(function(){})
 $(function () {
 	$(".link-arrow").each(function () {
 		$(this).html(
@@ -366,17 +424,6 @@ $(function () {
 });
 
 $(function(){})
-$(function(){})
-$(function () {
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 340,
-		maxRowHeight: 340,
-		justifyThreshold: 0.1,
-		imgSelector: "img",
-		margins: 15,
-	});
-});
-
 $(function () {
 	$(".video-hover-play").hover(
 		function () {
@@ -386,6 +433,16 @@ $(function () {
 			$(this).find("video")[0].pause();
 		}
 	);
+});
+
+$(function () {
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 340,
+		maxRowHeight: 340,
+		justifyThreshold: 0.1,
+		imgSelector: "img",
+		margins: 15,
+	});
 });
 
 $(function () {
@@ -450,8 +507,74 @@ $(function () {
 });
 
 $(function () {
-	load = true;
-	console.log("loade", load);
+	let service = [
+		"_half",
+		"_half",
+		"_third",
+		"_third",
+		"_third",
+		"_full",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+		"_third",
+	];
+	$(".block__filters").each(function () {
+		let block = $(this).closest(".block");
+		let filterButton = block.find(".block__filter");
+		let filterIt = block.find(".block__filter-it");
+		filterButton.click(function () {
+			f = $(this).data("filter");
+			filterButton.removeClass("_active");
+			$(this).addClass("_active");
+			if (f == "all") {
+				filterIt.removeClass("d-none");
+
+				if (filterIt.hasClass("service-preview")) {
+					i = 0;
+					filterIt.each(function () {
+						$(this).removeClass("_half _third _full");
+						if ($(this).data("filter") == f) {
+							$(this).removeClass("d-none");
+							$(this).addClass(service[i]);
+							i++;
+						} else {
+							$(this).addClass("d-none");
+						}
+					});
+				}
+			} else {
+				i = 0;
+				filterIt.each(function () {
+					if (filterIt.hasClass("service-preview")) {
+						$(this).removeClass("_half _third _full");
+						if ($(this).data("filter") == f) {
+							$(this).removeClass("d-none");
+							$(this).addClass(service[i]);
+							i++;
+						} else {
+							$(this).addClass("d-none");
+						}
+					} else {
+						if ($(this).data("filter") == f) {
+							$(this).removeClass("d-none");
+						} else {
+							$(this).addClass("d-none");
+						}
+					}
+				});
+			}
+		});
+		filterButton[0].trigger("click");
+	});
 });
 
 $(function () {
@@ -480,31 +603,48 @@ $(function () {
 });
 
 $(function () {
-	if ($("[data-customcursor]").length) {
-		$("[data-customcursor]").each(function () {
-			let wrapper = $(this);
-
-			wrapper.append(
-				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div><div class="customcursor__text">Подробнее</div></div>'
-			);
-			let cursor = wrapper.find(".customcursor");
-			wrapper.on("mousemove", function (e) {
-				console.log("move");
-				let position = $(this).offset();
-				let left = e.pageX - position.left - 70 / 2;
-				let top = e.pageY - position.top - 70 / 2;
-				// cursor.css({
-				// 	left: left,
-				// 	top: top,
-				// });
-				gsap.to(cursor, 0.03, {
-					left: left,
-					top: top,
-					ease: Power4.easOut,
-				});
-			});
+	$(".popup__slider").each(function () {
+		const swiper = new Swiper(this, {
+			loop: true,
+			speed: 400,
+			spaceBetween: 90,
+			setWrapperSize: true,
+			observer: true,
+			observeSlideChildren: true,
+			observeParents: true,
+			slidesPerView: 1,
+			loopAdditionalSlides: 2,
+			// Navigation arrows
+			navigation: {
+				nextEl: $(this).find(".popup__slider-next")[0],
+				prevEl: $(this).find(".popup__slider-prev")[0],
+			},
 		});
-	}
+	});
+	$(".popup__close").click(function () {
+		$(this).closest(".popup").fadeOut();
+	});
+	$("[data-popup]").click(function () {
+		let popuptext = $(this).data("popup").split("|");
+		let popup = $(popuptext[0]);
+		console.log("popuptext[0]", popuptext[0]);
+		let realindex = popuptext[1] ? popuptext[1] : 0;
+		popup.fadeIn();
+		console.log("realindex", realindex);
+		if (popup.find(".swiper").length) {
+			let swiper = popup.find(".swiper")[0].swiper;
+			console.log("swiper", swiper);
+			// swiper.destroy();
+			// swiper.init();
+			swiper.update();
+			swiper.slideToLoop(realindex);
+		}
+	});
+});
+
+$(function () {
+	load = true;
+	console.log("loade", load);
 });
 
 $(function () {

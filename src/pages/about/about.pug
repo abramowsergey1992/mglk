@@ -250,35 +250,36 @@ block content
 			.block__head._p-h
 				.h1 Уникальные памятники природы
 				.monuments__filters.block__filters
-					.monuments__filter.block__filter 1 км — 20 км
-					.monuments__filter.block__filter 21 км — 40 км
-					.monuments__filter.block__filter 41 км +
+					._active.monuments__filter.block__filter(data-filter="all") Все
+					.monuments__filter.block__filter(data-filter="to20") 1 км — 20 км
+					.monuments__filter.block__filter(data-filter="to40") 21 км — 40 км
+					.monuments__filter.block__filter(data-filter="from40") 41 км +
 			.monuments__grid
-				.monument
+				.monument.block__filter-it(data-filter="to20",data-popup="#monumentp|0")
 					.monument__img-wrap._br
 						+picture('about-m-1','jpg')
 						.monument__plus
 					.monument__title Река КАТУНЬ
 					.monument__desc 4 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="from40" ,data-popup="#monumentp|1")
 					.monument__img-wrap._br
 						+picture('about-m-2','jpg')
 						.monument__plus
 					.monument__title Эко-парк «Сад пионов» 
 					.monument__desc 44 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="from40" ,data-popup="#monumentp|2")
 					.monument__img-wrap._br
 						+picture('about-m-3','jpg')
 						.monument__plus
 					.monument__title Каракольские озера
 					.monument__desc 81 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="to20" ,data-popup="#monumentp|3")
 					.monument__img-wrap._br
 						+picture('about-m-4','jpg')
 						.monument__plus
 					.monument__title Тавдинские пещеры
 					.monument__desc 9 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="to40" ,data-popup="#monumentp|4")
 					.monument__img-wrap._br
 						+picture('about-m-5','jpg')
 						.monument__plus
@@ -288,13 +289,13 @@ block content
 						br
 						| «Чистый луг» 
 					.monument__desc 33 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="to40" ,data-popup="#monumentp|5")
 					.monument__img-wrap._br
 						+picture('about-m-6','jpg')
 						.monument__plus
 					.monument__title Камышлинский водопад
 					.monument__desc 23 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="from40" ,data-popup="#monumentp|6")
 					.monument__img-wrap._br
 						+picture('about-m-7','jpg')
 						.monument__plus
@@ -304,18 +305,19 @@ block content
 						br
 						| на острове Патмос
 					.monument__desc 49 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="to40" ,data-popup="#monumentp|7")
 					.monument__img-wrap._br
 						+picture('about-m-8','jpg')
 						.monument__plus
 					.monument__title Чергинский зубрятник
 					.monument__desc 31 км от «Манжерока»
-				.monument
+				.monument.block__filter-it(data-filter="from40" ,data-popup="#monumentp|8")
 					.monument__img-wrap._br
 						+picture('about-m-9','jpg')
 						.monument__plus
 					.monument__title Че-Чкыш «Долина горных духов»
 					.monument__desc 81 км от «Манжерока»
+		
 		.block.about-info
 			.about-info__row
 				.about-info-it._br

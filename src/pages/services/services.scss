@@ -13,6 +13,8 @@
 		height: 320px;
 	}
 
+
+
 	&._third {
 		grid-column: 2 span;
 
@@ -25,6 +27,7 @@
 		}
 	}
 
+
 	&._half {
 		grid-column: 3 span;
 
@@ -33,6 +36,7 @@
 		}
 	}
 
+
 	&._full {
 		grid-column: 6 span;
 
@@ -40,6 +44,7 @@
 			grid-column: 6 span;
 		}
 	}
+
 
 	&__bg {
 		position: absolute;

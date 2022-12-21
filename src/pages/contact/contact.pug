@@ -42,22 +42,22 @@ block content
 				.text 
 					p 
 						big Мы будем рады помочь вам в решении любых вопросов
-				form(action="/",method='post')
+				form(action="/",method='post')#contact-form
 					lablel.form-item
 						.form-item__label ТЕМА ОБРАЩЕНИЯ
-						select
+						select( data-rule-required, name="subject")
 							option Тема 1
 							option Тема 2
 							option Тема 3
 					lablel.form-item
 						.form-item__label ФИО
-						input(type="text", name="fio")
+						input( data-rule-required,type="text", name="fio")
 					lablel.form-item
 						.form-item__label Номер телефона
-						input(type="text", name="phone",placeholder="+7 XXX XX XX XX")._mask-phone
+						input( data-rule-required,type="text", name="phone",placeholder="+7 XXX XX XX XX")._mask-phone
 					lablel.form-item
 						.form-item__label ЭЛЕКТРОННЫЙ АДРЕС
-						input(type="text", name="email",placeholder="mail@mail.ru")
+						input( data-rule-required data-rule-email ,type="text", name="email",placeholder="mail@mail.ru")
 					lablel.form-item
 						.form-item__label Комментарий
 						textarea(name="comment", cols="30", rows="10")
