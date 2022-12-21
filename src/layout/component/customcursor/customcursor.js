@@ -4,7 +4,7 @@ $(function () {
 			let wrapper = $(this);
 
 			wrapper.append(
-				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div><div class="customcursor__text">Подробнее</div></div>'
+				'<div class="customcursor"><div class="customcursor__circle"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 0L11 22M0 11L22 11" stroke="white" stroke-width="1.4"/></svg></div></div>'
 			);
 			let cursor = wrapper.find(".customcursor");
 			wrapper.on("mousemove", function (e) {

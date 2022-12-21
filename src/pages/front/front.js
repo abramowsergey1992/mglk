@@ -38,7 +38,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: {
 				sensitivity: 0.3,
@@ -53,10 +53,9 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
-				992: {
-					slidesPerView: 3,
-				},
+				992: { spaceBetween: 15, slidesPerView: 3 },
 			},
 			navigation: {
 				nextEl: $(".front-press.block__slider-next")[0],
@@ -77,7 +76,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -89,10 +88,9 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
-				992: {
-					slidesPerView: 3,
-				},
+				992: { spaceBetween: 15, slidesPerView: 3 },
 			},
 			navigation: {
 				nextEl: $(".front-restbars .block__slider-next")[0],
@@ -114,7 +112,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -126,9 +124,11 @@ $(function () {
 				},
 				640: {
 					slidesPerView: 2,
+					spaceBetween: 15,
 				},
 				992: {
 					slidesPerView: 3,
+					spaceBetween: 15,
 				},
 			},
 			navigation: {
@@ -137,7 +137,7 @@ $(function () {
 			},
 		});
 
-		const interleaveOffset = 0.1;
+		const interleaveOffset = 0.06;
 		swipeAccommodation.on("progress", function (swiper, progress) {
 			console.log("progress");
 			for (let i = 0; i < swiper.slides.length; i++) {
@@ -167,7 +167,7 @@ $(function () {
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
-			spaceBetween: 15,
+			spaceBetween: 5,
 			watchSlidesProgress: true,
 			mousewheel: { forceToAxis: true, sensitivity: 0.3 },
 			breakpoints: {
@@ -177,15 +177,12 @@ $(function () {
 				480: {
 					slidesPerView: 1.6,
 				},
-				640: {
-					slidesPerView: 2,
-				},
+				640: { spaceBetween: 15, slidesPerView: 2 },
 				992: {
 					slidesPerView: 3,
+					spaceBetween: 15,
 				},
-				1024: {
-					slidesPerView: 3.8,
-				},
+				1024: { spaceBetween: 15, slidesPerView: 3.8 },
 			},
 			navigation: {
 				nextEl: $(".front-entertainment .block__slider-next")[0],
@@ -193,86 +190,102 @@ $(function () {
 			},
 		});
 
-		const interleaveOffset = 0.1;
-		swipeEntertainment.on("progress", function (swiper, progress) {
-			console.log("progress");
-			for (let i = 0; i < swiper.slides.length; i++) {
-				let slideProgress = swiper.slides[i].progress;
-				console.log(swiper.slides[i].progress);
-				let innerOffset = swiper.width * interleaveOffset;
-				let innerTranslate = slideProgress * innerOffset;
-				TweenMax.set(
-					swiper.slides[i].querySelector(
-						".front-entertainment-slide__photo img"
-					),
-					{
-						x: innerTranslate,
-					}
-				);
-			}
-		});
+		// const interleaveOffset = 0.01;
+		// swipeEntertainment.on("progress", function (swiper, progress) {
+		// 	console.log("progress");
+		// 	for (let i = 0; i < swiper.slides.length; i++) {
+		// 		let slideProgress = swiper.slides[i].progress;
+		// 		console.log(swiper.slides[i].progress);
+		// 		let innerOffset = swiper.width * interleaveOffset;
+		// 		let innerTranslate = slideProgress * innerOffset;
+		// 		TweenMax.set(
+		// 			swiper.slides[i].querySelector(
+		// 				".front-entertainment-slide__photo img"
+		// 			),
+		// 			{
+		// 				x: innerTranslate,
+		// 			}
+		// 		);
+		// 	}
+		// });
 	}
-	if (document.querySelector(".workload")) {
-		let values = [];
-		h = 9;
-		while (h < 20) {
-			for (let m = 0; m < 60; m++) {
-				values.push(`${h}:${String(m).padStart(2, "0")}`);
-			}
-			h++;
+	let values = [];
+	h = 9;
+	while (h < 20) {
+		for (let m = 0; m < 60; m++) {
+			values.push(`${h}:${String(m).padStart(2, "0")}`);
 		}
-		periods.sort(function (a, b) {
-			return (
-				parseInt(a.finish.replace(":", "")) -
-				parseInt(b.finish.replace(":", ""))
-			);
-		});
-		function timeToInt(time) {
-			h = time.split(":")[0];
-			m = time.split(":")[1];
-			if (m !== "00") {
-				m = parseInt((m / 60) * 100);
-				return parseInt(h + String(m).padStart(2, "0"));
-			} else {
-				return parseInt(h + m);
-			}
+		h++;
+	}
+	periods.sort(function (a, b) {
+		return (
+			parseInt(a.finish.replace(":", "")) -
+			parseInt(b.finish.replace(":", ""))
+		);
+	});
+	function timeToInt(time) {
+		h = time.split(":")[0];
+		m = time.split(":")[1];
+		if (m !== "00") {
+			m = parseInt((m / 60) * 100);
+			return parseInt(h + String(m).padStart(2, "0"));
+		} else {
+			return parseInt(h + m);
 		}
-		line = $(".workload__line");
-		maxDuration = 1998 - 900;
-		periods.forEach(function (item, i, arr) {
-			// start = parseInt(item.start.replace(":", ""));
-			// finish = parseInt(item.finish.replace(":", ""));
+	}
+	line = $(".workload__line");
+	maxDuration = 1998 - 900;
+	periods.forEach(function (item, i, arr) {
+		// start = parseInt(item.start.replace(":", ""));
+		// finish = parseInt(item.finish.replace(":", ""));
 
+		start = timeToInt(item.start);
+		finish = timeToInt(item.finish);
+		duration = finish - start;
+		console.log(start, finish, duration);
+		line.append(
+			`<div class="segment _${item.type}" style='width:${
+				(duration / maxDuration) * 100
+			}%'></div>`
+		);
+	});
+	console.log("periods", periods);
+	let workload = $(".workload");
+	let workloadSlider = $("#workload-slider,#workload-slider-menu");
+
+	workloadSlider.ionRangeSlider({
+		values: values,
+		grid: false,
+	});
+	workloadSlider.change(function () {
+		workload = $(this).closest(".workload");
+		let val = timeToInt($(this).val());
+		console.log("val", val);
+		periods.forEach(function (item, i, arr) {
 			start = timeToInt(item.start);
 			finish = timeToInt(item.finish);
-			duration = finish - start;
-			console.log(start, finish, duration);
-			line.append(
-				`<div class="segment _${item.type}" style='width:${
-					(duration / maxDuration) * 100
-				}%'></div>`
-			);
+			if (val <= finish && val >= start) {
+				workload.attr("type", item.type);
+			}
 		});
-		console.log("periods", periods);
-		let workload = $(".workload");
-		let workloadSlider = $("#workload-slider,#workload-slider-menu");
-
-		workloadSlider.ionRangeSlider({
-			values: values,
-			grid: false,
+	});
+	var DateTime = luxon.DateTime;
+	let timeNow = DateTime.now().setZone("UTC+7");
+	console.log("dt", timeNow.hour, timeNow.minute);
+	if (timeNow.hour >= 9 && timeNow.hour <= 20) {
+		workloadSlider.each(function () {
+			$(this)
+				.data("ionRangeSlider")
+				.update({
+					from: 60 * (timeNow.hour - 9) + timeNow.minute,
+				});
 		});
-		workloadSlider.change(function () {
-			workload = $(this).closest(".workload");
-			let val = timeToInt($(this).val());
-			console.log("val", val);
-			periods.forEach(function (item, i, arr) {
-				start = timeToInt(item.start);
-				finish = timeToInt(item.finish);
-				if (val <= finish && val >= start) {
-					workload.attr("type", item.type);
-				}
+	} else if (timeNow.hour >= 20) {
+		workloadSlider.each(function () {
+			$(this).data("ionRangeSlider").update({
+				from: 659,
 			});
 		});
-		workloadSlider.trigger("change");
 	}
+	workloadSlider.trigger("change");
 });
