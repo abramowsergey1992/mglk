@@ -159,7 +159,7 @@
 
 	&__right {
 		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto 152px;
+		grid-template-rows: 200px 152px auto;
 
 
 		@media(max-width:890px) {
@@ -186,7 +186,11 @@
 
 
 			&>* {
-				min-width: 120px;
+				min-width: 230px;
+			}
+
+			.skypass {
+				min-height: initial;
 			}
 
 		}
@@ -408,32 +412,7 @@
 				margin-bottom: 20px;
 			}
 
-			@media(max-width:890px) {
-				position: relative;
 
-				&::after {
-					display: block;
-					content: '';
-					position: absolute;
-					right: 0;
-					top: 6px;
-					width: 15px;
-					height: 15px;
-					background-position: center;
-					background-size: auto;
-					background-repeat: no-repeat;
-					background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 0V15M0 7.5H15' stroke='%23106AC6' stroke-width='1.4'/%3E%3C/svg%3E%0A");
-				}
-
-				&._open {
-					&::after {
-						background-image: url("data:image/svg+xml,%3Csvg width='15' height='3' viewBox='0 0 15 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 1.5H15' stroke='%23106AC6' stroke-width='1.4'/%3E%3C/svg%3E%0A");
-						background-position: center;
-						background-size: auto;
-						background-repeat: no-repeat;
-					}
-				}
-			}
 
 			&:last-child {
 				margin-bottom: 0;
