@@ -27,25 +27,6 @@ $(function () {
 });
 
 $(function () {
-	let DateTime = luxon.DateTime;
-	let n = DateTime.now().setZone("UTC+7");
-	let minuts = n.hour * 60 + n.minute;
-	$(".cabel-mode__status").each(function () {
-		let minutTo =
-			parseInt($(this).data("to").split(":")[0] * 60) +
-			parseInt($(this).data("to").split(":")[1]);
-		let minutFrom =
-			parseInt($(this).data("from").split(":")[0] * 60) +
-			parseInt($(this).data("from").split(":")[1]);
-		if (minuts >= minutTo && minuts <= minutFrom) {
-			$(this).attr("data-status", "work");
-		} else {
-			$(this).attr("data-status", "notwork");
-		}
-	});
-});
-
-$(function () {
 	if ($("#contact-form").length) {
 		let validContacnt = $("#contact-form").validate({
 			errorPlacement: function (error, element) {},
@@ -73,6 +54,25 @@ $(function () {
 			},
 		});
 	}
+});
+
+$(function () {
+	let DateTime = luxon.DateTime;
+	let n = DateTime.now().setZone("UTC+7");
+	let minuts = n.hour * 60 + n.minute;
+	$(".cabel-mode__status").each(function () {
+		let minutTo =
+			parseInt($(this).data("to").split(":")[0] * 60) +
+			parseInt($(this).data("to").split(":")[1]);
+		let minutFrom =
+			parseInt($(this).data("from").split(":")[0] * 60) +
+			parseInt($(this).data("from").split(":")[1]);
+		if (minuts >= minutTo && minuts <= minutFrom) {
+			$(this).attr("data-status", "work");
+		} else {
+			$(this).attr("data-status", "notwork");
+		}
+	});
 });
 
 $(function () {
@@ -367,7 +367,6 @@ $(function () {
 	workloadSlider.trigger("change");
 });
 
-$(function(){})
 $(function () {
 	if ($(".room-preview").length) {
 		$(".room-preview").each(function () {
@@ -393,6 +392,7 @@ $(function () {
 	}
 });
 
+$(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
@@ -460,7 +460,6 @@ $(function () {
 	});
 });
 
-$(function(){})
 $(function () {
 	$(".video-hover-play").hover(
 		function () {
@@ -472,6 +471,7 @@ $(function () {
 	);
 });
 
+$(function(){})
 $(function () {
 	$(".justified-gallery").justifiedGallery({
 		rowHeight: 340,
@@ -677,9 +677,72 @@ $(function () {
 	});
 });
 
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
 $(function () {
-	load = true;
-	console.log("loade", load);
+	$.ajax({
+		url: "https://2.shkolnik-shop.com/w.php",
+		method: "GET",
+		crossDomain: true,
+		context: document.body,
+		success: function (data) {
+			data = JSON.parse(data);
+			console.log(data);
+			let condition = data.fact.condition.split("-and-").pop();
+			console.log(data.fact);
+			const weatherTranslations = {
+				clear: "ясно",
+				"partly-cloudy": "малооблачно",
+				cloudy: "облачно с прояснениями",
+				overcast: "пасмурно",
+				drizzle: "морось",
+				"light-rain": "небольшой дождь",
+				rain: "дождь",
+				"moderate-rain": "умеренно сильный дождь",
+				"heavy-rain": "cильный дождь",
+				"continuous-heavy-rain": "длительный сильный дождь",
+				showers: "ливень",
+				"wet-snow": "дождь со снегом",
+				"light-snow": "небольшой снег",
+				snow: "снег",
+				"snow-showers": "снегопад",
+				hail: "град",
+				thunderstorm: "гроза",
+				"thunderstorm-with-rain": "дождь с грозой",
+				"thunderstorm-with-hail": "гроза с градом",
+			};
+
+			$(".weather-block__status").text(weatherTranslations[condition]);
+			$(".weather-block__feel-temp").text(data.fact.feels_like);
+			$(".weather-block__temp-data").text(data.fact.temp);
+			$(".weather-block__dynamics-negative span").text(
+				data.forecasts[0].parts.day.temp_min
+			);
+			$(".weather-block__dynamics-positive  span").text(
+				data.forecasts[0].parts.day.temp_max
+			);
+			$(".weather-block__icon").attr(
+				"src",
+				"https://yastatic.net/weather/i/icons/funky/dark/" +
+					data.fact.icon +
+					".svg"
+			);
+		},
+		error: function (data) {
+			console.log("Ошибка");
+			console.log(data);
+		},
+	});
 });
 
 $(function () {
@@ -762,7 +825,13 @@ $(function () {
 				});
 			}
 		}
-		frontUp(false);
+
+		if (getCookie("load") != "true") {
+			frontUp(false);
+		} else {
+			frontDown(false);
+			$(".load-anim").addClass("_animate");
+		}
 		setTimeout;
 		$(".front-top__main-open").click(function () {
 			frontUp();
@@ -819,71 +888,4 @@ $(function () {
 		window.scrollTo(0, 0);
 		console.log("sss");
 	}, 111);
-});
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
-});
-
-$(function () {
-	$.ajax({
-		url: "https://2.shkolnik-shop.com/w.php",
-		method: "GET",
-		crossDomain: true,
-		context: document.body,
-		success: function (data) {
-			data = JSON.parse(data);
-			console.log(data);
-			let condition = data.fact.condition.split("-and-").pop();
-			console.log(data.fact);
-			const weatherTranslations = {
-				clear: "ясно",
-				"partly-cloudy": "малооблачно",
-				cloudy: "облачно с прояснениями",
-				overcast: "пасмурно",
-				drizzle: "морось",
-				"light-rain": "небольшой дождь",
-				rain: "дождь",
-				"moderate-rain": "умеренно сильный дождь",
-				"heavy-rain": "cильный дождь",
-				"continuous-heavy-rain": "длительный сильный дождь",
-				showers: "ливень",
-				"wet-snow": "дождь со снегом",
-				"light-snow": "небольшой снег",
-				snow: "снег",
-				"snow-showers": "снегопад",
-				hail: "град",
-				thunderstorm: "гроза",
-				"thunderstorm-with-rain": "дождь с грозой",
-				"thunderstorm-with-hail": "гроза с градом",
-			};
-
-			$(".weather-block__status").text(weatherTranslations[condition]);
-			$(".weather-block__feel-temp").text(data.fact.feels_like);
-			$(".weather-block__temp-data").text(data.fact.temp);
-			$(".weather-block__dynamics-negative span").text(
-				data.forecasts[0].parts.day.temp_min
-			);
-			$(".weather-block__dynamics-positive  span").text(
-				data.forecasts[0].parts.day.temp_max
-			);
-			$(".weather-block__icon").attr(
-				"src",
-				"https://yastatic.net/weather/i/icons/funky/dark/" +
-					data.fact.icon +
-					".svg"
-			);
-		},
-		error: function (data) {
-			console.log("Ошибка");
-			console.log(data);
-		},
-	});
 });

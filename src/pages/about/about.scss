@@ -799,6 +799,16 @@
 		}
 	}
 
+	&__map {
+		iframe {
+			height: 100%;
+		}
+	}
+
+	&__book {
+		margin-top: 50px;
+	}
+
 	&__faqs {
 		margin-bottom: auto;
 	}
@@ -808,9 +818,7 @@
 		padding-top: 30px;
 		padding-bottom: 30px;
 
-		&:last-child {
-			border-bottom: 0 solid;
-		}
+
 
 		&-title {
 			font-weight: 400;

@@ -15,6 +15,20 @@
 
 
 
+	&__soon {
+		font-size: 16px;
+		line-height: 19px;
+		/* identical to box height */
+		font-weight: 500;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		position: absolute;
+		left: 29px;
+		top: 40px;
+		color: #F5F5F5;
+		z-index: 3;
+	}
+
 	&._third {
 		grid-column: 2 span;
 
@@ -95,7 +109,6 @@
 			display: block;
 			position: absolute;
 			left: 50%;
-			cursor: pointer;
 			top: 50%;
 			transform: translateX(-50%) translateY(-50%);
 

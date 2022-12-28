@@ -157,9 +157,29 @@
 		height: 152px;
 	}
 
+	.suvenirnye-magaziny {
+		line-height: 0;
+		display: block;
+		max-height: 152px;
+
+		a {
+			line-height: 0;
+			display: block;
+		}
+
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
 	&__right {
 		grid-template-columns: 1fr;
-		grid-template-rows: 200px 152px auto;
+		grid-template-rows: 200px 152px 152px auto;
 
 
 		@media(max-width:890px) {

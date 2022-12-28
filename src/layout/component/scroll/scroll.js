@@ -78,7 +78,13 @@ $(function () {
 				});
 			}
 		}
-		frontUp(false);
+
+		if (getCookie("load") != "true") {
+			frontUp(false);
+		} else {
+			frontDown(false);
+			$(".load-anim").addClass("_animate");
+		}
 		setTimeout;
 		$(".front-top__main-open").click(function () {
 			frontUp();

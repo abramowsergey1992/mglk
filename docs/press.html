@@ -81,6 +81,10 @@
                 </ul>
               </div>
             </div>
+            <div class="suvenirnye-magaziny _br"><a href="https://manzherok.travel/ru/activity/suvenirnye-magaziny/"> 
+                <picture>
+                  <source type="image/webp" srcset="img/mglk.webp"/><img alt="" src="img/mglk.jpg"/>
+                </picture></a></div>
           </div>
         </div>
       </div>
@@ -312,10 +316,11 @@
           }
           
           console.log('getCookie("load")', getCookie("load"));
-          if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+          if (getCookie("load")) {
           	console.log('xxvvsvv',document.querySelector(".preload"))
           	document.querySelector(".preload").remove();
-          } else {	var load = false;
+          } else {	
+          	var load = false;
           	console.log('loader',load)
           
           	let preloadimg = document.querySelector("#preload-img");
@@ -325,7 +330,6 @@
           			window.scrollTo(0, 0);
           			console.log('preload',load)
           			if (load) {
-          				setCookie("load", "true");
           				$(".preload").fadeOut();
           				if (document.querySelector(".front-top__main-bg")) {
           					setTimeout(function () {
@@ -518,5 +522,11 @@
 </script>
     <script src="js/vendor.js"></script>
     <script src="js/main.js"></script>
+    <script>
+       $(function () {
+      	load = true;
+      	setCookie("load", "true");
+      });
+    </script>
   </body>
 </html>

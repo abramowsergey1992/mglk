@@ -1,6 +1,6 @@
 .header {
 	margin-bottom: 20px;
-	position: absolute;
+	position: fixed;
 	z-index: 5;
 	top: 15px;
 	width: 100%;
@@ -137,7 +137,7 @@
 	&__skypass,
 	&__ls {
 		font-weight: 500;
-		font-size: 12px;
+		font-size: 14px;
 		line-height: 14px;
 		letter-spacing: -0.02em;
 		text-decoration: underline;

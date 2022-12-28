@@ -53,10 +53,11 @@
 				}
 				
 				console.log('getCookie("load")', getCookie("load"));
-				if (getCookie("load") && 0==document.querySelectorAll(".front-top").length) {
+				if (getCookie("load")) {
 					console.log('xxvvsvv',document.querySelector(".preload"))
 					document.querySelector(".preload").remove();
-				} else {	var load = false;
+				} else {	
+					var load = false;
 					console.log('loader',load)
 				
 					let preloadimg = document.querySelector("#preload-img");
@@ -66,7 +67,6 @@
 							window.scrollTo(0, 0);
 							console.log('preload',load)
 							if (load) {
-								setCookie("load", "true");
 								$(".preload").fadeOut();
 								if (document.querySelector(".front-top__main-bg")) {
 									setTimeout(function () {
